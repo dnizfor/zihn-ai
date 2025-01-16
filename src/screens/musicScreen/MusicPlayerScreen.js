@@ -6,12 +6,28 @@ import SafeHeader from '../../components/global/SafeHeader';
 import { Ionicons } from '@expo/vector-icons';
 import Slider from '@react-native-community/slider';
 import { Audio } from 'expo-av';
+import { useFocusEffect } from '@react-navigation/native';
 
 export default function MusicPlayerScreen() {
     const [isPlaying, setIsPlaying] = useState(false);
     const [sound, setSound] = useState(null);
 
+    useFocusEffect(
+        React.useCallback(() => {
+            // Ekran odaklandığında yapılacak işlemler
+            console.log('HomeScreen focused');
 
+            // Cleanup (temizleme) işlemi için geri dönen bir fonksiyon
+            return () => {
+                // Ekran odaktan çıktığında yapılacak işlemler
+                console.log('HomeScreen blurred');
+                if (sound) {
+                    stopSound()
+
+                }
+            };
+        }, [sound])
+    );
 
     // Müzik çalma
     const playSound = async () => {
