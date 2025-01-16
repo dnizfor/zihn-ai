@@ -54,11 +54,11 @@ export default function MusicScreen() {
                 style={styles.headerImage}
                 source={headerImage}
             />
-            <ScrollView>
+            <ScrollView showsVerticalScrollIndicator={false}>
                 {Object.keys(groupedData).map((genre, index) => (
                     <View key={index} style={styles.genreGroup}>
                         <Text style={styles.genresTitle}>{genre}</Text>
-                        <ScrollView horizontal={true} style={styles.genresCardList}>
+                        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={styles.genresCardList} >
 
                             {groupedData[genre].map((item, subIndex) => (
                                 <TouchableOpacity onPress={() => navigation.navigate('MusicPlayer')} key={subIndex} style={styles.genreCard}>
