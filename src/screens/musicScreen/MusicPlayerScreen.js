@@ -14,13 +14,8 @@ export default function MusicPlayerScreen() {
 
     useFocusEffect(
         React.useCallback(() => {
-            // Ekran odaklandığında yapılacak işlemler
-            console.log('HomeScreen focused');
 
-            // Cleanup (temizleme) işlemi için geri dönen bir fonksiyon
             return () => {
-                // Ekran odaktan çıktığında yapılacak işlemler
-                console.log('HomeScreen blurred');
                 if (sound) {
                     stopSound()
 
