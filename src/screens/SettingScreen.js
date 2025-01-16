@@ -9,8 +9,8 @@ export default function SettingScreen() {
         <SafeAreaView style={styles.container} edges={['right', 'top', 'left']}>
             <ScrollView >
                 <SettingButton title={"Be Premium"} />
-                <SettingButton title={"Language"} />
                 <SettingButton title={"Set Notification Circle"} />
+                <SettingButton title={"Contact US"} />
 
             </ScrollView>
         </SafeAreaView>
