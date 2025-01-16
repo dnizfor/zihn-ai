@@ -1,13 +1,55 @@
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
-import React from 'react';
+import { StyleSheet, TouchableOpacity, View, BackHandler, Alert } from 'react-native';
+import React, { useState, useEffect } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import colors from '../../utilities/colors';
 import SafeHeader from '../../components/global/SafeHeader';
 import { Ionicons } from '@expo/vector-icons';
 import Slider from '@react-native-community/slider';
+import { Audio } from 'expo-av';
 
 export default function MusicPlayerScreen() {
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [sound, setSound] = useState(null);
 
+
+
+    // Müzik çalma
+    const playSound = async () => {
+        try {
+            const { sound } = await Audio.Sound.createAsync(
+                require('../../assets/mp3/sea.mp3')
+            );
+
+            setSound(sound);
+            await sound.setIsLoopingAsync(true);
+            await Audio.setAudioModeAsync({
+                playsInSilentModeIOS: true,
+                staysActiveInBackground: true,
+            });
+
+            await sound.playAsync();
+            setIsPlaying(true);
+
+            sound.setOnPlaybackStatusUpdate((status) => {
+                setIsPlaying(status.isPlaying);
+            });
+
+        } catch (error) {
+            console.error('Müzik oynatılırken hata oluştu:', error);
+        }
+    };
+
+    // Müzik durdurma
+    const stopSound = async () => {
+        if (sound) {
+            try {
+                await sound.stopAsync();  // Müzik durdur
+                setIsPlaying(false);
+            } catch (error) {
+                console.error('Müzik durdurulurken hata oluştu:', error);
+            }
+        }
+    };
 
     return (
         <SafeAreaView style={styles.container} edges={['right', 'top', 'left']}>
@@ -25,6 +67,8 @@ export default function MusicPlayerScreen() {
                     maximumValue={1}
                     minimumTrackTintColor={colors.primary}
                     maximumTrackTintColor={colors.white}
+                    value={1}
+                    disabled={true}  // Slider'ı kilitle
                 />
 
                 <View style={styles.consoleBar}>
@@ -32,9 +76,9 @@ export default function MusicPlayerScreen() {
                         <Ionicons name={'play-back'} size={25} color={colors.white} />
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={styles.mainControlButton}>
+                    <TouchableOpacity onPress={!isPlaying ? playSound : stopSound} style={styles.mainControlButton}>
                         {
-                            0 === 0
+                            !isPlaying
                                 ? <Ionicons name={'play'} size={80} color={colors.white} />
                                 : <Ionicons name={'pause'} size={80} color={colors.white} />
                         }
