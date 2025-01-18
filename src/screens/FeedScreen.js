@@ -43,7 +43,6 @@ const styles = StyleSheet.create({
     },
     card: {
         width: Dimensions.get('window').width,
-        backgroundColor: 'yellow',
         justifyContent: 'center',
         alignItems: 'center',
         paddingHorizontal: 20,
