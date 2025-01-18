@@ -13,12 +13,7 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true,
-      "infoPlist": {
-        "UIBackgroundModes": [
-          "audio"
-        ]
-      }
+      "supportsTablet": true
     },
     "android": {
       "softwareKeyboardLayoutMode": "pan",
@@ -32,14 +27,6 @@
     },
     "web": {
       "favicon": "./src/assets/images/favicon.png"
-    },
-    "plugins": [
-      [
-        "expo-av",
-        {
-          "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone."
-        }
-      ]
-    ]
+    }
   }
 }
