@@ -1,15 +1,21 @@
-import { Text, StyleSheet, ScrollView } from 'react-native';
+import { Image, StyleSheet, ScrollView } from 'react-native';
 import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import colors from '../utilities/colors';
 import SettingButton from '../components/settingScreen/SettingButton';
-
+import headerImage from '../assets/images/sunset.jpg';
 export default function SettingScreen() {
     return (
         <SafeAreaView style={styles.container} edges={['right', 'top', 'left']}>
+            <Image
+                style={styles.headerImage}
+                source={headerImage}
+            />
             <ScrollView >
                 <SettingButton title={"Be Premium"} />
                 <SettingButton title={"Set Notification Circle"} />
+                <SettingButton title={"Turn ON Notification"} />
+                <SettingButton title={"Turn ON Quotes Notification"} />
                 <SettingButton title={"Contact US"} />
 
             </ScrollView>
@@ -24,6 +30,11 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         paddingTop: 10,
         paddingHorizontal: 20,
+    }, headerImage: {
+        width: '100%',
+        borderRadius: 20,
+        height: 200,
+        marginBottom: 10,
     },
 
 });
