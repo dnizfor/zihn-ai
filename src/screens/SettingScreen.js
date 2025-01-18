@@ -4,18 +4,20 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import colors from '../utilities/colors';
 import SettingButton from '../components/settingScreen/SettingButton';
 import headerImage from '../assets/images/sunset.jpg';
+import SwichableButton from '../components/settingScreen/SwichableButton';
 export default function SettingScreen() {
     return (
         <SafeAreaView style={styles.container} edges={['right', 'top', 'left']}>
-            <Image
-                style={styles.headerImage}
-                source={headerImage}
-            />
+
             <ScrollView >
+                <Image
+                    style={styles.headerImage}
+                    source={headerImage}
+                />
                 <SettingButton title={"Be Premium"} />
                 <SettingButton title={"Set Notification Circle"} />
-                <SettingButton title={"Turn ON Notification"} />
-                <SettingButton title={"Turn ON Quotes Notification"} />
+                <SwichableButton title={"Turn ON Notification"} />
+                <SwichableButton title={"Turn ON Quotes Notification"} />
                 <SettingButton title={"Contact US"} />
 
             </ScrollView>
