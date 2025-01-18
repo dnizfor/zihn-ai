@@ -9,7 +9,7 @@ export default function SettingScreen() {
     return (
         <SafeAreaView style={styles.container} edges={['right', 'top', 'left']}>
 
-            <ScrollView >
+            <ScrollView showsVerticalScrollIndicator={false}>
                 <Image
                     style={styles.headerImage}
                     source={headerImage}
