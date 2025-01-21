@@ -4,7 +4,6 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import SendButton from '../components/chatScreen/SendButton';
 import colors from '../utilities/colors';
 import { usePollinationsChat } from '@pollinations/react';
-import uuid from 'react-native-uuid';
 export default function ChatScreen() {
     const [text, setText] = useState('')
     const flatListRef = useRef(null);
@@ -56,7 +55,7 @@ export default function ChatScreen() {
             <FlatList
                 data={messages}
                 renderItem={renderItem}
-                keyExtractor={() => uuid.v4()}
+                keyExtractor={(item, index) => index}
                 ref={flatListRef}
             />
 

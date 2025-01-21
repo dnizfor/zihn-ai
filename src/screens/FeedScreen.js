@@ -1,19 +1,60 @@
 import { View, FlatList, StyleSheet, Dimensions, Text, Image, ImageBackground } from 'react-native';
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import colors from '../utilities/colors';
+import { usePollinationsChat } from '@pollinations/react';
 
 export default function FeedScreen() {
     const insets = useSafeAreaInsets();
+    const [data, setData] = useState([])
+    const { sendUserMessage, messages } = usePollinationsChat([
+        {
+            role: "system", content: `you are a psychologist`
+        }
+    ], {
+        seed: 42,
+        jsonMode: false,
+        model: 'openai'
+    });
 
-    const data = [
-        { id: '1', text: 'Hayatta tek gerçek korku, korkaktır.' },
-        { id: '2', text: 'Başarı, hazırlıkla fırsatın buluştuğu yerdir.' },
-        { id: '3', text: 'Düşlemek, başarıya giden ilk adımdır.' },
-        { id: '4', text: 'Zamanı iyi kullan, o seni asla geri bırakmaz.' },
+    useEffect(() => {
+        sendMessage()
+    }, [])
+    useEffect(() => {
+        const filteredMessages = messages.filter(item => item.role === 'assistant')
 
-    ];
+        if (filteredMessages.length > 0) {
+            const lastAnswer = filteredMessages[filteredMessages.length - 1]['content']
 
+            let affirmations = lastAnswer.split(' /n')
+            affirmations = affirmations.map((affirmation, index) => ({
+                text: affirmation.trim()  // text olarak cümleyi ekliyoruz
+            }));
+            setData(prev => [...prev, ...affirmations])
+        }
+
+
+
+    }, [messages])
+
+
+
+    const sendMessage = () => {
+        sendUserMessage(`Write 5 affirmations for someone who is depressed and separate each with a /n,Just write the sentences, don't write anything else`)
+
+    }
+
+    const onViewableItemsChanged = useCallback(({ viewableItems }) => {
+
+        if (viewableItems[0]['index'] % 3 === 0 && viewableItems[0]['index'] > data.length - 4) {
+            sendMessage()
+
+        }
+    }, []);
+
+    const viewabilityConfig = {
+        viewAreaCoveragePercentThreshold: 50, // %50'den fazla görünen öğeler
+    };
     const renderItem = ({ item, index }) => (
         <ImageBackground resizeMode='stretch' source={require('../assets/images/cardBg.jpeg')} style={{
             ...styles.card, height: Dimensions.get('window').height - insets.bottom
@@ -26,11 +67,13 @@ export default function FeedScreen() {
         <SafeAreaView edges={["top", "right", "left"]} style={styles.container}>
             <FlatList
                 data={data}
-                keyExtractor={item => item.id}
+                keyExtractor={(item, index) => index}
                 pagingEnabled
                 renderItem={renderItem}
                 horizontal={false}
                 showsVerticalScrollIndicator={false}
+                onViewableItemsChanged={onViewableItemsChanged}
+                viewabilityConfig={viewabilityConfig}
             />
         </SafeAreaView>
     );
