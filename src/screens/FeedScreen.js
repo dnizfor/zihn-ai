@@ -3,6 +3,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import colors from '../utilities/colors';
 import { usePollinationsChat } from '@pollinations/react';
+import { getLocales } from 'expo-localization';
 
 export default function FeedScreen() {
     const insets = useSafeAreaInsets();
@@ -36,11 +37,11 @@ export default function FeedScreen() {
 
 
     }, [messages])
-
+    const deviceLanguage = getLocales()[0].languageCode;
 
 
     const sendMessage = () => {
-        sendUserMessage(`Write 5 affirmations for someone who is depressed and separate each with a /n,Just write the sentences, don't write anything else`)
+        sendUserMessage(`Write 5 affirmations in ${deviceLanguage} for someone who is depressed, separating each one with /n. Write only the sentences, nothing else.`)
 
     }
 
