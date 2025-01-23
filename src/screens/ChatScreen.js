@@ -27,6 +27,7 @@ export default function ChatScreen() {
     });
 
     const sendMessage = () => {
+        if (text === '') return {}
         setText('')
         sendUserMessage(text)
         flatListRef.current.scrollToEnd({ animated: true, offset: 0 })
