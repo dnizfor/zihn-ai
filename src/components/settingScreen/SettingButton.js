@@ -3,9 +3,9 @@ import React from 'react';
 import colors from '../../utilities/colors';
 import { MaterialIcons } from '@expo/vector-icons';
 
-export default function SettingButton({ title }) {
+export default function SettingButton({ title, onPress }) {
     return (
-        <TouchableOpacity style={style.container}>
+        <TouchableOpacity onPress={onPress} style={style.container}>
             <Text style={style.title}>{title}</Text>
             <MaterialIcons name="arrow-forward-ios" size={30} color="white" />
         </TouchableOpacity>

@@ -1,11 +1,15 @@
-import { Image, StyleSheet, ScrollView } from 'react-native';
+import { Image, StyleSheet, ScrollView, Alert } from 'react-native';
 import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import colors from '../utilities/colors';
 import SettingButton from '../components/settingScreen/SettingButton';
 import headerImage from '../assets/images/sunset.jpg';
 import SwichableButton from '../components/settingScreen/SwichableButton';
+import sendMail from '../utilities/sendMail';
+import rateApp from '../utilities/rateApp';
+
 export default function SettingScreen() {
+
     return (
         <SafeAreaView style={styles.container} edges={['right', 'top', 'left']}>
 
@@ -15,10 +19,13 @@ export default function SettingScreen() {
                     source={headerImage}
                 />
                 <SettingButton title={"Be Premium"} />
-                <SettingButton title={"Set Notification Circle"} />
+                <SettingButton title={"Notifications"} />
+                <SettingButton title={"Rate Us!"} onPress={rateApp} />
+                <SettingButton onPress={() => sendMail('Feedback & Contact Zihn Ai')} title={"Feedback & Contact"} />
+
+                {/* <SettingButton title={"Set Notification Circle"} />
                 <SwichableButton title={"Turn ON Notification"} />
-                <SwichableButton title={"Turn ON Quotes Notification"} />
-                <SettingButton title={"Contact US"} />
+                <SwichableButton title={"Turn ON Quotes Notification"} /> */}
 
             </ScrollView>
         </SafeAreaView>
