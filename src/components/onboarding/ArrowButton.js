@@ -3,10 +3,11 @@ import React from "react";
 import { AntDesign } from "@expo/vector-icons";
 import colors from "../../utilities/colors";
 
-export default function SendButton({ onPress }) {
+export default function ArrowButton({ ...props }) {
     return (
-        <TouchableOpacity style={PlusButtonStyle.container} onPress={onPress}>
+        <TouchableOpacity style={PlusButtonStyle.container}  {...props} >
             <AntDesign name={"arrowright"} size={25} color={"black"} />
+
         </TouchableOpacity>
     );
 }

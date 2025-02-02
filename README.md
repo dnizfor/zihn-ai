@@ -1,6 +1,5 @@
-text to speech eklenecek >>> https://www.npmjs.com/package/expo-speech-recognition
-onboarding tasarlanacak
+sesli sohbet text to speech eklenecek >>> https://www.npmjs.com/package/expo-speech-recognition
+onboarding kurulacak
 setting notifications kurulacak
 quotes ozellestirme kurulacak
-premium paketi odeme baglantisi kurulacak
-fremium icin reklamlar konulacak
+fremium kurulacak

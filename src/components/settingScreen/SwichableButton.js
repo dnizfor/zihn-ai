@@ -3,8 +3,7 @@ import {
 } from 'react-native'
 import React, { useState } from 'react'
 import colors from '../../utilities/colors';
-export default function SwichableButton({ onPress, title }) {
-    const [isEnabled, setIsEnabled] = useState(false);
+export default function SwichableButton({ onPress, title, isEnabled, setIsEnabled }) {
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
 
