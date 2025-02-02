@@ -1,15 +1,16 @@
 import { Image, StyleSheet, ScrollView, Alert } from 'react-native';
 import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import colors from '../utilities/colors';
-import SettingButton from '../components/settingScreen/SettingButton';
-import headerImage from '../assets/images/sunset.jpg';
-import SwichableButton from '../components/settingScreen/SwichableButton';
-import sendMail from '../utilities/sendMail';
-import rateApp from '../utilities/rateApp';
-
+import colors from '../../utilities/colors';
+import SettingButton from '../../components/settingScreen/SettingButton';
+import headerImage from '../../assets/images/sunset.jpg';
+import sendMail from '../../utilities/sendMail';
+import rateApp from '../../utilities/rateApp';
+import {
+    useNavigation,
+} from '@react-navigation/native';
 export default function SettingScreen() {
-
+    const navigation = useNavigation();
     return (
         <SafeAreaView style={styles.container} edges={['right', 'top', 'left']}>
 
@@ -19,13 +20,9 @@ export default function SettingScreen() {
                     source={headerImage}
                 />
                 <SettingButton title={"Be Premium"} />
-                <SettingButton title={"Notifications"} />
+                <SettingButton title={"Notifications"} onPress={() => navigation.navigate('Notifications')} />
                 <SettingButton title={"Rate Us!"} onPress={rateApp} />
                 <SettingButton onPress={() => sendMail('Feedback & Contact Zihn Ai')} title={"Feedback & Contact"} />
-
-                {/* <SettingButton title={"Set Notification Circle"} />
-                <SwichableButton title={"Turn ON Notification"} />
-                <SwichableButton title={"Turn ON Quotes Notification"} /> */}
 
             </ScrollView>
         </SafeAreaView>

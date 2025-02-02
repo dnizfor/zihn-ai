@@ -3,20 +3,19 @@ import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import colors from '../../utilities/colors';
 import SwichableButton from '../../components/settingScreen/SwichableButton';
-import ArrowButton from '../../components/onboarding/ArrowButton';
+import TimePicker from '../../components/settingScreen/TimePicker';
+import { useNavigation } from '@react-navigation/native';
 import BackButton from '../../components/onboarding/BackButton';
 
-export default function NotificationsOnboarding({ onNext, onBack, setUserData }) {
-    const [NotificationIsEnabled, setNotificationIsEnabled] = useState(false)
-    const onPress = () => {
-        setUserData(prev => ({ ...prev, notification: NotificationIsEnabled }));
-        onNext()
-    }
+export default function NotificationSetting() {
+    const [ReminderIsEnabled, setReminderIsEnabled] = useState(true)
+    const [NotificationIsEnabled, setNotificationIsEnabled] = useState(true)
+    const navigation = useNavigation();
 
     return (
         <SafeAreaView style={styles.container}>
             <View>
-                <BackButton onPress={onBack} />
+                <BackButton onPress={() => navigation.goBack()} />
             </View>
             <View style={styles.content}>
                 <Text style={styles.title} >Affirmation Notification</Text>
@@ -25,10 +24,21 @@ export default function NotificationsOnboarding({ onNext, onBack, setUserData })
                 </Text>
                 <SwichableButton isEnabled={NotificationIsEnabled} setIsEnabled={setNotificationIsEnabled} title={'Enable Notifications'} />
 
+                <Text style={styles.title}>Set Therapy Reminder</Text>
+                <Text style={styles.subtitle}>
+                    In order not to disrupt the daily therapy process, we will send you a reminder half an hour before the time you set.
+                </Text>
+                <SwichableButton isEnabled={ReminderIsEnabled} setIsEnabled={setReminderIsEnabled} title={'Enable Therapy Reminder'} />
+
+
+
+                {ReminderIsEnabled && <>
+                    <Text style={styles.subtitle}>
+                        Schedule a meeting with your therapist
+                    </Text>
+                    <TimePicker /></>}
             </View>
-            <View style={styles.console}>
-                <ArrowButton onPress={onPress} />
-            </View>
+
         </SafeAreaView>
     );
 }
@@ -55,8 +65,5 @@ const styles = StyleSheet.create({
         fontSize: 16,
         lineHeight: 24,
     },
-    console: {
-        alignItems: 'flex-end',
-        marginBottom: 30,
-    },
+
 });

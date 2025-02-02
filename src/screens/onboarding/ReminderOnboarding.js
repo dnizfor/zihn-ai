@@ -8,7 +8,7 @@ import ArrowButton from '../../components/onboarding/ArrowButton';
 import BackButton from '../../components/onboarding/BackButton';
 
 export default function ReminderOnboarding({ onNext, onBack, setUserData }) {
-    const [ReminderIsEnabled, setReminderIsEnabled] = useState(true)
+    const [ReminderIsEnabled, setReminderIsEnabled] = useState(false)
     const onPress = () => {
         setUserData(prev => ({ ...prev, reminder: ReminderIsEnabled }));
         onNext()
