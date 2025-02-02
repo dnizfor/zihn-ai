@@ -69,7 +69,7 @@ export default function ChatScreen() {
                         style={styles.textInput}
                         onChangeText={t => setText(t)}
                         value={text}
-                        placeholder="Lets Ask to Sleep Consultant!"
+                        placeholder="Lets Talk!"
                         placeholderTextColor={'white'}
                     />
                 </View>
