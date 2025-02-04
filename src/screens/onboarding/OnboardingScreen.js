@@ -10,6 +10,8 @@ import colors from '../../utilities/colors'
 import NameOnboarding from "./NameOnboarding";
 import NotificationsOnboarding from "./NotificationsOnboarding";
 import ReminderOnboarding from "./ReminderOnboarding";
+import { createReminder } from "../../utilities/reminder";
+
 
 export default function OnboardingScreen({ onDone }) {
     const [step, setStep] = useState(0)
@@ -18,10 +20,20 @@ export default function OnboardingScreen({ onDone }) {
         notification: false,
         reminder: true,
         reminderHours: 0,
-        reminderMinutes: 0
+        reminderMinutes: 0,
+
     })
     onboardingHandler = () => {
+        if (userData.reminder) {
+            createReminder(userData.reminderHours,userData.reminderMinutes)
+        }
+        if (userData.notification) {
+        
+            console.log('notifeee');
+            
+        }
         onDone()
+
     }
     const onNext = () => setStep(prev => prev + 1)
     const onBack = () => setStep(prev => prev - 1)
