@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:zihnai/screens/settings/notification_settings.dart';
 import 'package:zihnai/ultils/constant/color.dart';
 import 'package:zihnai/widgets/setting_button.dart';
 
@@ -34,7 +35,13 @@ class SettingsScreen extends StatelessWidget {
                     SizedBox(height: 10),
                     SettingButton(
                       title: 'Notifications',
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  const NotificationSettingScreen()),
+                        );
+                      },
                     ),
                     SizedBox(height: 10),
                     SettingButton(

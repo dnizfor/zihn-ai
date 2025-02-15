@@ -3,7 +3,7 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:zihnai/screens/chat.dart';
 import 'package:zihnai/screens/feed.dart';
-import 'package:zihnai/screens/settings.dart';
+import 'package:zihnai/screens/settings/settings.dart';
 import 'package:zihnai/ultils/constant/color.dart';
 
 class Home extends StatefulWidget {
