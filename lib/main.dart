@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:flutter/services.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:zihnai/screens/home.dart';
 import 'package:zihnai/screens/onboarding/onboarding.dart';
 import 'package:zihnai/ultils/constant/color.dart';
 
-void main() {
+Future main() async {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     statusBarColor: HexColor(dark),
     systemNavigationBarColor: HexColor(dark),
   ));
+  WidgetsFlutterBinding.ensureInitialized();
+  final prefs = await SharedPreferences.getInstance();
+  final bool showHome = prefs.getBool('showHome') ?? false;
 
   runApp(Main(
-    showHome: false,
+    showHome: showHome,
   ));
 }
 
