@@ -1,0 +1,117 @@
+import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
+import 'package:zihnai/ultils/constant/color.dart';
+
+class NameOnboarding extends StatefulWidget {
+  const NameOnboarding({
+    super.key,
+  });
+
+  @override
+  NameOnboardingState createState() =>
+      NameOnboardingState(); // Removed the leading underscore
+}
+
+class NameOnboardingState extends State<NameOnboarding> {
+  // Removed the leading underscore
+  String text = '';
+
+  void onPress() {
+    // widget.setUserData(); // Update the user data
+    // widget.onNext(); // Navigate to the next screen
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: SafeArea(
+        child: Scaffold(
+          backgroundColor: HexColor(dark),
+          body: Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Back Button
+                BackButton(
+                  // onPressed: () => widget.onBack(),
+                  color: Colors.white,
+                ),
+
+                // Content Section
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'What is your name?',
+                        style: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        'Please enter your name so that we can address you properly.',
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey,
+                        ),
+                      ),
+                      SizedBox(height: 20),
+                      TextField(
+                        onChanged: (value) {
+                          setState(() {
+                            text = value;
+                          });
+                        },
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                        decoration: InputDecoration(
+                          hintText: 'Name',
+                          hintStyle: TextStyle(color: Colors.grey),
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                // Console Section (Arrow Button)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 20),
+                  child: Align(
+                    alignment: Alignment.bottomRight,
+                    child: text.trim().isNotEmpty
+                        ? SizedBox(
+                            width: 50,
+                            height: 50,
+                            child: IconButton(
+                              onPressed: () {},
+                              icon: Icon(Icons.arrow_forward), // Arrow icon
+                              iconSize: 30,
+                              color: HexColor(dark),
+                              style: ButtonStyle(
+                                  backgroundColor:
+                                      WidgetStatePropertyAll<Color>(
+                                          Colors.white)),
+                            ),
+                          )
+                        : Container(),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
