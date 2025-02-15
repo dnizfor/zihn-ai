@@ -146,7 +146,10 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
                       ),
                     ),
                     Center(
-                      child: WheelTimePicker(),
+                      child: WheelTimePicker(
+                        setHours: (hours) {},
+                        setMinutes: (minutes) {},
+                      ),
                     ),
                   ],
                 ],

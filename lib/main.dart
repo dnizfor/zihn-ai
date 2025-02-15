@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:zihnai/providers/user_provider.dart';
 import 'package:zihnai/screens/home.dart';
 import 'package:zihnai/screens/onboarding/onboarding.dart';
 import 'package:zihnai/ultils/constant/color.dart';
@@ -38,6 +40,9 @@ class _MainState extends State<Main> {
             ),
             useMaterial3: true),
         debugShowCheckedModeBanner: false,
-        home: !widget.showHome ? Onboarding() : Home());
+        home: !widget.showHome
+            ? ChangeNotifierProvider(
+                create: (context) => UserProvider(), child: Onboarding())
+            : Home());
   }
 }

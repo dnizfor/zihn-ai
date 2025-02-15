@@ -4,7 +4,14 @@ import 'package:wheel_picker/wheel_picker.dart';
 import 'package:zihnai/ultils/constant/color.dart';
 
 class WheelTimePicker extends StatefulWidget {
-  const WheelTimePicker({super.key});
+  const WheelTimePicker({
+    super.key,
+    required this.setHours,
+    required this.setMinutes,
+  });
+
+  final void Function(int hours) setHours;
+  final void Function(int minutes) setMinutes;
 
   @override
   State<WheelTimePicker> createState() => _WheelTimePickerState();
@@ -13,12 +20,12 @@ class WheelTimePicker extends StatefulWidget {
 class _WheelTimePickerState extends State<WheelTimePicker> {
   final now = TimeOfDay.now();
   late final _hoursWheel = WheelPickerController(
-    itemCount: 12,
-    initialIndex: now.hour % 12,
+    itemCount: 24,
+    initialIndex: 0,
   );
   late final _minutesWheel = WheelPickerController(
     itemCount: 60,
-    initialIndex: now.minute,
+    initialIndex: 0,
     mounts: [_hoursWheel],
   );
 
@@ -44,7 +51,13 @@ class _WheelTimePickerState extends State<WheelTimePicker> {
           child: WheelPicker(
             builder: itemBuilder,
             controller: wheelController,
-            looping: wheelController == _minutesWheel,
+            onIndexChanged: (index, interactionType) => {
+              if (wheelController == _hoursWheel)
+                {widget.setHours(index)}
+              else if (wheelController == _minutesWheel)
+                {widget.setMinutes(index)}
+            },
+            looping: true,
             style: wheelStyle,
             selectedIndexColor: Colors.white,
           ),
@@ -52,22 +65,22 @@ class _WheelTimePickerState extends State<WheelTimePicker> {
     ];
     timeWheels.insert(1, const Text(":", style: textStyle));
 
-    final amPmWheel = Expanded(
-      child: WheelPicker(
-        itemCount: 2,
-        builder: (context, index) {
-          return Text(["AM", "PM"][index], style: textStyle);
-        },
-        initialIndex: (now.period == DayPeriod.am) ? 0 : 1,
-        looping: false,
-        style: wheelStyle.copyWith(
-          shiftAnimationStyle: const WheelShiftAnimationStyle(
-            duration: Duration(seconds: 1),
-            curve: Curves.bounceOut,
-          ),
-        ),
-      ),
-    );
+    // final amPmWheel = Expanded(
+    //   child: WheelPicker(
+    //     itemCount: 2,
+    //     builder: (context, index) {
+    //       return Text(["AM", "PM"][index], style: textStyle);
+    //     },
+    //     initialIndex: (now.period == DayPeriod.am) ? 0 : 1,
+    //     looping: false,
+    //     style: wheelStyle.copyWith(
+    //       shiftAnimationStyle: const WheelShiftAnimationStyle(
+    //         duration: Duration(seconds: 1),
+    //         curve: Curves.bounceOut,
+    //       ),
+    //     ),
+    //   ),
+    // );
 
     return Container(
       decoration: BoxDecoration(
@@ -84,8 +97,8 @@ class _WheelTimePickerState extends State<WheelTimePicker> {
               child: Row(
                 children: [
                   ...timeWheels,
-                  const SizedBox(width: 6.0),
-                  amPmWheel,
+                  // const SizedBox(width: 6.0),
+                  // amPmWheel,
                 ],
               ),
             ),

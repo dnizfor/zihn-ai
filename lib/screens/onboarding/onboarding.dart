@@ -1,5 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
-import 'package:zihnai/screens/home.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:zihnai/providers/user_provider.dart';
 import 'package:zihnai/screens/onboarding/name_onboarding.dart';
 import 'package:zihnai/screens/onboarding/notification_onboarding.dart';
 import 'package:zihnai/screens/onboarding/onboarding_home.dart';
@@ -46,10 +50,26 @@ class _OnboardingState extends State<Onboarding> {
       );
     } else {
       return ReminderOnboarding(
-        onNext: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => const Home()),
-          );
+        onNext: () async {
+          Map<String, dynamic> userDataMap = {
+            'name': context.read<UserProvider>().name,
+            'notification': context.read<UserProvider>().notification,
+            'reminder': context.read<UserProvider>().reminder,
+            'reminderHours': context.read<UserProvider>().reminderHours,
+            'reminderMinutes': context.read<UserProvider>().reminderMinutes,
+          };
+          try {
+            final SharedPreferences prefs =
+                await SharedPreferences.getInstance();
+            await prefs.setString('user', jsonEncode(userDataMap));
+          } catch (_) {
+            print('onboardin gOn Save Error');
+          }
+          ;
+
+          // Navigator.of(context).push(
+          //   MaterialPageRoute(builder: (context) => const Home()),
+          // );
         },
         onBack: goToPreviousStep,
       );

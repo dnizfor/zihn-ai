@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:provider/provider.dart';
+import 'package:zihnai/providers/user_provider.dart';
 import 'package:zihnai/ultils/constant/color.dart';
 
 class NotificationsOnboarding extends StatefulWidget {
@@ -19,13 +21,13 @@ class NotificationsOnboardingState extends State<NotificationsOnboarding> {
   // Public state class
   bool notificationIsEnabled = false;
 
-  void onPress() {
-    // widget.setUserData();
-    widget.onNext();
-  }
-
   @override
   Widget build(BuildContext context) {
+    void onPress() {
+      context.read<UserProvider>().setNotification(notificationIsEnabled);
+      widget.onNext();
+    }
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: HexColor(dark),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:provider/provider.dart';
+import 'package:zihnai/providers/user_provider.dart';
 import 'package:zihnai/ultils/constant/color.dart';
 
 class NameOnboarding extends StatefulWidget {
@@ -16,13 +18,13 @@ class NameOnboardingState extends State<NameOnboarding> {
   // Removed the leading underscore
   String text = '';
 
-  void onPress() {
-    // widget.setUserData(); // Update the user data
-    widget.onNext();
-  }
-
   @override
   Widget build(BuildContext context) {
+    void onPress() {
+      context.read<UserProvider>().setName(text);
+      widget.onNext();
+    }
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: HexColor(dark),

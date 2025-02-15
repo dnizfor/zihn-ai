@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:provider/provider.dart';
+import 'package:zihnai/providers/user_provider.dart';
 import 'package:zihnai/ultils/constant/color.dart';
 import 'package:zihnai/widgets/wheel_time_picker.dart';
 
@@ -21,31 +23,27 @@ class ReminderOnboardingState extends State<ReminderOnboarding> {
   int reminderHours = 0;
   int reminderMinutes = 0;
 
-  void onPress() {
-    // widget.setUserData((prev) {
-    //   prev['reminder'] = reminderIsEnabled;
-    //   prev['reminderHours'] = reminderHours;
-    //   prev['reminderMinutes'] = reminderMinutes;
-    //   return prev;
-    // });
-    widget.onNext(); // Move to the next screen
+  void setHours(int hours) {
+    setState(() {
+      reminderHours = hours;
+    });
   }
 
-  void timeHandler(int hours, int minutes) {
-    // setState(() {
-    //   reminderHours = hours;
-    //   reminderMinutes = minutes;
-    // });
-
-    // widget.setUserData((prev) {
-    //   prev['reminderHours'] = hours;
-    //   prev['reminderMinutes'] = minutes;
-    //   return prev;
-    // });
+  void setMinutes(int minutes) {
+    setState(() {
+      reminderMinutes = minutes;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
+    void onPress() {
+      context
+          .read<UserProvider>()
+          .setReminder(reminderIsEnabled, reminderHours, reminderMinutes);
+      widget.onNext();
+    }
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: HexColor(dark),
@@ -120,7 +118,10 @@ class ReminderOnboardingState extends State<ReminderOnboarding> {
                         ),
                       ),
                       Center(
-                        child: WheelTimePicker(),
+                        child: WheelTimePicker(
+                          setHours: setHours,
+                          setMinutes: setMinutes,
+                        ),
                       ),
                     ],
                   ],
