@@ -1,0 +1,2 @@
+C:/Users/Dnizfor/Desktop/zihnai/android/app/.cxx/Debug/2z3u2k18/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/Dnizfor/Desktop/zihnai/android/app/.cxx/Debug/2z3u2k18/arm64-v8a/CMakeFiles/rebuild_cache.dir

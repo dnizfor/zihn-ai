@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:zihnai/providers/user_provider.dart';
+import 'package:zihnai/screens/home.dart';
 import 'package:zihnai/screens/onboarding/name_onboarding.dart';
 import 'package:zihnai/screens/onboarding/notification_onboarding.dart';
 import 'package:zihnai/screens/onboarding/onboarding_home.dart';
 import 'package:zihnai/screens/onboarding/reminder_onboarding.dart';
+import 'package:zihnai/services/notification_service.dart';
 
 class Onboarding extends StatefulWidget {
   const Onboarding({super.key});
@@ -32,6 +34,50 @@ class _OnboardingState extends State<Onboarding> {
 
   @override
   Widget build(BuildContext context) {
+    Future<void> onDone() async {
+      final String userName = context.read<UserProvider>().name;
+      final bool userNotification = context.read<UserProvider>().notification;
+      final bool userReminder = context.read<UserProvider>().reminder;
+      final int userReminderHours = context.read<UserProvider>().reminderHours;
+      final int userReminderMinutes =
+          context.read<UserProvider>().reminderMinutes;
+      // save data as json
+      Map<String, dynamic> userDataMap = {
+        'name': userName,
+        'notification': userNotification,
+        'reminder': userReminder,
+        'reminderHours': userReminderHours,
+        'reminderMinutes': userReminderMinutes,
+      };
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.setString('user', jsonEncode(userDataMap));
+
+      // request notification
+      if (userNotification) {
+        NotificationService().requestNotificationPermission();
+      } // bg fetch islemi
+      if (userReminder) {
+        NotificationService().requestNotificationPermission();
+        NotificationService().scheduleDailyNotification(
+          userReminderHours,
+          userReminderMinutes,
+          'Ready to Talk? 😊',
+          'It`s time to chat with your AI psychologist! Share your feelings and relax. 🌸',
+        );
+      }
+
+      //shut down onboarding
+      await prefs.setBool('showHome', true);
+
+      // go home
+
+      if (context.mounted) {
+        Navigator.of(context).push(
+          MaterialPageRoute(builder: (context) => const Home()),
+        );
+      }
+    }
+
     if (step == 0) {
       return OnboardingHome(
         onNext: goToNextStep,
@@ -50,27 +96,7 @@ class _OnboardingState extends State<Onboarding> {
       );
     } else {
       return ReminderOnboarding(
-        onNext: () async {
-          Map<String, dynamic> userDataMap = {
-            'name': context.read<UserProvider>().name,
-            'notification': context.read<UserProvider>().notification,
-            'reminder': context.read<UserProvider>().reminder,
-            'reminderHours': context.read<UserProvider>().reminderHours,
-            'reminderMinutes': context.read<UserProvider>().reminderMinutes,
-          };
-          try {
-            final SharedPreferences prefs =
-                await SharedPreferences.getInstance();
-            await prefs.setString('user', jsonEncode(userDataMap));
-          } catch (_) {
-            print('onboardin gOn Save Error');
-          }
-          ;
-
-          // Navigator.of(context).push(
-          //   MaterialPageRoute(builder: (context) => const Home()),
-          // );
-        },
+        onNext: onDone,
         onBack: goToPreviousStep,
       );
     }

@@ -6,7 +6,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:zihnai/providers/user_provider.dart';
 import 'package:zihnai/screens/home.dart';
 import 'package:zihnai/screens/onboarding/onboarding.dart';
+import 'package:zihnai/services/notification_service.dart';
 import 'package:zihnai/ultils/constant/color.dart';
+import 'package:timezone/data/latest_all.dart' as tz;
 
 Future main() async {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -16,6 +18,8 @@ Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final prefs = await SharedPreferences.getInstance();
   final bool showHome = prefs.getBool('showHome') ?? false;
+  tz.initializeTimeZones();
+  NotificationService().initializeNotifications();
 
   runApp(Main(
     showHome: showHome,
