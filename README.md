@@ -1,8 +1,9 @@
 chat screenendeki  textfield basili tutunce metin secme rengi farkli . cursor rengi degistirildi . themadan genel ayarlari yapip o secimlei kaldir 
 
-- onboarding- setting user veri ve database baglama
 - pollinations api chat baglama 
 - pollinations api to affirmation page baglama 
+- notifications kur
+
 
 
 
