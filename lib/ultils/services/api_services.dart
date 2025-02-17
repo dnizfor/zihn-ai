@@ -20,7 +20,8 @@ class ApiService {
       "Write 5 affirmations in $deviceLanguage for someone who is depressed, "
       "separating each one with \\n. Write only the sentences, nothing else.";
 
-  Future<String> sendRequest(String message, String systemMessage) async {
+  Future<String> sendRequest(String message, String systemMessage,
+      [bool jsonMode = false]) async {
     final response = await http.post(
       Uri.parse('https://text.pollinations.ai/'),
       headers: {"Content-Type": "application/json"}, // JSON gönderirken gerekli
@@ -31,7 +32,7 @@ class ApiService {
         ],
         "model": "openai",
         "seed": 42, // JSON içinde sayı olarak kalabilir
-        "jsonMode": false,
+        "jsonMode": jsonMode,
         "private": true
       }),
     );
