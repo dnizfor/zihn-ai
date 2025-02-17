@@ -1,7 +1,9 @@
 chat screenendeki  textfield basili tutunce metin secme rengi farkli . cursor rengi degistirildi . themadan genel ayarlari yapip o secimlei kaldir 
 
-- pollinations api
 - background_fetch baglama
+- api islemlerinde bug var duzenlenmesi gerek  // sayfa degistirince patliyor
+- 
+
 
 
 #### Onemli ### 
