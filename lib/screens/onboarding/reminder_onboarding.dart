@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
-import 'package:zihnai/providers/user_provider.dart';
+import 'package:zihnai/ultils/providers/user_provider.dart';
 import 'package:zihnai/ultils/constant/color.dart';
 import 'package:zihnai/widgets/wheel_time_picker.dart';
 
