@@ -4,14 +4,13 @@ import 'package:zihnai/screens/settings/notification_settings.dart';
 import 'package:zihnai/ultils/constant/color.dart';
 import 'package:zihnai/ultils/functions/send_mail.dart';
 import 'package:zihnai/widgets/setting_button.dart';
-import 'package:in_app_review/in_app_review.dart';
+import 'package:store_redirect/store_redirect.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final InAppReview inAppReview = InAppReview.instance;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: SafeArea(
@@ -48,11 +47,10 @@ class SettingsScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 10),
                     SettingButton(
-                      title: 'Rate Us!',
-                      onTap: () => inAppReview.openStoreListing(
-                        appStoreId: '6737245439',
-                      ),
-                    ),
+                        title: 'Rate Us!',
+                        onTap: () => StoreRedirect.redirect(
+                            androidAppId: "com.iyaffle.rangoli",
+                            iOSAppId: "585027354")),
                     SizedBox(height: 10),
                     SettingButton(
                       title: 'Feedback & Contact',
