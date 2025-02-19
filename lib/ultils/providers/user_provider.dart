@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class UserProvider extends ChangeNotifier {
   UserProvider({
@@ -45,5 +48,19 @@ class UserProvider extends ChangeNotifier {
     reminderMinutes = newReminderMinutes;
 
     notifyListeners();
+  }
+
+  Future<Map<String, dynamic>?> initializeUserData() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final String? userDataString = prefs.getString('user');
+
+    Map<String, dynamic>? userData = jsonDecode(userDataString!);
+    name = userData?['name'];
+    notification = userData?['notification'];
+    reminder = userData?['reminder'];
+    reminderHours = userData?['reminderHours'];
+    reminderMinutes = userData?['reminderMinutes'];
+
+    return null;
   }
 }

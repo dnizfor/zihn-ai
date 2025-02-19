@@ -50,6 +50,10 @@ class _MainState extends State<Main> {
         await Provider.of<FeedProvider>(context, listen: false)
             .updateFeedList();
       }
+      if (mounted && widget.showHome) {
+        await Provider.of<UserProvider>(context, listen: false)
+            .initializeUserData();
+      }
     });
   }
 

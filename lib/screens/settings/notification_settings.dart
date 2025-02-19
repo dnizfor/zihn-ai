@@ -61,6 +61,8 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
           'Ready to Talk? 😊',
           'It`s time to chat with your AI psychologist! Share your feelings and relax. 🌸',
         );
+      } else {
+        NotificationService().cancelScheduledNotification();
       }
       if (!context.mounted) return;
 
