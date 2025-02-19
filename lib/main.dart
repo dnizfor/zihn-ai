@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:zihnai/ultils/providers/chat_provider.dart';
+import 'package:zihnai/ultils/providers/feed_provider.dart';
 import 'package:zihnai/ultils/providers/user_provider.dart';
 import 'package:zihnai/screens/home.dart';
 import 'package:zihnai/screens/onboarding/onboarding.dart';
@@ -25,7 +26,8 @@ Future main() async {
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(create: (context) => UserProvider()),
-      ChangeNotifierProvider(create: (context) => ChatProvider())
+      ChangeNotifierProvider(create: (context) => ChatProvider()),
+      ChangeNotifierProvider(create: (context) => FeedProvider()),
     ],
     child: Main(showHome: showHome),
   ));
@@ -40,6 +42,17 @@ class Main extends StatefulWidget {
 }
 
 class _MainState extends State<Main> {
+  @override
+  void initState() {
+    super.initState();
+    Future.microtask(() async {
+      if (mounted) {
+        await Provider.of<FeedProvider>(context, listen: false)
+            .updateFeedList();
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
