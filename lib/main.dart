@@ -3,6 +3,7 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:zihnai/screens/network_error.dart';
 import 'package:zihnai/ultils/providers/chat_provider.dart';
 import 'package:zihnai/ultils/providers/feed_provider.dart';
 import 'package:zihnai/ultils/providers/user_provider.dart';
@@ -11,6 +12,7 @@ import 'package:zihnai/screens/onboarding/onboarding.dart';
 import 'package:zihnai/ultils/services/notification_service.dart';
 import 'package:zihnai/ultils/constant/color.dart';
 import 'package:timezone/data/latest_all.dart' as tz;
+import 'package:connectivity_plus/connectivity_plus.dart';
 
 Future main() async {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -42,9 +44,12 @@ class Main extends StatefulWidget {
 }
 
 class _MainState extends State<Main> {
+  List<ConnectivityResult> connectivityResult = [];
+
   @override
   void initState() {
     super.initState();
+    checkConnectivity();
     Future.microtask(() async {
       if (mounted) {
         await Provider.of<FeedProvider>(context, listen: false)
@@ -57,15 +62,27 @@ class _MainState extends State<Main> {
     });
   }
 
+  Future<void> checkConnectivity() async {
+    final result = await Connectivity().checkConnectivity();
+    setState(() {
+      connectivityResult = result;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
         theme: ThemeData(
+            scaffoldBackgroundColor: HexColor(dark),
             colorScheme: ColorScheme.fromSeed(
               seedColor: HexColor(primary),
             ),
             useMaterial3: true),
         debugShowCheckedModeBanner: false,
-        home: !widget.showHome ? Onboarding() : Home());
+        home: connectivityResult.contains(ConnectivityResult.none)
+            ? NetworkError()
+            : !widget.showHome
+                ? Onboarding()
+                : Home());
   }
 }
