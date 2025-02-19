@@ -62,6 +62,7 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
           'It`s time to chat with your AI psychologist! Share your feelings and relax. 🌸',
         );
       }
+      if (!context.mounted) return;
 
       Navigator.pop(context);
     }

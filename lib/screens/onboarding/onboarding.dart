@@ -6,7 +6,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:zihnai/ultils/providers/user_provider.dart';
 import 'package:zihnai/screens/home.dart';
 import 'package:zihnai/screens/onboarding/name_onboarding.dart';
-import 'package:zihnai/screens/onboarding/notification_onboarding.dart';
 import 'package:zihnai/screens/onboarding/onboarding_home.dart';
 import 'package:zihnai/screens/onboarding/reminder_onboarding.dart';
 import 'package:zihnai/ultils/services/notification_service.dart';

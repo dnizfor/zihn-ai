@@ -3,6 +3,7 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:zihnai/ultils/providers/chat_provider.dart';
 import 'package:zihnai/ultils/providers/user_provider.dart';
 import 'package:zihnai/screens/home.dart';
 import 'package:zihnai/screens/onboarding/onboarding.dart';
@@ -22,7 +23,10 @@ Future main() async {
   NotificationService().initializeNotifications();
 
   runApp(MultiProvider(
-    providers: [ChangeNotifierProvider(create: (context) => UserProvider())],
+    providers: [
+      ChangeNotifierProvider(create: (context) => UserProvider()),
+      ChangeNotifierProvider(create: (context) => ChatProvider())
+    ],
     child: Main(showHome: showHome),
   ));
 }

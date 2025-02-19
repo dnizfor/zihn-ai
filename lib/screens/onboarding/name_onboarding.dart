@@ -20,7 +20,6 @@ class NameOnboardingState extends State<NameOnboarding> {
   @override
   void initState() {
     super.initState();
-    print("Bu kod bileşen ilk oluşturulduğunda çalışır");
     textController.text = context.read<UserProvider>().name;
   }
 

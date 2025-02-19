@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:provider/provider.dart';
 import 'package:zihnai/ultils/classes/chat_class.dart';
 import 'package:zihnai/ultils/constant/color.dart';
+import 'package:zihnai/ultils/providers/chat_provider.dart';
 import 'package:zihnai/ultils/services/api_services.dart';
 
 class ChatScreen extends StatefulWidget {
@@ -12,7 +14,6 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
-  List<Chat> chatList = [];
   final ScrollController scrollController = ScrollController();
 
   void onFocusEnd() {
@@ -35,21 +36,26 @@ class _ChatScreenState extends State<ChatScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final chatList = context.watch<ChatProvider>().chatList;
+
     ApiService chatService = ApiService();
     double maxWidth = MediaQuery.of(context).size.width * 0.8;
     TextEditingController textController = TextEditingController();
 
     onSave() async {
-      setState(() {
-        chatList.add(Chat(role: 'user', message: textController.text));
-      });
+      context
+          .read<ChatProvider>()
+          .setChat(Chat(role: 'user', message: textController.text));
       onFocusEnd();
       String response = await chatService.sendRequest(
           textController.text, ApiService.systemTherapistMessage);
       textController.clear();
-      setState(() {
-        chatList.add(Chat(role: 'assistant', message: response));
-      });
+      if (context.mounted) {
+        context
+            .read<ChatProvider>()
+            .setChat(Chat(role: 'assistant', message: response));
+      }
+
       onFocusEnd();
     }
 
