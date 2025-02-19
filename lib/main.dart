@@ -11,7 +11,6 @@ import 'package:zihnai/screens/home.dart';
 import 'package:zihnai/screens/onboarding/onboarding.dart';
 import 'package:zihnai/ultils/services/notification_service.dart';
 import 'package:zihnai/ultils/constant/color.dart';
-import 'package:timezone/data/latest_all.dart' as tz;
 import 'package:connectivity_plus/connectivity_plus.dart';
 
 Future main() async {
@@ -22,7 +21,7 @@ Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final prefs = await SharedPreferences.getInstance();
   final bool showHome = prefs.getBool('showHome') ?? false;
-  tz.initializeTimeZones();
+
   NotificationService().initializeNotifications();
 
   runApp(MultiProvider(

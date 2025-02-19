@@ -1,12 +1,17 @@
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'dart:io';
 import 'package:timezone/timezone.dart' as tz;
+import 'package:timezone/data/latest_all.dart' as tz;
+import 'package:flutter_timezone/flutter_timezone.dart';
 
 class NotificationService {
   FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
 
   Future<void> initializeNotifications() async {
+    tz.initializeTimeZones();
+    final String currentTimeZone = await FlutterTimezone.getLocalTimezone();
+    tz.setLocalLocation(tz.getLocation(currentTimeZone));
     const AndroidInitializationSettings initializationSettingsAndroid =
         AndroidInitializationSettings('@mipmap/ic_launcher');
     final DarwinInitializationSettings initializationSettingsDarwin =
@@ -69,29 +74,25 @@ class NotificationService {
 
   Future<void> scheduleDailyNotification(
       int hours, int minutes, String title, String body) async {
-    tz.TZDateTime nextInstanceOfTenAM() {
-      final tz.TZDateTime now = tz.TZDateTime.now(tz.local);
-      tz.TZDateTime scheduledDate =
-          tz.TZDateTime(tz.local, now.year, now.month, now.day, hours, minutes);
-      if (scheduledDate.isBefore(now)) {
-        scheduledDate = scheduledDate.add(const Duration(days: 1));
-      }
-      return scheduledDate;
-    }
+    final tz.TZDateTime now = tz.TZDateTime.now(tz.local);
+    tz.TZDateTime scheduledDate =
+        tz.TZDateTime(tz.local, now.year, now.month, now.day, hours, minutes);
 
     await flutterLocalNotificationsPlugin.zonedSchedule(
         0,
         title,
         body,
-        nextInstanceOfTenAM(),
+        scheduledDate,
         const NotificationDetails(
           android: AndroidNotificationDetails('reminder', 'reminder',
               channelDescription: 'therapy reminder'),
         ),
-        androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+        androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
         uiLocalNotificationDateInterpretation:
             UILocalNotificationDateInterpretation.absoluteTime,
         matchDateTimeComponents: DateTimeComponents.time);
+
+    print('local notification');
   }
 
   Future<void> cancelScheduledNotification() async {
