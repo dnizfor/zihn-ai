@@ -27,7 +27,7 @@ class _FeedScreenState extends State<FeedScreen> {
   void updateAffirmations() async {
     if (!mounted) return;
     var response = await affirmationService.sendRequest(
-        ApiService.affirmationMessage, 'you are a psychologist', true);
+        ApiService.affirmationMessage, 'you are a psychologist', false, true);
     if (!mounted) return;
     Map<String, dynamic> jsonData = jsonDecode(response);
     List<String> affirmations = List<String>.from(jsonData['affirmations']);

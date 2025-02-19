@@ -21,7 +21,7 @@ class ApiService {
       "separating each one with \\n. Write only the sentences, nothing else.";
 
   Future<String> sendRequest(String message, String systemMessage,
-      [bool jsonMode = false]) async {
+      [bool useSeed = true, bool jsonMode = false]) async {
     final response = await http.post(
       Uri.parse('https://text.pollinations.ai/'),
       headers: {"Content-Type": "application/json"}, // JSON gönderirken gerekli
@@ -31,7 +31,7 @@ class ApiService {
           {"role": "user", "content": message}
         ],
         "model": "openai",
-        "seed": 42, // JSON içinde sayı olarak kalabilir
+        if (useSeed) "seed": 42, // JSON içinde sayı olarak kalabilir
         "jsonMode": jsonMode,
         "private": true
       }),
