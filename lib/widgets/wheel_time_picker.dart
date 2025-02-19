@@ -8,10 +8,14 @@ class WheelTimePicker extends StatefulWidget {
     super.key,
     required this.setHours,
     required this.setMinutes,
+    required this.initialHours,
+    required this.initialMinutes,
   });
 
   final void Function(int hours) setHours;
   final void Function(int minutes) setMinutes;
+  final int initialHours;
+  final int initialMinutes;
 
   @override
   State<WheelTimePicker> createState() => _WheelTimePickerState();
@@ -21,11 +25,11 @@ class _WheelTimePickerState extends State<WheelTimePicker> {
   final now = TimeOfDay.now();
   late final _hoursWheel = WheelPickerController(
     itemCount: 24,
-    initialIndex: 0,
+    initialIndex: widget.initialHours,
   );
   late final _minutesWheel = WheelPickerController(
     itemCount: 60,
-    initialIndex: 0,
+    initialIndex: widget.initialMinutes,
     mounts: [_hoursWheel],
   );
 

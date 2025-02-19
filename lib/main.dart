@@ -21,8 +21,9 @@ Future main() async {
   tz.initializeTimeZones();
   NotificationService().initializeNotifications();
 
-  runApp(Main(
-    showHome: showHome,
+  runApp(MultiProvider(
+    providers: [ChangeNotifierProvider(create: (context) => UserProvider())],
+    child: Main(showHome: showHome),
   ));
 }
 
@@ -44,9 +45,6 @@ class _MainState extends State<Main> {
             ),
             useMaterial3: true),
         debugShowCheckedModeBanner: false,
-        home: !widget.showHome
-            ? ChangeNotifierProvider(
-                create: (context) => UserProvider(), child: Onboarding())
-            : Home());
+        home: !widget.showHome ? Onboarding() : Home());
   }
 }

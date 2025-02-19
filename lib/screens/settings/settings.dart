@@ -53,10 +53,9 @@ class SettingsScreen extends StatelessWidget {
                             iOSAppId: "585027354")),
                     SizedBox(height: 10),
                     SettingButton(
-                      title: 'Feedback & Contact',
-                      onTap: () => sendMail('Feedback & Contact Zihn AI'),
+                      title: 'Support & Feedback',
+                      onTap: () => sendMail('Support Zihn AI'),
                     ),
-                    SizedBox(height: 10),
                   ],
                 ),
               )

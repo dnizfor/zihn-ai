@@ -25,13 +25,23 @@ class UserProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void setReminder(
-    bool newReminder, [
-    int newReminderHours = 0,
-    int newReminderMinutes = 0,
-  ]) {
+  void setReminder(bool newReminder) {
     reminder = newReminder;
+
+    notifyListeners();
+  }
+
+  void setReminderHours(
+    int newReminderHours,
+  ) {
     reminderHours = newReminderHours;
+
+    notifyListeners();
+  }
+
+  void setReminderMinutes(
+    int newReminderMinutes,
+  ) {
     reminderMinutes = newReminderMinutes;
 
     notifyListeners();

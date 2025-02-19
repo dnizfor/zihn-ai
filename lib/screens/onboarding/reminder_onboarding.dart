@@ -19,29 +19,20 @@ class ReminderOnboarding extends StatefulWidget {
 }
 
 class ReminderOnboardingState extends State<ReminderOnboarding> {
-  bool reminderIsEnabled = false;
-  int reminderHours = 0;
-  int reminderMinutes = 0;
-
-  void setHours(int hours) {
-    setState(() {
-      reminderHours = hours;
-    });
-  }
-
-  void setMinutes(int minutes) {
-    setState(() {
-      reminderMinutes = minutes;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     void onPress() {
-      context
-          .read<UserProvider>()
-          .setReminder(reminderIsEnabled, reminderHours, reminderMinutes);
       widget.onNext();
+    }
+
+    void setHours(int hours) {
+      context.read<UserProvider>().setReminderHours(hours);
+    }
+
+    void setMinutes(int minutes) {
+      context.read<UserProvider>().setReminderMinutes(
+            minutes,
+          );
     }
 
     return SafeArea(
@@ -94,11 +85,9 @@ class ReminderOnboardingState extends State<ReminderOnboarding> {
                           'Enable Therapy Reminder',
                           style: TextStyle(color: Colors.white, fontSize: 15),
                         ),
-                        value: reminderIsEnabled,
+                        value: context.watch<UserProvider>().reminder,
                         onChanged: (bool value) {
-                          setState(() {
-                            reminderIsEnabled = value;
-                          });
+                          context.read<UserProvider>().setReminder(value);
                         },
                         activeColor: Colors.blue,
                         inactiveThumbColor: Colors.grey,
@@ -106,7 +95,7 @@ class ReminderOnboardingState extends State<ReminderOnboarding> {
                     ),
 
                     // Time Picker
-                    if (reminderIsEnabled) ...[
+                    if (context.watch<UserProvider>().reminder) ...[
                       Padding(
                         padding: EdgeInsets.symmetric(vertical: 20),
                         child: Text(
@@ -121,6 +110,10 @@ class ReminderOnboardingState extends State<ReminderOnboarding> {
                         child: WheelTimePicker(
                           setHours: setHours,
                           setMinutes: setMinutes,
+                          initialHours:
+                              context.read<UserProvider>().reminderHours,
+                          initialMinutes:
+                              context.read<UserProvider>().reminderMinutes,
                         ),
                       ),
                     ],

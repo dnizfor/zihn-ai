@@ -89,12 +89,13 @@ class _OnboardingState extends State<Onboarding> {
         onBack: goToPreviousStep,
       );
     }
-    if (step == 2) {
-      return NotificationsOnboarding(
-        onNext: goToNextStep,
-        onBack: goToPreviousStep,
-      );
-    } else {
+    // if (step == 2) {
+    //   return NotificationsOnboarding(
+    //     onNext: goToNextStep,
+    //     onBack: goToPreviousStep,
+    //   );
+    // }
+    else {
       return ReminderOnboarding(
         onNext: onDone,
         onBack: goToPreviousStep,

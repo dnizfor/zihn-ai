@@ -1,6 +1,12 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:zihnai/ultils/constant/color.dart';
+import 'package:zihnai/ultils/providers/user_provider.dart';
+import 'package:zihnai/ultils/services/notification_service.dart';
 import 'package:zihnai/widgets/wheel_time_picker.dart';
 
 class NotificationSettingScreen extends StatefulWidget {
@@ -13,12 +19,53 @@ class NotificationSettingScreen extends StatefulWidget {
 
 class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
   bool notificationIsEnabled = false;
-  bool reminderIsEnabled = false;
-  int reminderHours = 0;
-  int reminderMinutes = 0;
+  void setHours(int hours) {
+    context.read<UserProvider>().setReminderHours(hours);
+  }
+
+  void setMinutes(int minutes) {
+    context.read<UserProvider>().setReminderMinutes(
+          minutes,
+        );
+  }
 
   @override
   Widget build(BuildContext context) {
+    final userProvider = Provider.of<UserProvider>(context, listen: false);
+    Future<void> onDone() async {
+      String userName = userProvider.name;
+      bool userNotification = userProvider.notification;
+      bool userReminder = userProvider.reminder;
+      int userReminderHours = userProvider.reminderHours;
+      int userReminderMinutes = userProvider.reminderMinutes;
+      // save data as json
+      Map<String, dynamic> userDataMap = {
+        'name': userName,
+        'notification': userNotification,
+        'reminder': userReminder,
+        'reminderHours': userReminderHours,
+        'reminderMinutes': userReminderMinutes,
+      };
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.setString('user', jsonEncode(userDataMap));
+
+      // request notification
+      // if (userNotification) {
+      //   NotificationService().requestNotificationPermission();
+      // } // bg fetch islemi
+      if (userReminder) {
+        NotificationService().requestNotificationPermission();
+        NotificationService().scheduleDailyNotification(
+          userReminderHours,
+          userReminderMinutes,
+          'Ready to Talk? 😊',
+          'It`s time to chat with your AI psychologist! Share your feelings and relax. 🌸',
+        );
+      }
+
+      Navigator.pop(context);
+    }
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: SafeArea(
@@ -30,9 +77,7 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
                 Icons.arrow_back,
                 color: HexColor(white),
               ), // Geri butonu
-              onPressed: () {
-                Navigator.pop(context); // Önceki sayfaya dön
-              },
+              onPressed: onDone,
             ),
           ),
           backgroundColor: HexColor(dark),
@@ -43,52 +88,52 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'Affirmation Notification',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 24,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(vertical: 20),
-                    child: Text(
-                      'Enable notifications for regular motivational notifications.',
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 16,
-                      ),
-                    ),
-                  ),
-                  // Switchable Button
-                  Container(
-                    height: 100,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: HexColor(secondary), // Arka plan rengi
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: SwitchListTile(
-                      value: notificationIsEnabled,
-                      onChanged: (bool value) {
-                        setState(() {
-                          notificationIsEnabled = value;
-                        });
-                      },
-                      title: Text(
-                        'Enable Notifications',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      activeColor: Colors.blue,
-                      inactiveThumbColor: Colors.grey,
-                      inactiveTrackColor: Colors.grey[600],
-                    ),
-                  ),
-                  SizedBox(height: 20),
+                  // Text(
+                  //   'Affirmation Notification',
+                  //   style: TextStyle(
+                  //     color: Colors.white,
+                  //     fontWeight: FontWeight.bold,
+                  //     fontSize: 24,
+                  //   ),
+                  // ),
+                  // Padding(
+                  //   padding: EdgeInsets.symmetric(vertical: 20),
+                  //   child: Text(
+                  //     'Enable notifications for regular motivational notifications.',
+                  //     style: TextStyle(
+                  //       color: Colors.grey,
+                  //       fontSize: 16,
+                  //     ),
+                  //   ),
+                  // ),
+                  // // Switchable Button
+                  // Container(
+                  //   height: 100,
+                  //   alignment: Alignment.center,
+                  //   decoration: BoxDecoration(
+                  //     color: HexColor(secondary), // Arka plan rengi
+                  //     borderRadius: BorderRadius.circular(12),
+                  //   ),
+                  //   child: SwitchListTile(
+                  //     value: notificationIsEnabled,
+                  //     onChanged: (bool value) {
+                  //       setState(() {
+                  //         notificationIsEnabled = value;
+                  //       });
+                  //     },
+                  //     title: Text(
+                  //       'Enable Notifications',
+                  //       style: TextStyle(
+                  //           color: Colors.white,
+                  //           fontSize: 15,
+                  //           fontWeight: FontWeight.bold),
+                  //     ),
+                  //     activeColor: Colors.blue,
+                  //     inactiveThumbColor: Colors.grey,
+                  //     inactiveTrackColor: Colors.grey[600],
+                  //   ),
+                  // ),
+                  // SizedBox(height: 20),
                   // REMINDER SETTINGS
 
                   Text(
@@ -120,13 +165,14 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
                     child: SwitchListTile(
                       title: Text(
                         'Enable Therapy Reminder',
-                        style: TextStyle(color: Colors.white, fontSize: 15),
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold),
                       ),
-                      value: reminderIsEnabled,
+                      value: context.watch<UserProvider>().reminder,
                       onChanged: (bool value) {
-                        setState(() {
-                          reminderIsEnabled = value;
-                        });
+                        context.read<UserProvider>().setReminder(value);
                       },
                       activeColor: Colors.blue,
                       inactiveThumbColor: Colors.grey,
@@ -134,7 +180,7 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
                   ),
 
                   // Time Picker
-                  if (reminderIsEnabled) ...[
+                  if (context.watch<UserProvider>().reminder) ...[
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: 20),
                       child: Text(
@@ -147,8 +193,12 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
                     ),
                     Center(
                       child: WheelTimePicker(
-                        setHours: (hours) {},
-                        setMinutes: (minutes) {},
+                        setHours: setHours,
+                        setMinutes: setMinutes,
+                        initialHours:
+                            context.watch<UserProvider>().reminderHours,
+                        initialMinutes:
+                            context.watch<UserProvider>().reminderMinutes,
                       ),
                     ),
                   ],

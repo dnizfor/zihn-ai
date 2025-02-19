@@ -15,13 +15,24 @@ class NameOnboarding extends StatefulWidget {
 }
 
 class NameOnboardingState extends State<NameOnboarding> {
-  // Removed the leading underscore
-  String text = '';
+  TextEditingController textController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    print("Bu kod bileşen ilk oluşturulduğunda çalışır");
+    textController.text = context.read<UserProvider>().name;
+  }
+
+  @override
+  void dispose() {
+    textController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     void onPress() {
-      context.read<UserProvider>().setName(text);
       widget.onNext();
     }
 
@@ -62,10 +73,9 @@ class NameOnboardingState extends State<NameOnboarding> {
                     ),
                     SizedBox(height: 20),
                     TextField(
+                      controller: textController,
                       onChanged: (value) {
-                        setState(() {
-                          text = value;
-                        });
+                        context.read<UserProvider>().setName(value);
                       },
                       style: TextStyle(fontWeight: FontWeight.bold),
                       decoration: InputDecoration(
@@ -87,7 +97,7 @@ class NameOnboardingState extends State<NameOnboarding> {
                 padding: const EdgeInsets.only(bottom: 20),
                 child: Align(
                   alignment: Alignment.bottomRight,
-                  child: text.trim().isNotEmpty
+                  child: context.watch<UserProvider>().name.trim().isNotEmpty
                       ? SizedBox(
                           width: 50,
                           height: 50,
