@@ -44,29 +44,33 @@ class Main extends StatefulWidget {
 }
 
 class _MainState extends State<Main> {
-  List<ConnectivityResult> connectivityResult = [];
+  bool isConnected = true;
 
   @override
   void initState() {
     super.initState();
-    checkConnectivity();
     Future.microtask(() async {
-      if (mounted) {
+      bool networkIsConnected = await checkConnectivity();
+      if (mounted && networkIsConnected) {
         await Provider.of<FeedProvider>(context, listen: false)
             .updateFeedList();
       }
-      if (mounted && widget.showHome) {
+      if (mounted && networkIsConnected && widget.showHome) {
         await Provider.of<UserProvider>(context, listen: false)
             .initializeUserData();
       }
     });
   }
 
-  Future<void> checkConnectivity() async {
-    final result = await Connectivity().checkConnectivity();
+  Future<bool> checkConnectivity() async {
+    List<ConnectivityResult> connectivityResult =
+        await Connectivity().checkConnectivity();
+    bool networkIsConnected =
+        !connectivityResult.contains(ConnectivityResult.none);
     setState(() {
-      connectivityResult = result;
+      isConnected = networkIsConnected;
     });
+    return networkIsConnected;
   }
 
   @override
@@ -79,7 +83,7 @@ class _MainState extends State<Main> {
             ),
             useMaterial3: true),
         debugShowCheckedModeBanner: false,
-        home: connectivityResult.contains(ConnectivityResult.none)
+        home: !isConnected
             ? NetworkError()
             : !widget.showHome
                 ? Onboarding()
