@@ -53,23 +53,11 @@ class NotificationService {
             importance: Importance.max,
             priority: Priority.high,
             ticker: 'ticker');
-    const NotificationDetails notificationDetails =
-        NotificationDetails(android: androidNotificationDetails);
+    const NotificationDetails notificationDetails = NotificationDetails(
+        android: androidNotificationDetails, iOS: DarwinNotificationDetails());
     await flutterLocalNotificationsPlugin.show(
         0, 'plain title', 'plain body', notificationDetails,
         payload: 'item x');
-  }
-
-  Future<void> scheduleNotification() async {
-    const AndroidNotificationDetails androidNotificationDetails =
-        AndroidNotificationDetails(
-            'repeating channel id', 'repeating channel name',
-            channelDescription: 'repeating description');
-    const NotificationDetails notificationDetails =
-        NotificationDetails(android: androidNotificationDetails);
-    await flutterLocalNotificationsPlugin.periodicallyShow(0, 'repeating title',
-        'repeating body', RepeatInterval.daily, notificationDetails,
-        androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle);
   }
 
   Future<void> scheduleDailyNotification(
@@ -79,20 +67,23 @@ class NotificationService {
         tz.TZDateTime(tz.local, now.year, now.month, now.day, hours, minutes);
 
     await flutterLocalNotificationsPlugin.zonedSchedule(
-        0,
-        title,
-        body,
-        scheduledDate,
-        const NotificationDetails(
-          android: AndroidNotificationDetails('reminder', 'reminder',
-              channelDescription: 'therapy reminder'),
-        ),
-        androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
-        uiLocalNotificationDateInterpretation:
-            UILocalNotificationDateInterpretation.absoluteTime,
-        matchDateTimeComponents: DateTimeComponents.time);
-
-    print('local notification');
+      0,
+      title,
+      body,
+      scheduledDate,
+      const NotificationDetails(
+          android: AndroidNotificationDetails(
+            'reminder',
+            'reminder',
+            channelDescription: 'therapy reminder',
+            playSound: true,
+          ),
+          iOS: DarwinNotificationDetails()),
+      androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
+      uiLocalNotificationDateInterpretation:
+          UILocalNotificationDateInterpretation.absoluteTime,
+      matchDateTimeComponents: DateTimeComponents.time,
+    );
   }
 
   Future<void> cancelScheduledNotification() async {
