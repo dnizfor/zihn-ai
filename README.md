@@ -11,9 +11,16 @@ chat screenendeki  textfield basili tutunce metin secme rengi farkli . cursor re
 - [ ]  V3 sesli sohbet + premium
     - [ ]  ozellestirilebilir affirmation
     - [ ]  hafizali yapay zeka
-        - [ ]  groq
-        - [ ]  gemini laygrand
-        - [ ]  GPT-4o-mini
+        - [ ]  Gemini 2.0 Flash
+        Muhtemelen gemini flash kullanacağız 
+        Gemini 2.0 Flash
+
+        | Giriş fiyatı | Ücretsiz | 0,10 ABD doları (metin / resim / video)0,70 ABD doları (ses) |
+        | --- | --- | --- |
+        | Çıkış fiyatı | Ücretsiz | 0,40 ABD doları |
+        | gpt-3.5-turbogpt-3.5-turbo-0125 | $0.50 | $1.50 |
+        | --- | --- | --- |
+- [ ]  voices
     - [ ]  voices
         - [ ]  text to speec ve speech t text ıcın androıdın kendısı yeterlı (flutter lib)
 - [ ]  V4 unlu psikolog klonları
