@@ -1,0 +1,22 @@
+{
+    "@@locale": "ko",
+    "onboardingHomeTherapyTitle": "AI 테라피에 오신 것을 환영합니다!",
+    "onboardingHomeTherapyBody": "당신의 개인 AI 기반 웰빙 동반자.",
+    "onboardingHomeDoctorTitle": "의사가 설계한 프로그램",
+    "onboardingHomeDoctorBody": "우리의 프로그램은 의료 전문가에 의해 제작되고 검토되었습니다.",
+    "onboardingHomeAffirmationTitle": "매일의 긍정 확언",
+    "onboardingHomeAffirmationBody": "당신의 감정에 맞춘 긍정적인 확언을 받아보세요.",
+    "onboardingNameTitle": "이름이 무엇인가요?",
+    "onboardingNameSubtitle": "정확하게 호칭할 수 있도록 이름을 입력해주세요.",
+    "onboardingReminderTitle": "테라피 알림 설정",
+    "onboardingReminderSubtitle": "매일의 테라피를 놓치지 않도록 설정한 시간 30분 전에 알림을 보내드립니다.",
+    "reminderButtonTitle": "테라피 알림 활성화",
+    "timePickerDescription": "테라피 알림을 설정하세요.",
+    "reminderNotificationTitle": "대화할 준비가 되었나요? 😊",
+    "reminderNotificationBody": "심리 상담사와 이야기할 시간이에요! 감정을 나누고 편안해지세요. 🌸",
+    "message": "메시지",
+    "goPremiumButtonTitle": "프리미엄 되기!",
+    "notificationSettingsButtonTitle": "알림",
+    "rateUsButtonTitle": "평가하기!",
+    "supportButtonTitle": "지원 및 피드백"
+}

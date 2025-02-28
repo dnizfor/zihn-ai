@@ -1,0 +1,22 @@
+{
+    "@@locale": "tr",
+    "onboardingHomeTherapyTitle": "AI Terapi'ye Hoş Geldiniz!",
+    "onboardingHomeTherapyBody": "Kişisel yapay zeka destekli iyi yaşam rehberiniz.",
+    "onboardingHomeDoctorTitle": "Doktorlar Tarafından Tasarlandı",
+    "onboardingHomeDoctorBody": "Programımız, sağlık uzmanları tarafından oluşturulmuş ve gözden geçirilmiştir.",
+    "onboardingHomeAffirmationTitle": "Günlük Olumlamalar",
+    "onboardingHomeAffirmationBody": "Duygularınıza özel olumlamalar alın.",
+    "onboardingNameTitle": "Adınız nedir?",
+    "onboardingNameSubtitle": "Size doğru şekilde hitap edebilmemiz için lütfen adınızı girin.",
+    "onboardingReminderTitle": "Terapi Hatırlatıcısı Ayarla",
+    "onboardingReminderSubtitle": "Günlük terapi sürecinizin aksamaması için belirlediğiniz saatten yarım saat önce size bir hatırlatma göndereceğiz.",
+    "reminderButtonTitle": "Terapi Hatırlatıcısını Etkinleştir",
+    "timePickerDescription": "Terapiniz için hatırlatıcılar ayarlayın.",
+    "reminderNotificationTitle": "Konuşmaya Hazır mısınız? 😊",
+    "reminderNotificationBody": "Psikoloğunuzla konuşma zamanı geldi! Duygularınızı paylaşın ve rahatlayın. 🌸",
+    "message": "Mesaj",
+    "goPremiumButtonTitle": "Premium Ol!",
+    "notificationSettingsButtonTitle": "Bildirimler",
+    "rateUsButtonTitle": "Bizi Değerlendir!",
+    "supportButtonTitle": "Destek & Geri Bildirim"
+}

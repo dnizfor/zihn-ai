@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
+import 'package:zihnai/generated/l10n.dart';
 import 'package:zihnai/ultils/providers/user_provider.dart';
 import 'package:zihnai/ultils/constant/color.dart';
 import 'package:zihnai/widgets/wheel_time_picker.dart';
@@ -55,7 +56,7 @@ class ReminderOnboardingState extends State<ReminderOnboarding> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Set Therapy Reminder',
+                      S.of(context).onboardingReminderTitle,
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -65,7 +66,7 @@ class ReminderOnboardingState extends State<ReminderOnboarding> {
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: 20),
                       child: Text(
-                        'In order not to disrupt the daily therapy process, we will send you a reminder half an hour before the time you set.',
+                        S.of(context).onboardingReminderSubtitle,
                         style: TextStyle(
                           color: Colors.grey,
                           fontSize: 16,
@@ -82,7 +83,7 @@ class ReminderOnboardingState extends State<ReminderOnboarding> {
                           borderRadius: BorderRadius.circular(12)),
                       child: SwitchListTile(
                         title: Text(
-                          'Enable Therapy Reminder',
+                          S.of(context).reminderButtonTitle,
                           style: TextStyle(color: Colors.white, fontSize: 15),
                         ),
                         value: context.watch<UserProvider>().reminder,
@@ -99,7 +100,7 @@ class ReminderOnboardingState extends State<ReminderOnboarding> {
                       Padding(
                         padding: EdgeInsets.symmetric(vertical: 20),
                         child: Text(
-                          'Schedule a meeting with your AI therapist.',
+                          S.of(context).timePickerDescription,
                           style: TextStyle(
                             color: Colors.grey,
                             fontSize: 16,

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:zihnai/generated/l10n.dart';
 import 'package:zihnai/screens/network_error.dart';
 import 'package:zihnai/ultils/providers/chat_provider.dart';
 import 'package:zihnai/ultils/providers/feed_provider.dart';
@@ -75,6 +77,34 @@ class _MainState extends State<Main> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        localizationsDelegates: [
+          S.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: S.delegate.supportedLocales,
+        localeResolutionCallback:
+            (Locale? locale, Iterable<Locale> supportedLocales) {
+          if (locale != null) {
+            print(
+                "\x1B[31mAlgılanan cihaz dili: Dil Kodu: ${locale.languageCode}, Ülke Kodu: ${locale.countryCode}\x1B[0m");
+
+            // Cihaz dili desteklenenler arasında mı kontrol et
+            for (var supportedLocale in supportedLocales) {
+              if (supportedLocale.languageCode == locale.languageCode &&
+                  (supportedLocale.countryCode == locale.countryCode ||
+                      supportedLocale.countryCode == null)) {
+                return supportedLocale; // Cihaz dili destekleniyorsa, onu kullan
+              }
+            }
+          }
+
+          // Eğer cihaz dili desteklenmiyorsa İngilizceyi döndür
+          debugPrint(
+              "\x1B[31mHATA: Cihaz dili desteklenmiyor, İngilizce seçildi.\x1B[0m");
+          return Locale('en'); // İngilizce varsayılan olarak döndürülüyor
+        },
         theme: ThemeData(
             scaffoldBackgroundColor: HexColor(dark),
             colorScheme: ColorScheme.fromSeed(

@@ -1,0 +1,22 @@
+{
+    "@@locale": "zh-TW",
+    "onboardingHomeTherapyTitle": "歡迎來到 AI 治療！",
+    "onboardingHomeTherapyBody": "您的個人 AI 動力健康夥伴。",
+    "onboardingHomeDoctorTitle": "由醫生設計",
+    "onboardingHomeDoctorBody": "我們的計畫由醫療專業人士設計並審核，確保您的健康。",
+    "onboardingHomeAffirmationTitle": "每日正向肯定",
+    "onboardingHomeAffirmationBody": "根據您的情緒接收正向肯定語。",
+    "onboardingNameTitle": "您的名字是？",
+    "onboardingNameSubtitle": "請輸入您的名字，以便我們能夠正確稱呼您。",
+    "onboardingReminderTitle": "設定治療提醒",
+    "onboardingReminderSubtitle": "為了不影響您的日常治療過程，我們將在您設定的時間前 30 分鐘發送提醒。",
+    "reminderButtonTitle": "啟用治療提醒",
+    "timePickerDescription": "為您的治療設定提醒。",
+    "reminderNotificationTitle": "準備好聊天了嗎？😊",
+    "reminderNotificationBody": "現在是與您的心理學家對話的時間！分享您的感受並放鬆心情。🌸",
+    "message": "訊息",
+    "goPremiumButtonTitle": "升級為高級版",
+    "notificationSettingsButtonTitle": "通知",
+    "rateUsButtonTitle": "給我們評分！",
+    "supportButtonTitle": "支援與回饋"
+}

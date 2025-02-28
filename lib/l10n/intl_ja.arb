@@ -1,0 +1,22 @@
+{
+    "@@locale": "ja",
+    "onboardingHomeTherapyTitle": "AIセラピーへようこそ！",
+    "onboardingHomeTherapyBody": "あなたのパーソナルAI搭載ウェルビーイングパートナー。",
+    "onboardingHomeDoctorTitle": "医師による設計",
+    "onboardingHomeDoctorBody": "私たちのプログラムは、医療専門家によって作成・監修されています。",
+    "onboardingHomeAffirmationTitle": "毎日のアファメーション",
+    "onboardingHomeAffirmationBody": "あなたの感情に合わせたポジティブなアファメーションを受け取りましょう。",
+    "onboardingNameTitle": "お名前は何ですか？",
+    "onboardingNameSubtitle": "適切にお呼びできるよう、お名前を入力してください。",
+    "onboardingReminderTitle": "セラピーリマインダーを設定",
+    "onboardingReminderSubtitle": "毎日のセラピーを継続できるよう、設定した時間の30分前にリマインダーを送信します。",
+    "reminderButtonTitle": "セラピーリマインダーを有効にする",
+    "timePickerDescription": "セラピーのリマインダーを設定しましょう。",
+    "reminderNotificationTitle": "お話しする準備はできましたか？ 😊",
+    "reminderNotificationBody": "心理カウンセラーと話す時間です！気持ちをシェアしてリラックスしましょう。🌸",
+    "message": "メッセージ",
+    "goPremiumButtonTitle": "プレミアムになる！",
+    "notificationSettingsButtonTitle": "通知",
+    "rateUsButtonTitle": "評価する！",
+    "supportButtonTitle": "サポート＆フィードバック"
+}

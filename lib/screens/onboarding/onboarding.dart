@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:zihnai/generated/l10n.dart';
 import 'package:zihnai/ultils/providers/user_provider.dart';
 import 'package:zihnai/screens/home.dart';
 import 'package:zihnai/screens/onboarding/name_onboarding.dart';
@@ -40,6 +41,9 @@ class _OnboardingState extends State<Onboarding> {
       final int userReminderHours = context.read<UserProvider>().reminderHours;
       final int userReminderMinutes =
           context.read<UserProvider>().reminderMinutes;
+
+      final reminderNotificationTitle = S.of(context).reminderNotificationTitle;
+      final reminderNotificationBody = S.of(context).reminderNotificationBody;
       // save data as json
       Map<String, dynamic> userDataMap = {
         'name': userName,
@@ -60,8 +64,8 @@ class _OnboardingState extends State<Onboarding> {
         NotificationService().scheduleDailyNotification(
           userReminderHours,
           userReminderMinutes,
-          'Ready to Talk? 😊',
-          'It`s time to chat with your AI psychologist! Share your feelings and relax. 🌸',
+          reminderNotificationTitle,
+          reminderNotificationBody,
         );
       }
 

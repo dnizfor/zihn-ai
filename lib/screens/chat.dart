@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
+import 'package:zihnai/generated/l10n.dart';
 import 'package:zihnai/ultils/classes/chat_class.dart';
 import 'package:zihnai/ultils/constant/color.dart';
 import 'package:zihnai/ultils/providers/chat_provider.dart';
@@ -105,7 +106,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     style: TextStyle(fontWeight: FontWeight.bold),
                     cursorColor: Colors.black,
                     decoration: InputDecoration(
-                      hintText: 'Lets Chat with Ai Therapys',
+                      hintText: S.of(context).message,
                       hintStyle: TextStyle(
                           color: Colors.grey, fontWeight: FontWeight.normal),
                       filled: true,

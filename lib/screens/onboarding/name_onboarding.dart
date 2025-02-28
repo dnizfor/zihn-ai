@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
+import 'package:zihnai/generated/l10n.dart';
 import 'package:zihnai/ultils/providers/user_provider.dart';
 import 'package:zihnai/ultils/constant/color.dart';
 
@@ -55,7 +56,7 @@ class NameOnboardingState extends State<NameOnboarding> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'What is your name?',
+                      S.of(context).onboardingNameTitle,
                       style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
@@ -64,7 +65,7 @@ class NameOnboardingState extends State<NameOnboarding> {
                     ),
                     SizedBox(height: 10),
                     Text(
-                      'Please enter your name so that we can address you properly.',
+                      S.of(context).onboardingNameSubtitle,
                       style: TextStyle(
                         fontSize: 15,
                         color: Colors.grey,

@@ -1,0 +1,22 @@
+{
+    "@@locale": "en",
+    "onboardingHomeTherapyTitle": "Welcome to AI Therapy!",
+    "onboardingHomeTherapyBody": "Your personal AI-powered well-being companion.",
+    "onboardingHomeDoctorTitle": "Designed by Doctors",
+    "onboardingHomeDoctorBody": "Our program is created and reviewed by medical professionals for your well-being.",
+    "onboardingHomeAffirmationTitle": "Daily Affirmations",
+    "onboardingHomeAffirmationBody": "Receive positive affirmations tailored to your emotions.",
+    "onboardingNameTitle": "What is your name?",
+    "onboardingNameSubtitle": "Please enter your name so that we can address you properly.",
+    "onboardingReminderTitle": "Set Therapy Reminder",
+    "onboardingReminderSubtitle": "In order not to disrupt the daily therapy process, we will send you a reminder half an hour before the time you set.",
+    "reminderButtonTitle": "Enable Therapy Reminder",
+    "timePickerDescription": "Set reminders for your therapy.",
+    "reminderNotificationTitle": "Ready to Talk? 😊",
+    "reminderNotificationBody": "It`s time to chat with your psychologist! Share your feelings and relax. 🌸",
+    "message": "Message",
+    "goPremiumButtonTitle": "Be Premium!",
+    "notificationSettingsButtonTitle": "Notifications",
+    "rateUsButtonTitle": "Rate Us!",
+    "supportButtonTitle": "Support & Feedback"
+}

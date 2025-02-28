@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:zihnai/generated/l10n.dart';
 import 'package:zihnai/screens/settings/notification_settings.dart';
 import 'package:zihnai/ultils/constant/color.dart';
 import 'package:zihnai/ultils/functions/send_mail.dart';
@@ -31,12 +32,12 @@ class SettingsScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 10),
                     SettingButton(
-                      title: 'Be Premium',
+                      title: S.of(context).goPremiumButtonTitle,
                       onTap: () {},
                     ),
                     SizedBox(height: 10),
                     SettingButton(
-                      title: 'Notifications',
+                      title: S.of(context).notificationSettingsButtonTitle,
                       onTap: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
@@ -47,13 +48,13 @@ class SettingsScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 10),
                     SettingButton(
-                        title: 'Rate Us!',
+                        title: S.of(context).rateUsButtonTitle,
                         onTap: () => StoreRedirect.redirect(
                             androidAppId: "com.iyaffle.rangoli",
                             iOSAppId: "585027354")),
                     SizedBox(height: 10),
                     SettingButton(
-                      title: 'Support & Feedback',
+                      title: S.of(context).supportButtonTitle,
                       onTap: () => sendMail('Support Zihn AI'),
                     ),
                   ],

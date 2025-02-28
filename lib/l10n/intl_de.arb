@@ -1,0 +1,22 @@
+{
+    "@@locale": "de",
+    "onboardingHomeTherapyTitle": "Willkommen bei der KI-Therapie!",
+    "onboardingHomeTherapyBody": "Dein persönlicher KI-gestützter Begleiter für dein Wohlbefinden.",
+    "onboardingHomeDoctorTitle": "Entwickelt von Ärzten",
+    "onboardingHomeDoctorBody": "Unser Programm wurde von medizinischen Fachkräften erstellt und überprüft.",
+    "onboardingHomeAffirmationTitle": "Tägliche Affirmationen",
+    "onboardingHomeAffirmationBody": "Erhalte positive Affirmationen, die auf deine Emotionen abgestimmt sind.",
+    "onboardingNameTitle": "Wie heißt du?",
+    "onboardingNameSubtitle": "Bitte gib deinen Namen ein, damit wir dich richtig ansprechen können.",
+    "onboardingReminderTitle": "Therapie-Erinnerung einstellen",
+    "onboardingReminderSubtitle": "Damit dein täglicher Therapieprozess nicht unterbrochen wird, senden wir dir 30 Minuten vorher eine Erinnerung.",
+    "reminderButtonTitle": "Therapie-Erinnerung aktivieren",
+    "timePickerDescription": "Lege Erinnerungen für deine Therapie fest.",
+    "reminderNotificationTitle": "Bereit zum Gespräch? 😊",
+    "reminderNotificationBody": "Es ist Zeit, mit deinem Psychologen zu sprechen! Teile deine Gefühle und entspanne dich. 🌸",
+    "message": "Nachricht",
+    "goPremiumButtonTitle": "Premium werden!",
+    "notificationSettingsButtonTitle": "Benachrichtigungen",
+    "rateUsButtonTitle": "Bewerte uns!",
+    "supportButtonTitle": "Kundendienst & Rückmeldung"
+}

@@ -1,0 +1,22 @@
+{
+    "@@locale": "fr",
+    "onboardingHomeTherapyTitle": "Bienvenue à la thérapie IA !",
+    "onboardingHomeTherapyBody": "Votre compagnon de bien-être personnel alimenté par l'IA.",
+    "onboardingHomeDoctorTitle": "Conçu par des médecins",
+    "onboardingHomeDoctorBody": "Notre programme a été créé et validé par des professionnels de santé.",
+    "onboardingHomeAffirmationTitle": "Affirmations quotidiennes",
+    "onboardingHomeAffirmationBody": "Recevez des affirmations positives adaptées à vos émotions.",
+    "onboardingNameTitle": "Quel est votre nom ?",
+    "onboardingNameSubtitle": "Veuillez entrer votre nom afin que nous puissions vous appeler correctement.",
+    "onboardingReminderTitle": "Définir un rappel de thérapie",
+    "onboardingReminderSubtitle": "Pour ne pas perturber votre processus thérapeutique quotidien, nous vous enverrons un rappel 30 minutes avant l'heure que vous avez définie.",
+    "reminderButtonTitle": "Activer le rappel de thérapie",
+    "timePickerDescription": "Planifiez un rappel pour votre thérapie.",
+    "reminderNotificationTitle": "Prêt à discuter ? 😊",
+    "reminderNotificationBody": "Il est temps de parler avec votre psychologue ! Partagez vos émotions et détendez-vous. 🌸",
+    "message": "Message",
+    "goPremiumButtonTitle": "Devenir Premium !",
+    "notificationSettingsButtonTitle": "Notifications",
+    "rateUsButtonTitle": "Évaluez-nous !",
+    "supportButtonTitle": "Assistance & Retour"
+}

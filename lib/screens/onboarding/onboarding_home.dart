@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:zihnai/generated/l10n.dart';
 import 'package:zihnai/ultils/constant/color.dart';
 
 class OnboardingHome extends StatefulWidget {
@@ -41,21 +42,20 @@ class _OnboardingHomeState extends State<OnboardingHome> {
         infiniteAutoScroll: false,
         pages: [
           PageViewModel(
-            title: "Welcome to AI Therapy!",
-            body: "Your personal AI-powered well-being companion.",
+            title: S.of(context).onboardingHomeTherapyTitle,
+            body: S.of(context).onboardingHomeTherapyBody,
             image: _buildImage('therapy.png'),
             decoration: pageDecoration,
           ),
           PageViewModel(
-            title: "Designed by Doctors",
-            body:
-                "Our program is created and reviewed by medical professionals for your well-being.",
+            title: S.of(context).onboardingHomeDoctorTitle,
+            body: S.of(context).onboardingHomeDoctorBody,
             image: _buildImage('doctor.png'),
             decoration: pageDecoration,
           ),
           PageViewModel(
-            title: "Daily Affirmations",
-            body: "Receive positive affirmations tailored to your emotions.",
+            title: S.of(context).onboardingHomeAffirmationTitle,
+            body: S.of(context).onboardingHomeAffirmationBody,
             image: _buildImage('affirmation.png'),
             decoration: pageDecoration,
           ),
