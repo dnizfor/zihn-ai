@@ -1,13 +1,5 @@
 chat screenendeki  textfield basili tutunce metin secme rengi farkli . cursor rengi degistirildi . themadan genel ayarlari yapip o secimlei kaldir 
 
-- [ ]  Free surum sorunlarini coz
-    - [ ]  localization
-    - [ ]  hafiza yok ve buyuk bir sorun dolayisiyla sohbet akmiyor
-        - [] yapay zeka apisi dkde 20 istek siniri var (buna dikkat et)// afirmation requestteki istenen afirmation sayisini 10a yada 15e cikart
-        - [ ]  son 5 sohbet mesajini gonder (system icinde)
-            - [ ]  ozetle?
-        - [ ]  vector storage
-        - [ ]  rag
 - [ ]  V3 sesli sohbet + premium
     - [ ]  ozellestirilebilir affirmation
     - [ ]  hafizali yapay zeka
