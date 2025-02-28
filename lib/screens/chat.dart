@@ -49,7 +49,9 @@ class _ChatScreenState extends State<ChatScreen> {
           .setChat(Chat(role: 'user', message: textController.text));
       onFocusEnd();
       String response = await chatService.sendRequest(
-          textController.text, ApiService.systemTherapistMessage);
+          textController.text,
+          ApiService.createMessageWithHistory(
+              ApiService.systemTherapistMessage, chatList));
       textController.clear();
       if (context.mounted) {
         context

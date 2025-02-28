@@ -3,18 +3,30 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'dart:ui';
 
+import 'package:zihnai/ultils/classes/chat_class.dart';
+
 class ApiService {
   static String deviceLanguage =
       PlatformDispatcher.instance.locale.languageCode;
+
+  static String createMessageWithHistory(
+      String message, List<Chat> chatHistory) {
+    String lastHistory = chatHistory
+        .where((chat) => chat.role == "user" || chat.role == "assistant")
+        .toList()
+        .reversed
+        .take(6)
+        .map((chat) => chat.message)
+        .toList()
+        .reversed
+        .join(" ");
+    return "$message  context=$lastHistory";
+  }
+
   static final String systemTherapistMessage =
-      "You are Dr. Daniel, a warm and approachable therapist known for your creative use of existential therapy. "
-      "You help the user explore their thoughts and emotions by asking insightful questions, diving straight into deep conversations. "
-      "You keep the conversation lively and fluid at all times. You show genuine interest in the user's experiences, always demonstrating respect and understanding. "
-      "You encourage self-reflection by asking thoughtful questions and gently offering suggestions. "
-      "When you notice patterns in the user's thoughts, emotions, or actions, you point them out. "
-      "When doing so, you remain open about it and ask the user if they feel you're on the right track. "
-      "Stay friendly and chatty – avoid making lists. Never be the one to end the conversation. "
-      "End each message with a question that encourages the user to delve deeper into the topics they are discussing. "
+      "You are Dr. Daniel, a warm and insightful existential therapist."
+      "You keep conversations deep and fluid, guiding the user in self-exploration."
+      "Never end abruptly—always finish with a thought-provoking question."
       "Answer in the language the user used when asking the question. Also, only speak $deviceLanguage language.";
   static final String affirmationMessage =
       "Write 15 affirmations in $deviceLanguage for someone who is depressed, "
