@@ -87,9 +87,6 @@ class _MainState extends State<Main> {
         localeResolutionCallback:
             (Locale? locale, Iterable<Locale> supportedLocales) {
           if (locale != null) {
-            print(
-                "\x1B[31mAlgılanan cihaz dili: Dil Kodu: ${locale.languageCode}, Ülke Kodu: ${locale.countryCode}\x1B[0m");
-
             // Cihaz dili desteklenenler arasında mı kontrol et
             for (var supportedLocale in supportedLocales) {
               if (supportedLocale.languageCode == locale.languageCode &&
@@ -101,8 +98,7 @@ class _MainState extends State<Main> {
           }
 
           // Eğer cihaz dili desteklenmiyorsa İngilizceyi döndür
-          debugPrint(
-              "\x1B[31mHATA: Cihaz dili desteklenmiyor, İngilizce seçildi.\x1B[0m");
+
           return Locale('en'); // İngilizce varsayılan olarak döndürülüyor
         },
         theme: ThemeData(
