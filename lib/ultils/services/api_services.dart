@@ -17,7 +17,7 @@ class ApiService {
       "End each message with a question that encourages the user to delve deeper into the topics they are discussing. "
       "Answer in the language the user used when asking the question. Also, only speak $deviceLanguage language.";
   static final String affirmationMessage =
-      "Write 10 affirmations in $deviceLanguage for someone who is depressed, "
+      "Write 15 affirmations in $deviceLanguage for someone who is depressed, "
       "separating each one with \\n. Write only the sentences, nothing else.";
 
   Future<String> sendRequest(String message, String systemMessage,
