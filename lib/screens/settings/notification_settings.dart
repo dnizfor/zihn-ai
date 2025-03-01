@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:zihnai/generated/l10n.dart';
 import 'package:zihnai/ultils/constant/color.dart';
 import 'package:zihnai/ultils/providers/user_provider.dart';
 import 'package:zihnai/ultils/services/notification_service.dart';
@@ -24,14 +25,15 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
   }
 
   void setMinutes(int minutes) {
-    context.read<UserProvider>().setReminderMinutes(
-          minutes,
-        );
+    context.read<UserProvider>().setReminderMinutes(minutes);
   }
 
   @override
   Widget build(BuildContext context) {
     final userProvider = Provider.of<UserProvider>(context, listen: false);
+
+    final reminderNotificationTitle = S.of(context).reminderNotificationTitle;
+    final reminderNotificationBody = S.of(context).reminderNotificationBody;
     Future<void> onDone() async {
       String userName = userProvider.name;
       bool userNotification = userProvider.notification;
@@ -58,8 +60,8 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
         NotificationService().scheduleDailyNotification(
           userReminderHours,
           userReminderMinutes,
-          'Ready to Talk? 😊',
-          'It`s time to chat with your AI psychologist! Share your feelings and relax. 🌸',
+          reminderNotificationTitle,
+          reminderNotificationBody,
         );
       } else {
         NotificationService().cancelScheduledNotification();
@@ -85,8 +87,10 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
           ),
           backgroundColor: HexColor(dark),
           body: Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 20.0,
+              vertical: 20.0,
+            ),
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -138,9 +142,8 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
                   // ),
                   // SizedBox(height: 20),
                   // REMINDER SETTINGS
-
                   Text(
-                    'Set Therapy Reminder',
+                    S.of(context).onboardingReminderTitle,
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
@@ -150,11 +153,8 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
                   Padding(
                     padding: EdgeInsets.symmetric(vertical: 20),
                     child: Text(
-                      'In order not to disrupt the daily therapy process, we will send you a reminder half an hour before the time you set.',
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 16,
-                      ),
+                      S.of(context).onboardingReminderSubtitle,
+                      style: TextStyle(color: Colors.grey, fontSize: 16),
                     ),
                   ),
 
@@ -163,15 +163,17 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
                     height: 100,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                        color: HexColor(secondary),
-                        borderRadius: BorderRadius.circular(12)),
+                      color: HexColor(secondary),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
                     child: SwitchListTile(
                       title: Text(
-                        'Enable Therapy Reminder',
+                        S.of(context).reminderButtonTitle,
                         style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold),
+                          color: Colors.white,
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                       value: context.watch<UserProvider>().reminder,
                       onChanged: (bool value) {
@@ -187,11 +189,8 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: 20),
                       child: Text(
-                        'Schedule a meeting with your AI therapist.',
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 16,
-                        ),
+                        S.of(context).timePickerDescription,
+                        style: TextStyle(color: Colors.grey, fontSize: 16),
                       ),
                     ),
                     Center(
