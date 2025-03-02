@@ -1,4 +1,4 @@
-package com.example.zihnai
+package com.viralmo.zihnai
 
 import io.flutter.embedding.android.FlutterActivity
 
