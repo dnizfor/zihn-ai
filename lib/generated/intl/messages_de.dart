@@ -54,7 +54,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Wie heißt du?",
     ),
     "onboardingReminderSubtitle": MessageLookupByLibrary.simpleMessage(
-      "Damit dein täglicher Therapieprozess nicht unterbrochen wird, senden wir dir 30 Minuten vorher eine Erinnerung.",
+      "Wir senden Ihnen eine Erinnerung zur festgelegten Zeit, damit Ihr täglicher Therapieprozess nicht unterbrochen wird.",
     ),
     "onboardingReminderTitle": MessageLookupByLibrary.simpleMessage(
       "Therapie-Erinnerung einstellen",

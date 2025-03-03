@@ -52,7 +52,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "What is your name?",
     ),
     "onboardingReminderSubtitle": MessageLookupByLibrary.simpleMessage(
-      "In order not to disrupt the daily therapy process, we will send you a reminder half an hour before the time you set.",
+      "We will send a reminder at your designated time to ensure your daily therapy process is not disrupted.",
     ),
     "onboardingReminderTitle": MessageLookupByLibrary.simpleMessage(
       "Set Therapy Reminder",

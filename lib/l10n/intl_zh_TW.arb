@@ -9,7 +9,7 @@
     "onboardingNameTitle": "您的名字是？",
     "onboardingNameSubtitle": "請輸入您的名字，以便我們能夠正確稱呼您。",
     "onboardingReminderTitle": "設定治療提醒",
-    "onboardingReminderSubtitle": "為了不影響您的日常治療過程，我們將在您設定的時間前 30 分鐘發送提醒。",
+    "onboardingReminderSubtitle": "我們將在您指定的時間發送提醒，以確保您的日常治療過程不受干擾。",
     "reminderButtonTitle": "啟用治療提醒",
     "timePickerDescription": "為您的治療設定提醒。",
     "reminderNotificationTitle": "準備好聊天了嗎？😊",

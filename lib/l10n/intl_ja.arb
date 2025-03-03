@@ -9,7 +9,7 @@
     "onboardingNameTitle": "お名前は何ですか？",
     "onboardingNameSubtitle": "適切にお呼びできるよう、お名前を入力してください。",
     "onboardingReminderTitle": "セラピーリマインダーを設定",
-    "onboardingReminderSubtitle": "毎日のセラピーを継続できるよう、設定した時間の30分前にリマインダーを送信します。",
+    "onboardingReminderSubtitle": "毎日の療法のプロセスが滞らないよう、指定した時間にリマインダーを送信します。",
     "reminderButtonTitle": "セラピーリマインダーを有効にする",
     "timePickerDescription": "セラピーのリマインダーを設定しましょう。",
     "reminderNotificationTitle": "お話しする準備はできましたか？ 😊",

@@ -9,7 +9,7 @@
     "onboardingNameTitle": "What is your name?",
     "onboardingNameSubtitle": "Please enter your name so that we can address you properly.",
     "onboardingReminderTitle": "Set Therapy Reminder",
-    "onboardingReminderSubtitle": "In order not to disrupt the daily therapy process, we will send you a reminder half an hour before the time you set.",
+    "onboardingReminderSubtitle": "We will send a reminder at your designated time to ensure your daily therapy process is not disrupted.",
     "reminderButtonTitle": "Enable Therapy Reminder",
     "timePickerDescription": "Set reminders for your therapy.",
     "reminderNotificationTitle": "Ready to Talk? 😊",

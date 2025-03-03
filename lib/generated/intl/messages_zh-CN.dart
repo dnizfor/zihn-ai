@@ -48,7 +48,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "onboardingNameTitle": MessageLookupByLibrary.simpleMessage("您的名字是什么？"),
     "onboardingReminderSubtitle": MessageLookupByLibrary.simpleMessage(
-      "为了不影响您的日常治疗流程，我们将在您设定的时间前 30 分钟发送提醒。",
+      "我们将在您指定的时间发送提醒，以确保您的日常治疗过程不受干扰。",
     ),
     "onboardingReminderTitle": MessageLookupByLibrary.simpleMessage("设置治疗提醒"),
     "rateUsButtonTitle": MessageLookupByLibrary.simpleMessage("给我们评分！"),

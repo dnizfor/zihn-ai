@@ -54,7 +54,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Quel est votre nom ?",
     ),
     "onboardingReminderSubtitle": MessageLookupByLibrary.simpleMessage(
-      "Pour ne pas perturber votre processus thérapeutique quotidien, nous vous enverrons un rappel 30 minutes avant l\'heure que vous avez définie.",
+      "Nous enverrons un rappel à l\'heure que vous avez choisie afin que votre processus de thérapie quotidienne ne soit pas perturbé.",
     ),
     "onboardingReminderTitle": MessageLookupByLibrary.simpleMessage(
       "Définir un rappel de thérapie",

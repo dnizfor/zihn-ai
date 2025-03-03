@@ -50,7 +50,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "onboardingNameTitle": MessageLookupByLibrary.simpleMessage("お名前は何ですか？"),
     "onboardingReminderSubtitle": MessageLookupByLibrary.simpleMessage(
-      "毎日のセラピーを継続できるよう、設定した時間の30分前にリマインダーを送信します。",
+      "毎日の療法のプロセスが滞らないよう、指定した時間にリマインダーを送信します。",
     ),
     "onboardingReminderTitle": MessageLookupByLibrary.simpleMessage(
       "セラピーリマインダーを設定",

@@ -9,7 +9,7 @@
     "onboardingNameTitle": "Quel est votre nom ?",
     "onboardingNameSubtitle": "Veuillez entrer votre nom afin que nous puissions vous appeler correctement.",
     "onboardingReminderTitle": "Définir un rappel de thérapie",
-    "onboardingReminderSubtitle": "Pour ne pas perturber votre processus thérapeutique quotidien, nous vous enverrons un rappel 30 minutes avant l'heure que vous avez définie.",
+    "onboardingReminderSubtitle": "Nous enverrons un rappel à l'heure que vous avez choisie afin que votre processus de thérapie quotidienne ne soit pas perturbé.",
     "reminderButtonTitle": "Activer le rappel de thérapie",
     "timePickerDescription": "Planifiez un rappel pour votre thérapie.",
     "reminderNotificationTitle": "Prêt à discuter ? 😊",

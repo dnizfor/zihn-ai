@@ -9,7 +9,7 @@
     "onboardingNameTitle": "Adınız nedir?",
     "onboardingNameSubtitle": "Size doğru şekilde hitap edebilmemiz için lütfen adınızı girin.",
     "onboardingReminderTitle": "Terapi Hatırlatıcısı Ayarla",
-    "onboardingReminderSubtitle": "Günlük terapi sürecinizin aksamaması için belirlediğiniz saatten yarım saat önce size bir hatırlatma göndereceğiz.",
+    "onboardingReminderSubtitle": "Günlük terapi sürecinizin aksamaması için belirlediğiniz saatte hatırlatma göndereceğiz.",
     "reminderButtonTitle": "Terapi Hatırlatıcısını Etkinleştir",
     "timePickerDescription": "Terapiniz için hatırlatıcılar ayarlayın.",
     "reminderNotificationTitle": "Konuşmaya Hazır mısınız? 😊",

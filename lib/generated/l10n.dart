@@ -145,10 +145,10 @@ class S {
     );
   }
 
-  /// `In order not to disrupt the daily therapy process, we will send you a reminder half an hour before the time you set.`
+  /// `We will send a reminder at your designated time to ensure your daily therapy process is not disrupted.`
   String get onboardingReminderSubtitle {
     return Intl.message(
-      'In order not to disrupt the daily therapy process, we will send you a reminder half an hour before the time you set.',
+      'We will send a reminder at your designated time to ensure your daily therapy process is not disrupted.',
       name: 'onboardingReminderSubtitle',
       desc: '',
       args: [],

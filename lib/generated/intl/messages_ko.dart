@@ -50,7 +50,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "onboardingNameTitle": MessageLookupByLibrary.simpleMessage("이름이 무엇인가요?"),
     "onboardingReminderSubtitle": MessageLookupByLibrary.simpleMessage(
-      "매일의 테라피를 놓치지 않도록 설정한 시간 30분 전에 알림을 보내드립니다.",
+      "매일의 치료 과정이 차질 없이 진행되도록 지정된 시간에 알림을 보내드립니다.",
     ),
     "onboardingReminderTitle": MessageLookupByLibrary.simpleMessage(
       "테라피 알림 설정",
