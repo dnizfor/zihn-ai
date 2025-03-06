@@ -6,6 +6,7 @@ import 'package:zihnai/ultils/classes/chat_class.dart';
 import 'package:zihnai/ultils/constant/color.dart';
 import 'package:zihnai/ultils/providers/chat_provider.dart';
 import 'package:zihnai/ultils/services/api_services.dart';
+import 'package:zihnai/widgets/typing_indicator.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
@@ -16,7 +17,7 @@ class ChatScreen extends StatefulWidget {
 
 class _ChatScreenState extends State<ChatScreen> {
   final ScrollController scrollController = ScrollController();
-
+  bool showTypingAnimation = false;
   void onFocusEnd() {
     Future.delayed(Duration(milliseconds: 100), () {
       if (scrollController.hasClients) {
@@ -44,20 +45,29 @@ class _ChatScreenState extends State<ChatScreen> {
     TextEditingController textController = TextEditingController();
 
     onSave() async {
-      context
-          .read<ChatProvider>()
-          .setChat(Chat(role: 'user', message: textController.text));
+      context.read<ChatProvider>().setChat(
+        Chat(role: 'user', message: textController.text),
+      );
       onFocusEnd();
+      setState(() {
+        showTypingAnimation = true;
+      });
       String response = await chatService.sendRequest(
-          textController.text,
-          ApiService.createMessageWithHistory(
-              ApiService.systemTherapistMessage, chatList));
+        textController.text,
+        ApiService.createMessageWithHistory(
+          ApiService.systemTherapistMessage,
+          chatList,
+        ),
+      );
       textController.clear();
       if (context.mounted) {
-        context
-            .read<ChatProvider>()
-            .setChat(Chat(role: 'assistant', message: response));
+        context.read<ChatProvider>().setChat(
+          Chat(role: 'assistant', message: response),
+        );
       }
+      setState(() {
+        showTypingAnimation = false;
+      });
 
       onFocusEnd();
     }
@@ -65,85 +75,99 @@ class _ChatScreenState extends State<ChatScreen> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: SafeArea(
-          child: Scaffold(
-        backgroundColor: HexColor(dark),
-        body: Padding(
-          padding: EdgeInsets.fromLTRB(20, 10, 20, 0),
-          child: Column(children: [
-            Expanded(
-                child: ListView.builder(
-                    itemCount: chatList.length,
+        child: Scaffold(
+          backgroundColor: HexColor(dark),
+          body: Padding(
+            padding: EdgeInsets.fromLTRB(20, 10, 20, 0),
+            child: Column(
+              children: [
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: chatList.length + (showTypingAnimation ? 1 : 0),
                     controller: scrollController,
                     itemBuilder: (BuildContext context, int index) {
+                      if (index == chatList.length) {
+                        return TypingAnimation();
+                      }
                       return Padding(
                         padding: EdgeInsets.only(bottom: 20),
                         child: Row(
-                            mainAxisAlignment:
-                                chatList[index].role == 'assistant'
-                                    ? MainAxisAlignment.start
-                                    : MainAxisAlignment.end,
-                            children: [
-                              Container(
-                                constraints: BoxConstraints(maxWidth: maxWidth),
-                                padding: EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                  color: HexColor(secondary),
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: Text(
-                                  chatList[index].message,
-                                  style: TextStyle(color: HexColor(white)),
-                                ),
+                          mainAxisAlignment:
+                              chatList[index].role == 'assistant'
+                                  ? MainAxisAlignment.start
+                                  : MainAxisAlignment.end,
+                          children: [
+                            Container(
+                              constraints: BoxConstraints(maxWidth: maxWidth),
+                              padding: EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                color: HexColor(secondary),
+                                borderRadius: BorderRadius.circular(10),
                               ),
-                            ]),
+                              child: Text(
+                                chatList[index].message,
+                                style: TextStyle(color: HexColor(white)),
+                              ),
+                            ),
+                          ],
+                        ),
                       );
-                    })),
-            Row(
-              children: [
-                Expanded(
-                  child: TextField(
-                    keyboardType: TextInputType.multiline,
-                    controller: textController,
-                    maxLines: null,
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                    cursorColor: Colors.black,
-                    decoration: InputDecoration(
-                      hintText: S.of(context).message,
-                      hintStyle: TextStyle(
-                          color: Colors.grey, fontWeight: FontWeight.normal),
-                      filled: true,
-                      fillColor: Colors.white,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
-                        borderSide: BorderSide(color: Colors.transparent),
-                      ),
-                    ),
+                    },
                   ),
                 ),
-                SizedBox(width: 10),
-                SizedBox(
-                  width: 50,
-                  height: 50,
-                  child: IconButton(
-                      onPressed: onSave,
-                      style: ButtonStyle(
-                          backgroundColor:
-                              WidgetStatePropertyAll<Color>(Colors.white)),
-                      icon: Icon(
-                        Icons.arrow_forward,
-                        color: HexColor(dark),
-                        size: 25,
-                      )),
+                Row(
+                  children: [
+                    Expanded(
+                      child: TextField(
+                        keyboardType: TextInputType.multiline,
+                        controller: textController,
+                        maxLines: null,
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                        cursorColor: Colors.black,
+                        decoration: InputDecoration(
+                          hintText: S.of(context).message,
+                          hintStyle: TextStyle(
+                            color: Colors.grey,
+                            fontWeight: FontWeight.normal,
+                          ),
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20),
+                            borderSide: BorderSide(color: Colors.transparent),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 10),
+                    SizedBox(
+                      width: 50,
+                      height: 50,
+                      child: IconButton(
+                        onPressed: onSave,
+                        style: ButtonStyle(
+                          backgroundColor: WidgetStatePropertyAll<Color>(
+                            Colors.white,
+                          ),
+                        ),
+                        icon: Icon(
+                          Icons.arrow_forward,
+                          color: HexColor(dark),
+                          size: 25,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
+                SizedBox(height: 10),
               ],
             ),
-            SizedBox(height: 10),
-          ]),
+          ),
         ),
-      )),
+      ),
     );
   }
 }
