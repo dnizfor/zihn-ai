@@ -18,5 +18,6 @@
     "goPremiumButtonTitle": "Premium werden!",
     "notificationSettingsButtonTitle": "Benachrichtigungen",
     "rateUsButtonTitle": "Bewerte uns!",
-    "supportButtonTitle": "Kundendienst & Rückmeldung"
+    "supportButtonTitle": "Kundendienst & Rückmeldung",
+    "networkErrorTitle": "Huch! Kein Internet"
 }

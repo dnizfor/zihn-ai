@@ -18,5 +18,6 @@
     "goPremiumButtonTitle": "Premium Ol!",
     "notificationSettingsButtonTitle": "Bildirimler",
     "rateUsButtonTitle": "Bizi Değerlendir!",
-    "supportButtonTitle": "Destek & Geri Bildirim"
+    "supportButtonTitle": "Destek & Geri Bildirim",
+    "networkErrorTitle": "Aman! İnternet Yok"
 }

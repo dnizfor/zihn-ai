@@ -18,5 +18,6 @@
     "goPremiumButtonTitle": "升级为高级版！",
     "notificationSettingsButtonTitle": "通知",
     "rateUsButtonTitle": "给我们评分！",
-    "supportButtonTitle": "支持与反馈"
+    "supportButtonTitle": "支持与反馈",
+    "networkErrorTitle": "哎呀！没有互联网"
 }

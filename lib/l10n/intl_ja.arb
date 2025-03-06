@@ -18,5 +18,6 @@
     "goPremiumButtonTitle": "プレミアムになる！",
     "notificationSettingsButtonTitle": "通知",
     "rateUsButtonTitle": "評価する！",
-    "supportButtonTitle": "サポート＆フィードバック"
+    "supportButtonTitle": "サポート＆フィードバック",
+    "networkErrorTitle": "おっと！インターネットがありません"
 }

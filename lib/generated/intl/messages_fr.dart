@@ -26,6 +26,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Devenir Premium !",
     ),
     "message": MessageLookupByLibrary.simpleMessage("Message"),
+    "networkErrorTitle": MessageLookupByLibrary.simpleMessage(
+      "Oups! Pas d\'Internet",
+    ),
     "notificationSettingsButtonTitle": MessageLookupByLibrary.simpleMessage(
       "Notifications",
     ),

@@ -18,5 +18,6 @@
     "goPremiumButtonTitle": "프리미엄 되기!",
     "notificationSettingsButtonTitle": "알림",
     "rateUsButtonTitle": "평가하기!",
-    "supportButtonTitle": "지원 및 피드백"
+    "supportButtonTitle": "지원 및 피드백",
+    "networkErrorTitle": "어머! 인터넷 없음"
 }

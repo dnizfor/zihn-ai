@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "goPremiumButtonTitle": MessageLookupByLibrary.simpleMessage("프리미엄 되기!"),
     "message": MessageLookupByLibrary.simpleMessage("메시지"),
+    "networkErrorTitle": MessageLookupByLibrary.simpleMessage("어머! 인터넷 없음"),
     "notificationSettingsButtonTitle": MessageLookupByLibrary.simpleMessage(
       "알림",
     ),

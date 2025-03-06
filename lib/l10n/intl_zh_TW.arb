@@ -18,5 +18,6 @@
     "goPremiumButtonTitle": "升級為高級版",
     "notificationSettingsButtonTitle": "通知",
     "rateUsButtonTitle": "給我們評分！",
-    "supportButtonTitle": "支援與回饋"
+    "supportButtonTitle": "支援與回饋",
+    "networkErrorTitle": "哎呀！沒有網路"
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:zihnai/generated/l10n.dart';
 import 'package:zihnai/ultils/constant/color.dart';
 
 class NetworkError extends StatefulWidget {
@@ -15,26 +16,24 @@ class _NetworkErrorState extends State<NetworkError> {
     return Scaffold(
       backgroundColor: HexColor(dark),
       body: Center(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            Icons.wifi_off,
-            color: HexColor(primary),
-            size: 150,
-          ),
-          Padding(
-            padding: EdgeInsets.only(top: 50),
-            child: Text(
-              'Oops! No Internet',
-              style: TextStyle(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.wifi_off, color: HexColor(primary), size: 150),
+            Padding(
+              padding: EdgeInsets.only(top: 50),
+              child: Text(
+                S.of(context).networkErrorTitle,
+                style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: HexColor(white),
-                  fontSize: 25),
+                  fontSize: 25,
+                ),
+              ),
             ),
-          )
-        ],
-      )),
+          ],
+        ),
+      ),
     );
   }
 }

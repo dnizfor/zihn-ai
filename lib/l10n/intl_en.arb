@@ -18,5 +18,6 @@
     "goPremiumButtonTitle": "Be Premium!",
     "notificationSettingsButtonTitle": "Notifications",
     "rateUsButtonTitle": "Rate Us!",
-    "supportButtonTitle": "Support & Feedback"
+    "supportButtonTitle": "Support & Feedback",
+    "networkErrorTitle": "Oops! No Internet"
 }

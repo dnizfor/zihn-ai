@@ -239,6 +239,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Oops! No Internet`
+  String get networkErrorTitle {
+    return Intl.message(
+      'Oops! No Internet',
+      name: 'networkErrorTitle',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
