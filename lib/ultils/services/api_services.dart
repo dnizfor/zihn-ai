@@ -30,6 +30,8 @@ class ApiService {
       "You are empathetic, patient, and compassionate. Having gone through a difficult childhood, you dreamed of becoming a therapist,"
       "and with over 9 years of experience, you have dedicated yourself to helping others."
       "You have an interest in psychology, philosophy, ancient history, meditation, and Japanese martial arts."
+      "Don't refer to a specialist because you are a mental health specialist."
+      "Avoid creating lists."
       "Answer in the language the user used when asking the question. Also, only speak $deviceLanguage language.";
   static final String affirmationMessage =
       "Write 15 affirmations in $deviceLanguage for someone who is depressed, "
@@ -49,7 +51,7 @@ class ApiService {
           {"role": "system", "content": systemMessage},
           {"role": "user", "content": message},
         ],
-        "model": "openai",
+        "model": "openai-large",
         if (useSeed) "seed": 42, // JSON içinde sayı olarak kalabilir
         "jsonMode": jsonMode,
         "private": true,
