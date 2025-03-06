@@ -15,55 +15,61 @@ class SettingsScreen extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: SafeArea(
-          child: Scaffold(
-        backgroundColor: HexColor(dark),
-        body: Padding(
-          padding: EdgeInsets.fromLTRB(20, 10, 20, 0),
-          child: Column(
-            children: [
-              Expanded(
-                child: ListView(
-                  children: [
-                    Image.asset(
-                      'lib/assets/images/sunset.jpg',
-                      height: 150,
-                      fit: BoxFit.cover,
-                      width: double.infinity,
-                    ),
-                    SizedBox(height: 10),
-                    SettingButton(
-                      title: S.of(context).goPremiumButtonTitle,
-                      onTap: () {},
-                    ),
-                    SizedBox(height: 10),
-                    SettingButton(
-                      title: S.of(context).notificationSettingsButtonTitle,
-                      onTap: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  const NotificationSettingScreen()),
-                        );
-                      },
-                    ),
-                    SizedBox(height: 10),
-                    SettingButton(
+        child: Scaffold(
+          backgroundColor: HexColor(dark),
+          body: Padding(
+            padding: EdgeInsets.fromLTRB(20, 10, 20, 0),
+            child: Column(
+              children: [
+                Expanded(
+                  child: ListView(
+                    children: [
+                      Image.asset(
+                        'lib/assets/images/sunset.jpg',
+                        height: 150,
+                        fit: BoxFit.cover,
+                        width: double.infinity,
+                      ),
+                      SizedBox(height: 10),
+                      SettingButton(
+                        title: S.of(context).goPremiumButtonTitle,
+                        onTap: () {},
+                      ),
+                      SizedBox(height: 10),
+                      SettingButton(
+                        title: S.of(context).notificationSettingsButtonTitle,
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder:
+                                  (context) =>
+                                      const NotificationSettingScreen(),
+                            ),
+                          );
+                        },
+                      ),
+                      SizedBox(height: 10),
+                      SettingButton(
                         title: S.of(context).rateUsButtonTitle,
-                        onTap: () => StoreRedirect.redirect(
-                            androidAppId: "com.iyaffle.rangoli",
-                            iOSAppId: "585027354")),
-                    SizedBox(height: 10),
-                    SettingButton(
-                      title: S.of(context).supportButtonTitle,
-                      onTap: () => sendMail('Support Zihn AI'),
-                    ),
-                  ],
+                        onTap:
+                            () => StoreRedirect.redirect(
+                              androidAppId: "com.viralmo.zihnai",
+                              iOSAppId: "6742706069",
+                            ),
+                      ),
+                      SizedBox(height: 10),
+                      SettingButton(
+                        title: S.of(context).supportButtonTitle,
+                        onTap: () => sendMail('Support Zihn AI'),
+                      ),
+                    ],
+                  ),
                 ),
-              )
-            ],
+              ],
+            ),
           ),
         ),
-      )),
+      ),
     );
   }
 }
