@@ -3,7 +3,7 @@ import 'package:flutter_email_sender/flutter_email_sender.dart';
 Future<void> sendMail(String subject) async {
   final Email email = Email(
     subject: subject,
-    recipients: ['zihnai@lingovido.com'],
+    recipients: ['zihnai@viralmo.com'],
     isHTML: false,
   );
 
