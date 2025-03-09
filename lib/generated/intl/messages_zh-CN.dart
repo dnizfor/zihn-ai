@@ -22,9 +22,13 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "discountLabel": MessageLookupByLibrary.simpleMessage("%80 折扣"),
+    "firstBenefitTitle": MessageLookupByLibrary.simpleMessage("高级AI体验"),
     "goPremiumButtonTitle": MessageLookupByLibrary.simpleMessage("升级为高级版！"),
     "message": MessageLookupByLibrary.simpleMessage("消息"),
+    "monthlyOfferTitle": MessageLookupByLibrary.simpleMessage("每月"),
     "networkErrorTitle": MessageLookupByLibrary.simpleMessage("哎呀！没有互联网"),
+    "noCommitmentText": MessageLookupByLibrary.simpleMessage("没有承诺，随时取消。"),
     "notificationSettingsButtonTitle": MessageLookupByLibrary.simpleMessage(
       "通知",
     ),
@@ -52,6 +56,8 @@ class MessageLookup extends MessageLookupByLibrary {
       "我们将在您指定的时间发送提醒，以确保您的日常治疗过程不受干扰。",
     ),
     "onboardingReminderTitle": MessageLookupByLibrary.simpleMessage("设置治疗提醒"),
+    "payNowTitle": MessageLookupByLibrary.simpleMessage("立即体验"),
+    "paywallTitle": MessageLookupByLibrary.simpleMessage("获得高级特权"),
     "rateUsButtonTitle": MessageLookupByLibrary.simpleMessage("给我们评分！"),
     "reminderButtonTitle": MessageLookupByLibrary.simpleMessage("启用治疗提醒"),
     "reminderNotificationBody": MessageLookupByLibrary.simpleMessage(
@@ -60,7 +66,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "reminderNotificationTitle": MessageLookupByLibrary.simpleMessage(
       "准备好聊天了吗？😊",
     ),
+    "renewalInfoText": MessageLookupByLibrary.simpleMessage(
+      "购买时将收费，除非取消，否则将在账单期结束时自动续订。",
+    ),
+    "secondBenefitTitle": MessageLookupByLibrary.simpleMessage("语音助手支持"),
     "supportButtonTitle": MessageLookupByLibrary.simpleMessage("支持与反馈"),
+    "thirdBenefitTitle": MessageLookupByLibrary.simpleMessage("可自定义的肯定语"),
     "timePickerDescription": MessageLookupByLibrary.simpleMessage("为您的治疗设置提醒。"),
+    "yearlyOfferTitle": MessageLookupByLibrary.simpleMessage("年度"),
   };
 }

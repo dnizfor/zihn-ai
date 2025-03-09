@@ -19,5 +19,15 @@
     "notificationSettingsButtonTitle": "通知",
     "rateUsButtonTitle": "評価する！",
     "supportButtonTitle": "サポート＆フィードバック",
-    "networkErrorTitle": "おっと！インターネットがありません"
+    "networkErrorTitle": "おっと！インターネットがありません",
+    "paywallTitle": "プレミアム特典を手に入れよう",
+    "firstBenefitTitle": "高度なAI体験",
+    "secondBenefitTitle": "音声アシスタントサポート",
+    "thirdBenefitTitle": "カスタマイズ可能なアファメーション",
+    "yearlyOfferTitle": "年間",
+    "discountLabel": "%80 割引",
+    "monthlyOfferTitle": "月額",
+    "noCommitmentText": "契約なし、いつでもキャンセル可能。",
+    "payNowTitle": "今すぐ試す",
+    "renewalInfoText": "購入時に料金が発生し、キャンセルしない限り請求期間の終了時に自動更新されます。"
 }

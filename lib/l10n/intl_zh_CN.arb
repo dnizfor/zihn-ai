@@ -19,5 +19,15 @@
     "notificationSettingsButtonTitle": "通知",
     "rateUsButtonTitle": "给我们评分！",
     "supportButtonTitle": "支持与反馈",
-    "networkErrorTitle": "哎呀！没有互联网"
+    "networkErrorTitle": "哎呀！没有互联网",
+    "paywallTitle": "获得高级特权",
+    "firstBenefitTitle": "高级AI体验",
+    "secondBenefitTitle": "语音助手支持",
+    "thirdBenefitTitle": "可自定义的肯定语",
+    "yearlyOfferTitle": "年度",
+    "discountLabel": "%80 折扣",
+    "monthlyOfferTitle": "每月",
+    "noCommitmentText": "没有承诺，随时取消。",
+    "payNowTitle": "立即体验",
+    "renewalInfoText": "购买时将收费，除非取消，否则将在账单期结束时自动续订。"
 }

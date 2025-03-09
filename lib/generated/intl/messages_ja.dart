@@ -22,10 +22,16 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "discountLabel": MessageLookupByLibrary.simpleMessage("%80 割引"),
+    "firstBenefitTitle": MessageLookupByLibrary.simpleMessage("高度なAI体験"),
     "goPremiumButtonTitle": MessageLookupByLibrary.simpleMessage("プレミアムになる！"),
     "message": MessageLookupByLibrary.simpleMessage("メッセージ"),
+    "monthlyOfferTitle": MessageLookupByLibrary.simpleMessage("月額"),
     "networkErrorTitle": MessageLookupByLibrary.simpleMessage(
       "おっと！インターネットがありません",
+    ),
+    "noCommitmentText": MessageLookupByLibrary.simpleMessage(
+      "契約なし、いつでもキャンセル可能。",
     ),
     "notificationSettingsButtonTitle": MessageLookupByLibrary.simpleMessage(
       "通知",
@@ -58,6 +64,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "onboardingReminderTitle": MessageLookupByLibrary.simpleMessage(
       "セラピーリマインダーを設定",
     ),
+    "payNowTitle": MessageLookupByLibrary.simpleMessage("今すぐ試す"),
+    "paywallTitle": MessageLookupByLibrary.simpleMessage("プレミアム特典を手に入れよう"),
     "rateUsButtonTitle": MessageLookupByLibrary.simpleMessage("評価する！"),
     "reminderButtonTitle": MessageLookupByLibrary.simpleMessage(
       "セラピーリマインダーを有効にする",
@@ -68,9 +76,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "reminderNotificationTitle": MessageLookupByLibrary.simpleMessage(
       "お話しする準備はできましたか？ 😊",
     ),
+    "renewalInfoText": MessageLookupByLibrary.simpleMessage(
+      "購入時に料金が発生し、キャンセルしない限り請求期間の終了時に自動更新されます。",
+    ),
+    "secondBenefitTitle": MessageLookupByLibrary.simpleMessage("音声アシスタントサポート"),
     "supportButtonTitle": MessageLookupByLibrary.simpleMessage("サポート＆フィードバック"),
+    "thirdBenefitTitle": MessageLookupByLibrary.simpleMessage(
+      "カスタマイズ可能なアファメーション",
+    ),
     "timePickerDescription": MessageLookupByLibrary.simpleMessage(
       "セラピーのリマインダーを設定しましょう。",
     ),
+    "yearlyOfferTitle": MessageLookupByLibrary.simpleMessage("年間"),
   };
 }

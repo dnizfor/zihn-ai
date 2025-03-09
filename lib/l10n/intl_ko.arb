@@ -19,5 +19,15 @@
     "notificationSettingsButtonTitle": "알림",
     "rateUsButtonTitle": "평가하기!",
     "supportButtonTitle": "지원 및 피드백",
-    "networkErrorTitle": "어머! 인터넷 없음"
+    "networkErrorTitle": "어머! 인터넷 없음",
+    "paywallTitle": "프리미엄 혜택을 얻으세요",
+    "firstBenefitTitle": "고급 AI 경험",
+    "secondBenefitTitle": "음성 비서 지원",
+    "thirdBenefitTitle": "사용자 정의 가능한 확언",
+    "yearlyOfferTitle": "연간",
+    "discountLabel": "%80 할인",
+    "monthlyOfferTitle": "월간",
+    "noCommitmentText": "계약 없음, 언제든지 취소 가능합니다.",
+    "payNowTitle": "지금 체험하기",
+    "renewalInfoText": "구매 시 요금이 부과되며, 취소하지 않으면 청구 기간 종료 시 자동 갱신됩니다."
 }

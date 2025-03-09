@@ -19,5 +19,15 @@
     "notificationSettingsButtonTitle": "通知",
     "rateUsButtonTitle": "給我們評分！",
     "supportButtonTitle": "支援與回饋",
-    "networkErrorTitle": "哎呀！沒有網路"
+    "networkErrorTitle": "哎呀！沒有網路",
+    "paywallTitle": "獲得高級特權",
+    "firstBenefitTitle": "高級AI體驗",
+    "secondBenefitTitle": "語音助手支持",
+    "thirdBenefitTitle": "可自定義的肯定語",
+    "yearlyOfferTitle": "年費",
+    "discountLabel": "%80 折扣",
+    "monthlyOfferTitle": "每月",
+    "noCommitmentText": "無承諾，隨時取消。",
+    "payNowTitle": "立即體驗",
+    "renewalInfoText": "您將在購買時收費，除非取消，否則將在帳單期結束時自動續訂。"
 }

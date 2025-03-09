@@ -19,5 +19,15 @@
     "notificationSettingsButtonTitle": "Notifications",
     "rateUsButtonTitle": "Rate Us!",
     "supportButtonTitle": "Support & Feedback",
-    "networkErrorTitle": "Oops! No Internet"
+    "networkErrorTitle": "Oops! No Internet",
+    "paywallTitle": "Get Premium Benefits",
+    "firstBenefitTitle": "Advanced AI Experience",
+    "secondBenefitTitle": "Voice Assistant Support",
+    "thirdBenefitTitle": "Customizable Affirmations",
+    "yearlyOfferTitle": "Yearly",
+    "discountLabel": "%80 Discount",
+    "monthlyOfferTitle": "Monthly",
+    "noCommitmentText": "No commitment, cancel anytime.",
+    "payNowTitle": "Try Now",
+    "renewalInfoText": "You will be charged at the time of purchase and will renew automatically at the end of the billing period unless cancelled."
 }

@@ -19,5 +19,15 @@
     "notificationSettingsButtonTitle": "Notifications",
     "rateUsButtonTitle": "Évaluez-nous !",
     "supportButtonTitle": "Assistance & Retour",
-    "networkErrorTitle": "Oups! Pas d'Internet"
+    "networkErrorTitle": "Oups! Pas d'Internet",
+    "paywallTitle": "Bénéficiez d'avantages Premium",
+    "firstBenefitTitle": "Expérience IA Avancée",
+    "secondBenefitTitle": "Assistance par Assistant Vocal",
+    "thirdBenefitTitle": "Affirmations Personnalisables",
+    "yearlyOfferTitle": "Annuel",
+    "discountLabel": "%80 de Réduction",
+    "monthlyOfferTitle": "Mensuel",
+    "noCommitmentText": "Aucun engagement, annulez à tout moment.",
+    "payNowTitle": "Essayez Maintenant",
+    "renewalInfoText": "Vous serez facturé lors de l'achat et la période de facturation sera renouvelée automatiquement sauf si annulée."
 }

@@ -19,5 +19,15 @@
     "notificationSettingsButtonTitle": "Bildirimler",
     "rateUsButtonTitle": "Bizi Değerlendir!",
     "supportButtonTitle": "Destek & Geri Bildirim",
-    "networkErrorTitle": "Aman! İnternet Yok"
+    "networkErrorTitle": "Aman! İnternet Yok",
+    "paywallTitle": "Premium Ayrıcalıklara Sahip Olun",
+    "firstBenefitTitle": "Gelişmiş Yapay Zeka Deneyimi",
+    "secondBenefitTitle": "Sesli Asistan Desteği",
+    "thirdBenefitTitle": "Kişiselleştirilebilir Olumlamalar",
+    "yearlyOfferTitle": "Yıllık",
+    "discountLabel": "%80 İndirim",
+    "monthlyOfferTitle": "Aylık",
+    "noCommitmentText": "Taahhüt yok, istediğiniz zaman iptal edin.",
+    "payNowTitle": "Şimdi Deneyin",
+    "renewalInfoText": "Satın alma işlemi sırasında ödeme yaparsınız ve iptal etmediğiniz sürece fatura dönemi sonunda otomatik olarak yenilenir."
 }

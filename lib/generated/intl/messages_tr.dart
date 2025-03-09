@@ -22,10 +22,18 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "discountLabel": MessageLookupByLibrary.simpleMessage("%80 İndirim"),
+    "firstBenefitTitle": MessageLookupByLibrary.simpleMessage(
+      "Gelişmiş Yapay Zeka Deneyimi",
+    ),
     "goPremiumButtonTitle": MessageLookupByLibrary.simpleMessage("Premium Ol!"),
     "message": MessageLookupByLibrary.simpleMessage("Mesaj"),
+    "monthlyOfferTitle": MessageLookupByLibrary.simpleMessage("Aylık"),
     "networkErrorTitle": MessageLookupByLibrary.simpleMessage(
       "Aman! İnternet Yok",
+    ),
+    "noCommitmentText": MessageLookupByLibrary.simpleMessage(
+      "Taahhüt yok, istediğiniz zaman iptal edin.",
     ),
     "notificationSettingsButtonTitle": MessageLookupByLibrary.simpleMessage(
       "Bildirimler",
@@ -60,6 +68,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "onboardingReminderTitle": MessageLookupByLibrary.simpleMessage(
       "Terapi Hatırlatıcısı Ayarla",
     ),
+    "payNowTitle": MessageLookupByLibrary.simpleMessage("Şimdi Deneyin"),
+    "paywallTitle": MessageLookupByLibrary.simpleMessage(
+      "Premium Ayrıcalıklara Sahip Olun",
+    ),
     "rateUsButtonTitle": MessageLookupByLibrary.simpleMessage(
       "Bizi Değerlendir!",
     ),
@@ -72,11 +84,21 @@ class MessageLookup extends MessageLookupByLibrary {
     "reminderNotificationTitle": MessageLookupByLibrary.simpleMessage(
       "Konuşmaya Hazır mısınız? 😊",
     ),
+    "renewalInfoText": MessageLookupByLibrary.simpleMessage(
+      "Satın alma işlemi sırasında ödeme yaparsınız ve iptal etmediğiniz sürece fatura dönemi sonunda otomatik olarak yenilenir.",
+    ),
+    "secondBenefitTitle": MessageLookupByLibrary.simpleMessage(
+      "Sesli Asistan Desteği",
+    ),
     "supportButtonTitle": MessageLookupByLibrary.simpleMessage(
       "Destek & Geri Bildirim",
+    ),
+    "thirdBenefitTitle": MessageLookupByLibrary.simpleMessage(
+      "Kişiselleştirilebilir Olumlamalar",
     ),
     "timePickerDescription": MessageLookupByLibrary.simpleMessage(
       "Terapiniz için hatırlatıcılar ayarlayın.",
     ),
+    "yearlyOfferTitle": MessageLookupByLibrary.simpleMessage("Yıllık"),
   };
 }

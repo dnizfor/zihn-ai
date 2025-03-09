@@ -249,6 +249,96 @@ class S {
       args: [],
     );
   }
+
+  /// `Get Premium Benefits`
+  String get paywallTitle {
+    return Intl.message(
+      'Get Premium Benefits',
+      name: 'paywallTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Advanced AI Experience`
+  String get firstBenefitTitle {
+    return Intl.message(
+      'Advanced AI Experience',
+      name: 'firstBenefitTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Voice Assistant Support`
+  String get secondBenefitTitle {
+    return Intl.message(
+      'Voice Assistant Support',
+      name: 'secondBenefitTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Customizable Affirmations`
+  String get thirdBenefitTitle {
+    return Intl.message(
+      'Customizable Affirmations',
+      name: 'thirdBenefitTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Yearly`
+  String get yearlyOfferTitle {
+    return Intl.message('Yearly', name: 'yearlyOfferTitle', desc: '', args: []);
+  }
+
+  /// `%80 Discount`
+  String get discountLabel {
+    return Intl.message(
+      '%80 Discount',
+      name: 'discountLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Monthly`
+  String get monthlyOfferTitle {
+    return Intl.message(
+      'Monthly',
+      name: 'monthlyOfferTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No commitment, cancel anytime.`
+  String get noCommitmentText {
+    return Intl.message(
+      'No commitment, cancel anytime.',
+      name: 'noCommitmentText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Try Now`
+  String get payNowTitle {
+    return Intl.message('Try Now', name: 'payNowTitle', desc: '', args: []);
+  }
+
+  /// `You will be charged at the time of purchase and will renew automatically at the end of the billing period unless cancelled.`
+  String get renewalInfoText {
+    return Intl.message(
+      'You will be charged at the time of purchase and will renew automatically at the end of the billing period unless cancelled.',
+      name: 'renewalInfoText',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

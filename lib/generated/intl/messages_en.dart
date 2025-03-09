@@ -22,10 +22,18 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "discountLabel": MessageLookupByLibrary.simpleMessage("%80 Discount"),
+    "firstBenefitTitle": MessageLookupByLibrary.simpleMessage(
+      "Advanced AI Experience",
+    ),
     "goPremiumButtonTitle": MessageLookupByLibrary.simpleMessage("Be Premium!"),
     "message": MessageLookupByLibrary.simpleMessage("Message"),
+    "monthlyOfferTitle": MessageLookupByLibrary.simpleMessage("Monthly"),
     "networkErrorTitle": MessageLookupByLibrary.simpleMessage(
       "Oops! No Internet",
+    ),
+    "noCommitmentText": MessageLookupByLibrary.simpleMessage(
+      "No commitment, cancel anytime.",
     ),
     "notificationSettingsButtonTitle": MessageLookupByLibrary.simpleMessage(
       "Notifications",
@@ -60,6 +68,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "onboardingReminderTitle": MessageLookupByLibrary.simpleMessage(
       "Set Therapy Reminder",
     ),
+    "payNowTitle": MessageLookupByLibrary.simpleMessage("Try Now"),
+    "paywallTitle": MessageLookupByLibrary.simpleMessage(
+      "Get Premium Benefits",
+    ),
     "rateUsButtonTitle": MessageLookupByLibrary.simpleMessage("Rate Us!"),
     "reminderButtonTitle": MessageLookupByLibrary.simpleMessage(
       "Enable Therapy Reminder",
@@ -70,11 +82,21 @@ class MessageLookup extends MessageLookupByLibrary {
     "reminderNotificationTitle": MessageLookupByLibrary.simpleMessage(
       "Ready to Talk? 😊",
     ),
+    "renewalInfoText": MessageLookupByLibrary.simpleMessage(
+      "You will be charged at the time of purchase and will renew automatically at the end of the billing period unless cancelled.",
+    ),
+    "secondBenefitTitle": MessageLookupByLibrary.simpleMessage(
+      "Voice Assistant Support",
+    ),
     "supportButtonTitle": MessageLookupByLibrary.simpleMessage(
       "Support & Feedback",
+    ),
+    "thirdBenefitTitle": MessageLookupByLibrary.simpleMessage(
+      "Customizable Affirmations",
     ),
     "timePickerDescription": MessageLookupByLibrary.simpleMessage(
       "Set reminders for your therapy.",
     ),
+    "yearlyOfferTitle": MessageLookupByLibrary.simpleMessage("Yearly"),
   };
 }

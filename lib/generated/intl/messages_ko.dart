@@ -22,9 +22,15 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "discountLabel": MessageLookupByLibrary.simpleMessage("%80 할인"),
+    "firstBenefitTitle": MessageLookupByLibrary.simpleMessage("고급 AI 경험"),
     "goPremiumButtonTitle": MessageLookupByLibrary.simpleMessage("프리미엄 되기!"),
     "message": MessageLookupByLibrary.simpleMessage("메시지"),
+    "monthlyOfferTitle": MessageLookupByLibrary.simpleMessage("월간"),
     "networkErrorTitle": MessageLookupByLibrary.simpleMessage("어머! 인터넷 없음"),
+    "noCommitmentText": MessageLookupByLibrary.simpleMessage(
+      "계약 없음, 언제든지 취소 가능합니다.",
+    ),
     "notificationSettingsButtonTitle": MessageLookupByLibrary.simpleMessage(
       "알림",
     ),
@@ -56,6 +62,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "onboardingReminderTitle": MessageLookupByLibrary.simpleMessage(
       "테라피 알림 설정",
     ),
+    "payNowTitle": MessageLookupByLibrary.simpleMessage("지금 체험하기"),
+    "paywallTitle": MessageLookupByLibrary.simpleMessage("프리미엄 혜택을 얻으세요"),
     "rateUsButtonTitle": MessageLookupByLibrary.simpleMessage("평가하기!"),
     "reminderButtonTitle": MessageLookupByLibrary.simpleMessage("테라피 알림 활성화"),
     "reminderNotificationBody": MessageLookupByLibrary.simpleMessage(
@@ -64,9 +72,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "reminderNotificationTitle": MessageLookupByLibrary.simpleMessage(
       "대화할 준비가 되었나요? 😊",
     ),
+    "renewalInfoText": MessageLookupByLibrary.simpleMessage(
+      "구매 시 요금이 부과되며, 취소하지 않으면 청구 기간 종료 시 자동 갱신됩니다.",
+    ),
+    "secondBenefitTitle": MessageLookupByLibrary.simpleMessage("음성 비서 지원"),
     "supportButtonTitle": MessageLookupByLibrary.simpleMessage("지원 및 피드백"),
+    "thirdBenefitTitle": MessageLookupByLibrary.simpleMessage("사용자 정의 가능한 확언"),
     "timePickerDescription": MessageLookupByLibrary.simpleMessage(
       "테라피 알림을 설정하세요.",
     ),
+    "yearlyOfferTitle": MessageLookupByLibrary.simpleMessage("연간"),
   };
 }

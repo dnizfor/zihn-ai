@@ -19,5 +19,15 @@
     "notificationSettingsButtonTitle": "Benachrichtigungen",
     "rateUsButtonTitle": "Bewerte uns!",
     "supportButtonTitle": "Kundendienst & Rückmeldung",
-    "networkErrorTitle": "Huch! Kein Internet"
+    "networkErrorTitle": "Huch! Kein Internet",
+    "paywallTitle": "Erhalte Premium-Vorteile",
+    "firstBenefitTitle": "Erweiterte KI-Erfahrung",
+    "secondBenefitTitle": "Sprachassistent-Unterstützung",
+    "thirdBenefitTitle": "Anpassbare Bestätigungen",
+    "yearlyOfferTitle": "Jährlich",
+    "discountLabel": "%80 Rabatt",
+    "monthlyOfferTitle": "Monatlich",
+    "noCommitmentText": "Keine Verpflichtung, jederzeit kündbar.",
+    "payNowTitle": "Jetzt ausprobieren",
+    "renewalInfoText": "Sie werden zum Zeitpunkt des Kaufs belastet und die Rechnungsperiode wird am Ende automatisch verlängert, es sei denn, sie wird storniert."
 }

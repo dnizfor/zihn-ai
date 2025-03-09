@@ -4,6 +4,7 @@ import 'package:zihnai/generated/l10n.dart';
 import 'package:zihnai/screens/settings/notification_settings.dart';
 import 'package:zihnai/ultils/constant/color.dart';
 import 'package:zihnai/ultils/functions/send_mail.dart';
+import 'package:zihnai/widgets/paywall_dialog.dart';
 import 'package:zihnai/widgets/setting_button.dart';
 import 'package:store_redirect/store_redirect.dart';
 
@@ -33,7 +34,16 @@ class SettingsScreen extends StatelessWidget {
                       SizedBox(height: 10),
                       SettingButton(
                         title: S.of(context).goPremiumButtonTitle,
-                        onTap: () {},
+                        onTap:
+                            () => showDialog(
+                              context: context,
+                              builder: (context) {
+                                return Dialog.fullscreen(
+                                  backgroundColor: HexColor(dark),
+                                  child: PaywallDialog(),
+                                );
+                              },
+                            ),
                       ),
                       SizedBox(height: 10),
                       SettingButton(
