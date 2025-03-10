@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
 import 'package:zihnai/generated/l10n.dart';
+import 'package:zihnai/screens/chat/voice_chat.dart';
 import 'package:zihnai/ultils/classes/chat_class.dart';
 import 'package:zihnai/ultils/constant/color.dart';
 import 'package:zihnai/ultils/providers/chat_provider.dart';
@@ -17,6 +18,9 @@ class ChatScreen extends StatefulWidget {
 
 class _ChatScreenState extends State<ChatScreen> {
   final ScrollController scrollController = ScrollController();
+  final TextEditingController textController = TextEditingController();
+  String userMessage = '';
+
   bool showTypingAnimation = false;
   void onFocusEnd() {
     Future.delayed(Duration(milliseconds: 100), () {
@@ -30,36 +34,53 @@ class _ChatScreenState extends State<ChatScreen> {
     });
   }
 
+  void updateUserMessage() {
+    final text = textController.text;
+    setState(() {
+      userMessage = text;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    textController.addListener(updateUserMessage);
+  }
+
   @override
   void dispose() {
-    scrollController.dispose(); // ✅ Bellek sızıntısını önlemek için kapat
+    scrollController.dispose();
+    textController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     final chatList = context.watch<ChatProvider>().chatList;
-
     ApiService chatService = ApiService();
     double maxWidth = MediaQuery.of(context).size.width * 0.8;
-    TextEditingController textController = TextEditingController();
 
     onSave() async {
-      context.read<ChatProvider>().setChat(
-        Chat(role: 'user', message: textController.text),
-      );
+      String usrMsg = textController.text;
+      textController.clear();
+      if (usrMsg.trim() == '') {
+        Navigator.of(context).push(
+          MaterialPageRoute(builder: (context) => const VoiceChatScreen()),
+        );
+        return;
+      }
+      context.read<ChatProvider>().setChat(Chat(role: 'user', message: usrMsg));
       onFocusEnd();
       setState(() {
         showTypingAnimation = true;
       });
       String response = await chatService.sendRequest(
-        textController.text,
+        usrMsg,
         ApiService.createMessageWithHistory(
           ApiService.systemTherapistMessage,
           chatList,
         ),
       );
-      textController.clear();
       if (context.mounted) {
         context.read<ChatProvider>().setChat(
           Chat(role: 'assistant', message: response),
@@ -154,7 +175,9 @@ class _ChatScreenState extends State<ChatScreen> {
                           ),
                         ),
                         icon: Icon(
-                          Icons.arrow_forward,
+                          userMessage.trim() == ""
+                              ? Icons.mic
+                              : Icons.arrow_forward,
                           color: HexColor(dark),
                           size: 25,
                         ),

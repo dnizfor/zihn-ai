@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:zihnai/screens/chat.dart';
+import 'package:zihnai/screens/chat/chat.dart';
 import 'package:zihnai/screens/feed.dart';
 import 'package:zihnai/screens/settings/settings.dart';
 import 'package:zihnai/ultils/constant/color.dart';
@@ -15,17 +15,11 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int _currenIndex = 0;
-  List<Widget> body = const [
-    FeedScreen(),
-    ChatScreen(),
-    SettingsScreen(),
-  ];
+  List<Widget> body = const [FeedScreen(), ChatScreen(), SettingsScreen()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: body[_currenIndex],
-      ),
+      body: Center(child: body[_currenIndex]),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: HexColor(dark),
         selectedItemColor: HexColor(primary),
@@ -38,7 +32,9 @@ class _HomeState extends State<Home> {
           BottomNavigationBarItem(icon: Icon(Ionicons.bookmark), label: 'feed'),
           BottomNavigationBarItem(icon: Icon(Ionicons.bonfire), label: 'chat'),
           BottomNavigationBarItem(
-              icon: Icon(Ionicons.settings_sharp), label: 'settings'),
+            icon: Icon(Ionicons.settings_sharp),
+            label: 'settings',
+          ),
         ],
       ),
     );
