@@ -71,141 +71,131 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
       Navigator.pop(context);
     }
 
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: SafeArea(
-        child: Scaffold(
-          appBar: AppBar(
-            backgroundColor: HexColor(dark),
-            leading: IconButton(
-              icon: Icon(
-                Icons.arrow_back,
-                color: HexColor(white),
-              ), // Geri butonu
-              onPressed: onDone,
-            ),
-          ),
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
           backgroundColor: HexColor(dark),
-          body: Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 20.0,
-              vertical: 20.0,
-            ),
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // Text(
-                  //   'Affirmation Notification',
-                  //   style: TextStyle(
-                  //     color: Colors.white,
-                  //     fontWeight: FontWeight.bold,
-                  //     fontSize: 24,
-                  //   ),
-                  // ),
-                  // Padding(
-                  //   padding: EdgeInsets.symmetric(vertical: 20),
-                  //   child: Text(
-                  //     'Enable notifications for regular motivational notifications.',
-                  //     style: TextStyle(
-                  //       color: Colors.grey,
-                  //       fontSize: 16,
-                  //     ),
-                  //   ),
-                  // ),
-                  // // Switchable Button
-                  // Container(
-                  //   height: 100,
-                  //   alignment: Alignment.center,
-                  //   decoration: BoxDecoration(
-                  //     color: HexColor(secondary), // Arka plan rengi
-                  //     borderRadius: BorderRadius.circular(12),
-                  //   ),
-                  //   child: SwitchListTile(
-                  //     value: notificationIsEnabled,
-                  //     onChanged: (bool value) {
-                  //       setState(() {
-                  //         notificationIsEnabled = value;
-                  //       });
-                  //     },
-                  //     title: Text(
-                  //       'Enable Notifications',
-                  //       style: TextStyle(
-                  //           color: Colors.white,
-                  //           fontSize: 15,
-                  //           fontWeight: FontWeight.bold),
-                  //     ),
-                  //     activeColor: Colors.blue,
-                  //     inactiveThumbColor: Colors.grey,
-                  //     inactiveTrackColor: Colors.grey[600],
-                  //   ),
-                  // ),
-                  // SizedBox(height: 20),
-                  // REMINDER SETTINGS
-                  Text(
-                    S.of(context).onboardingReminderTitle,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 24,
-                    ),
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back, color: HexColor(white)), // Geri butonu
+            onPressed: onDone,
+          ),
+        ),
+        backgroundColor: HexColor(dark),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Text(
+                //   'Affirmation Notification',
+                //   style: TextStyle(
+                //     color: Colors.white,
+                //     fontWeight: FontWeight.bold,
+                //     fontSize: 24,
+                //   ),
+                // ),
+                // Padding(
+                //   padding: EdgeInsets.symmetric(vertical: 20),
+                //   child: Text(
+                //     'Enable notifications for regular motivational notifications.',
+                //     style: TextStyle(
+                //       color: Colors.grey,
+                //       fontSize: 16,
+                //     ),
+                //   ),
+                // ),
+                // // Switchable Button
+                // Container(
+                //   height: 100,
+                //   alignment: Alignment.center,
+                //   decoration: BoxDecoration(
+                //     color: HexColor(secondary), // Arka plan rengi
+                //     borderRadius: BorderRadius.circular(12),
+                //   ),
+                //   child: SwitchListTile(
+                //     value: notificationIsEnabled,
+                //     onChanged: (bool value) {
+                //       setState(() {
+                //         notificationIsEnabled = value;
+                //       });
+                //     },
+                //     title: Text(
+                //       'Enable Notifications',
+                //       style: TextStyle(
+                //           color: Colors.white,
+                //           fontSize: 15,
+                //           fontWeight: FontWeight.bold),
+                //     ),
+                //     activeColor: Colors.blue,
+                //     inactiveThumbColor: Colors.grey,
+                //     inactiveTrackColor: Colors.grey[600],
+                //   ),
+                // ),
+                // SizedBox(height: 20),
+                // REMINDER SETTINGS
+                Text(
+                  S.of(context).onboardingReminderTitle,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 24,
                   ),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 20),
+                  child: Text(
+                    S.of(context).onboardingReminderSubtitle,
+                    style: TextStyle(color: Colors.grey, fontSize: 16),
+                  ),
+                ),
+
+                // Switchable Button (SwitchListTile)
+                Container(
+                  height: 100,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: HexColor(secondary),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: SwitchListTile(
+                    title: Text(
+                      S.of(context).reminderButtonTitle,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    value: context.watch<UserProvider>().reminder,
+                    onChanged: (bool value) {
+                      context.read<UserProvider>().setReminder(value);
+                    },
+                    activeColor: Colors.blue,
+                    inactiveThumbColor: Colors.grey,
+                  ),
+                ),
+
+                // Time Picker
+                if (context.watch<UserProvider>().reminder) ...[
                   Padding(
                     padding: EdgeInsets.symmetric(vertical: 20),
                     child: Text(
-                      S.of(context).onboardingReminderSubtitle,
+                      S.of(context).timePickerDescription,
                       style: TextStyle(color: Colors.grey, fontSize: 16),
                     ),
                   ),
-
-                  // Switchable Button (SwitchListTile)
-                  Container(
-                    height: 100,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: HexColor(secondary),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: SwitchListTile(
-                      title: Text(
-                        S.of(context).reminderButtonTitle,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      value: context.watch<UserProvider>().reminder,
-                      onChanged: (bool value) {
-                        context.read<UserProvider>().setReminder(value);
-                      },
-                      activeColor: Colors.blue,
-                      inactiveThumbColor: Colors.grey,
+                  Center(
+                    child: WheelTimePicker(
+                      setHours: setHours,
+                      setMinutes: setMinutes,
+                      initialHours: context.watch<UserProvider>().reminderHours,
+                      initialMinutes:
+                          context.watch<UserProvider>().reminderMinutes,
                     ),
                   ),
-
-                  // Time Picker
-                  if (context.watch<UserProvider>().reminder) ...[
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: 20),
-                      child: Text(
-                        S.of(context).timePickerDescription,
-                        style: TextStyle(color: Colors.grey, fontSize: 16),
-                      ),
-                    ),
-                    Center(
-                      child: WheelTimePicker(
-                        setHours: setHours,
-                        setMinutes: setMinutes,
-                        initialHours:
-                            context.watch<UserProvider>().reminderHours,
-                        initialMinutes:
-                            context.watch<UserProvider>().reminderMinutes,
-                      ),
-                    ),
-                  ],
                 ],
-              ),
+              ],
             ),
           ),
         ),

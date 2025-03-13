@@ -22,8 +22,26 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "categoryCardAnxiety": MessageLookupByLibrary.simpleMessage("壓力與焦慮"),
+    "categoryCardBodyAffirmation": MessageLookupByLibrary.simpleMessage("身體肯定"),
+    "categoryCardCalmness": MessageLookupByLibrary.simpleMessage("平靜"),
+    "categoryCardGeneral": MessageLookupByLibrary.simpleMessage("通用"),
+    "categoryCardGratitude": MessageLookupByLibrary.simpleMessage("感恩"),
+    "categoryCardGrowth": MessageLookupByLibrary.simpleMessage("個人成長"),
+    "categoryCardHappiness": MessageLookupByLibrary.simpleMessage("幸福"),
+    "categoryCardHealth": MessageLookupByLibrary.simpleMessage("健康"),
+    "categoryCardLove": MessageLookupByLibrary.simpleMessage("尋找愛情"),
+    "categoryCardOptimistic": MessageLookupByLibrary.simpleMessage("積極思考"),
+    "categoryCardSelfConfidence": MessageLookupByLibrary.simpleMessage("自信"),
+    "categoryCardSelfLove": MessageLookupByLibrary.simpleMessage("愛自己"),
+    "categoryWorkSuccess": MessageLookupByLibrary.simpleMessage("工作成功"),
     "discountLabel": MessageLookupByLibrary.simpleMessage("%80 折扣"),
+    "feedCustomizationScreenAppBarTitle": MessageLookupByLibrary.simpleMessage(
+      "類別",
+    ),
     "firstBenefitTitle": MessageLookupByLibrary.simpleMessage("高級AI體驗"),
+    "generateNowTitle": MessageLookupByLibrary.simpleMessage("現在生成!"),
+    "generateWithAiTitle": MessageLookupByLibrary.simpleMessage("使用AI生成"),
     "goPremiumButtonTitle": MessageLookupByLibrary.simpleMessage("升級為高級版"),
     "message": MessageLookupByLibrary.simpleMessage("訊息"),
     "monthlyOfferTitle": MessageLookupByLibrary.simpleMessage("每月"),
@@ -70,6 +88,31 @@ class MessageLookup extends MessageLookupByLibrary {
       "您將在購買時收費，除非取消，否則將在帳單期結束時自動續訂。",
     ),
     "secondBenefitTitle": MessageLookupByLibrary.simpleMessage("語音助手支持"),
+    "smartAffirmationBody": MessageLookupByLibrary.simpleMessage(
+      "在這裡寫下您的想法、感受、目標和經歷。根據您提供的資訊，AI將為您生成個性化的肯定語。",
+    ),
+    "smartAffirmationsTextFieldHint1": MessageLookupByLibrary.simpleMessage(
+      "最近我的動力很低。",
+    ),
+    "smartAffirmationsTextFieldHint2": MessageLookupByLibrary.simpleMessage(
+      "我想變得更自信。",
+    ),
+    "smartAffirmationsTextFieldHint3": MessageLookupByLibrary.simpleMessage(
+      "我想成為一名醫生。",
+    ),
+    "smartAffirmationsTextFieldHint4": MessageLookupByLibrary.simpleMessage(
+      "我正在準備一個重要的考試。",
+    ),
+    "smartAffirmationsTextFieldHint5": MessageLookupByLibrary.simpleMessage(
+      "我在童年時總是被排斥。",
+    ),
+    "smartAffirmationsTextFieldHint6": MessageLookupByLibrary.simpleMessage(
+      "創建關於愛的肯定。",
+    ),
+    "smartAffirmationsTextFieldHint7": MessageLookupByLibrary.simpleMessage(
+      "我的家人不理解我。",
+    ),
+    "smartAffirmationsTitle": MessageLookupByLibrary.simpleMessage("智慧肯定"),
     "supportButtonTitle": MessageLookupByLibrary.simpleMessage("支援與回饋"),
     "thirdBenefitTitle": MessageLookupByLibrary.simpleMessage("可自定義的肯定語"),
     "timePickerDescription": MessageLookupByLibrary.simpleMessage("為您的治療設定提醒。"),

@@ -22,9 +22,47 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "categoryCardAnxiety": MessageLookupByLibrary.simpleMessage(
+      "Stress und Angst",
+    ),
+    "categoryCardBodyAffirmation": MessageLookupByLibrary.simpleMessage(
+      "Körperaffirmation",
+    ),
+    "categoryCardCalmness": MessageLookupByLibrary.simpleMessage("Ruhe"),
+    "categoryCardGeneral": MessageLookupByLibrary.simpleMessage("Allgemein"),
+    "categoryCardGratitude": MessageLookupByLibrary.simpleMessage(
+      "Dankbarkeit",
+    ),
+    "categoryCardGrowth": MessageLookupByLibrary.simpleMessage(
+      "Persönliche Entwicklung",
+    ),
+    "categoryCardHappiness": MessageLookupByLibrary.simpleMessage("Glück"),
+    "categoryCardHealth": MessageLookupByLibrary.simpleMessage("Gesundheit"),
+    "categoryCardLove": MessageLookupByLibrary.simpleMessage(
+      "Die Liebe finden",
+    ),
+    "categoryCardOptimistic": MessageLookupByLibrary.simpleMessage(
+      "Positive Denkweise",
+    ),
+    "categoryCardSelfConfidence": MessageLookupByLibrary.simpleMessage(
+      "Selbstvertrauen",
+    ),
+    "categoryCardSelfLove": MessageLookupByLibrary.simpleMessage("Selbstliebe"),
+    "categoryWorkSuccess": MessageLookupByLibrary.simpleMessage(
+      "Beruflicher Erfolg",
+    ),
     "discountLabel": MessageLookupByLibrary.simpleMessage("%80 Rabatt"),
+    "feedCustomizationScreenAppBarTitle": MessageLookupByLibrary.simpleMessage(
+      "Kategorien",
+    ),
     "firstBenefitTitle": MessageLookupByLibrary.simpleMessage(
       "Erweiterte KI-Erfahrung",
+    ),
+    "generateNowTitle": MessageLookupByLibrary.simpleMessage(
+      "Jetzt generieren",
+    ),
+    "generateWithAiTitle": MessageLookupByLibrary.simpleMessage(
+      "Mit KI generieren",
     ),
     "goPremiumButtonTitle": MessageLookupByLibrary.simpleMessage(
       "Premium werden!",
@@ -89,6 +127,33 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "secondBenefitTitle": MessageLookupByLibrary.simpleMessage(
       "Sprachassistent-Unterstützung",
+    ),
+    "smartAffirmationBody": MessageLookupByLibrary.simpleMessage(
+      "Schreiben Sie hier Ihre Gedanken, Gefühle, Ziele und Erfahrungen. Basierend auf den von Ihnen bereitgestellten Informationen wird die KI personalisierte Affirmationen für Sie erstellen.",
+    ),
+    "smartAffirmationsTextFieldHint1": MessageLookupByLibrary.simpleMessage(
+      "Meine Motivation ist in letzter Zeit gering.",
+    ),
+    "smartAffirmationsTextFieldHint2": MessageLookupByLibrary.simpleMessage(
+      "Ich möchte mich selbstbewusster fühlen.",
+    ),
+    "smartAffirmationsTextFieldHint3": MessageLookupByLibrary.simpleMessage(
+      "Ich möchte Arzt werden.",
+    ),
+    "smartAffirmationsTextFieldHint4": MessageLookupByLibrary.simpleMessage(
+      "Ich bereite mich gerade auf eine wichtige Prüfung vor.",
+    ),
+    "smartAffirmationsTextFieldHint5": MessageLookupByLibrary.simpleMessage(
+      "Ich wurde in meiner Kindheit ständig ausgeschlossen.",
+    ),
+    "smartAffirmationsTextFieldHint6": MessageLookupByLibrary.simpleMessage(
+      "Erstelle Affirmationen für die Liebe.",
+    ),
+    "smartAffirmationsTextFieldHint7": MessageLookupByLibrary.simpleMessage(
+      "Meine Familie versteht mich nicht.",
+    ),
+    "smartAffirmationsTitle": MessageLookupByLibrary.simpleMessage(
+      "Intelligente Affirmationen",
     ),
     "supportButtonTitle": MessageLookupByLibrary.simpleMessage(
       "Kundendienst & Rückmeldung",

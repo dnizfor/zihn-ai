@@ -22,8 +22,26 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "categoryCardAnxiety": MessageLookupByLibrary.simpleMessage("压力与焦虑"),
+    "categoryCardBodyAffirmation": MessageLookupByLibrary.simpleMessage("身体肯定"),
+    "categoryCardCalmness": MessageLookupByLibrary.simpleMessage("平静"),
+    "categoryCardGeneral": MessageLookupByLibrary.simpleMessage("通用"),
+    "categoryCardGratitude": MessageLookupByLibrary.simpleMessage("感恩"),
+    "categoryCardGrowth": MessageLookupByLibrary.simpleMessage("个人发展"),
+    "categoryCardHappiness": MessageLookupByLibrary.simpleMessage("幸福"),
+    "categoryCardHealth": MessageLookupByLibrary.simpleMessage("健康"),
+    "categoryCardLove": MessageLookupByLibrary.simpleMessage("寻找爱"),
+    "categoryCardOptimistic": MessageLookupByLibrary.simpleMessage("积极思考"),
+    "categoryCardSelfConfidence": MessageLookupByLibrary.simpleMessage("自信"),
+    "categoryCardSelfLove": MessageLookupByLibrary.simpleMessage("爱自己"),
+    "categoryWorkSuccess": MessageLookupByLibrary.simpleMessage("工作成功"),
     "discountLabel": MessageLookupByLibrary.simpleMessage("%80 折扣"),
+    "feedCustomizationScreenAppBarTitle": MessageLookupByLibrary.simpleMessage(
+      "类别",
+    ),
     "firstBenefitTitle": MessageLookupByLibrary.simpleMessage("高级AI体验"),
+    "generateNowTitle": MessageLookupByLibrary.simpleMessage("现在生成!"),
+    "generateWithAiTitle": MessageLookupByLibrary.simpleMessage("使用AI生成"),
     "goPremiumButtonTitle": MessageLookupByLibrary.simpleMessage("升级为高级版！"),
     "message": MessageLookupByLibrary.simpleMessage("消息"),
     "monthlyOfferTitle": MessageLookupByLibrary.simpleMessage("每月"),
@@ -70,6 +88,31 @@ class MessageLookup extends MessageLookupByLibrary {
       "购买时将收费，除非取消，否则将在账单期结束时自动续订。",
     ),
     "secondBenefitTitle": MessageLookupByLibrary.simpleMessage("语音助手支持"),
+    "smartAffirmationBody": MessageLookupByLibrary.simpleMessage(
+      "在这里写下您的想法、感受、目标和经历。根据您提供的信息，AI将为您生成个性化的肯定语。",
+    ),
+    "smartAffirmationsTextFieldHint1": MessageLookupByLibrary.simpleMessage(
+      "最近我的动力很低。",
+    ),
+    "smartAffirmationsTextFieldHint2": MessageLookupByLibrary.simpleMessage(
+      "我想变得更自信。",
+    ),
+    "smartAffirmationsTextFieldHint3": MessageLookupByLibrary.simpleMessage(
+      "我想成为一名医生。",
+    ),
+    "smartAffirmationsTextFieldHint4": MessageLookupByLibrary.simpleMessage(
+      "我正在准备一个重要的考试。",
+    ),
+    "smartAffirmationsTextFieldHint5": MessageLookupByLibrary.simpleMessage(
+      "我在童年时总是被排斥。",
+    ),
+    "smartAffirmationsTextFieldHint6": MessageLookupByLibrary.simpleMessage(
+      "创建关于爱的肯定。",
+    ),
+    "smartAffirmationsTextFieldHint7": MessageLookupByLibrary.simpleMessage(
+      "我的家人不理解我。",
+    ),
+    "smartAffirmationsTitle": MessageLookupByLibrary.simpleMessage("智能肯定"),
     "supportButtonTitle": MessageLookupByLibrary.simpleMessage("支持与反馈"),
     "thirdBenefitTitle": MessageLookupByLibrary.simpleMessage("可自定义的肯定语"),
     "timePickerDescription": MessageLookupByLibrary.simpleMessage("为您的治疗设置提醒。"),

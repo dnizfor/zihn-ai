@@ -22,8 +22,28 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "categoryCardAnxiety": MessageLookupByLibrary.simpleMessage("스트레스와 불안"),
+    "categoryCardBodyAffirmation": MessageLookupByLibrary.simpleMessage(
+      "신체 긍정",
+    ),
+    "categoryCardCalmness": MessageLookupByLibrary.simpleMessage("평온함"),
+    "categoryCardGeneral": MessageLookupByLibrary.simpleMessage("일반"),
+    "categoryCardGratitude": MessageLookupByLibrary.simpleMessage("감사"),
+    "categoryCardGrowth": MessageLookupByLibrary.simpleMessage("개인 개발"),
+    "categoryCardHappiness": MessageLookupByLibrary.simpleMessage("행복"),
+    "categoryCardHealth": MessageLookupByLibrary.simpleMessage("건강"),
+    "categoryCardLove": MessageLookupByLibrary.simpleMessage("사랑 찾기"),
+    "categoryCardOptimistic": MessageLookupByLibrary.simpleMessage("긍정적 사고"),
+    "categoryCardSelfConfidence": MessageLookupByLibrary.simpleMessage("자신감"),
+    "categoryCardSelfLove": MessageLookupByLibrary.simpleMessage("자기 사랑"),
+    "categoryWorkSuccess": MessageLookupByLibrary.simpleMessage("직장 성공"),
     "discountLabel": MessageLookupByLibrary.simpleMessage("%80 할인"),
+    "feedCustomizationScreenAppBarTitle": MessageLookupByLibrary.simpleMessage(
+      "카테고리",
+    ),
     "firstBenefitTitle": MessageLookupByLibrary.simpleMessage("고급 AI 경험"),
+    "generateNowTitle": MessageLookupByLibrary.simpleMessage("지금 생성하기!"),
+    "generateWithAiTitle": MessageLookupByLibrary.simpleMessage("AI로 생성하기"),
     "goPremiumButtonTitle": MessageLookupByLibrary.simpleMessage("프리미엄 되기!"),
     "message": MessageLookupByLibrary.simpleMessage("메시지"),
     "monthlyOfferTitle": MessageLookupByLibrary.simpleMessage("월간"),
@@ -76,6 +96,31 @@ class MessageLookup extends MessageLookupByLibrary {
       "구매 시 요금이 부과되며, 취소하지 않으면 청구 기간 종료 시 자동 갱신됩니다.",
     ),
     "secondBenefitTitle": MessageLookupByLibrary.simpleMessage("음성 비서 지원"),
+    "smartAffirmationBody": MessageLookupByLibrary.simpleMessage(
+      "여기에 자신의 생각, 감정, 목표, 경험을 작성하십시오. 제공된 정보를 바탕으로 AI가 개인화된 긍정적인 메시지를 생성합니다.",
+    ),
+    "smartAffirmationsTextFieldHint1": MessageLookupByLibrary.simpleMessage(
+      "최근 내 동기부여가 낮다.",
+    ),
+    "smartAffirmationsTextFieldHint2": MessageLookupByLibrary.simpleMessage(
+      "더 자신감을 느끼고 싶다.",
+    ),
+    "smartAffirmationsTextFieldHint3": MessageLookupByLibrary.simpleMessage(
+      "나는 의사가 되고 싶다.",
+    ),
+    "smartAffirmationsTextFieldHint4": MessageLookupByLibrary.simpleMessage(
+      "지금 중요한 시험을 준비하고 있다.",
+    ),
+    "smartAffirmationsTextFieldHint5": MessageLookupByLibrary.simpleMessage(
+      "어릴 때 항상 배척당했다.",
+    ),
+    "smartAffirmationsTextFieldHint6": MessageLookupByLibrary.simpleMessage(
+      "사랑을 위한 확언을 만들어라.",
+    ),
+    "smartAffirmationsTextFieldHint7": MessageLookupByLibrary.simpleMessage(
+      "내 가족은 나를 이해하지 못한다.",
+    ),
+    "smartAffirmationsTitle": MessageLookupByLibrary.simpleMessage("스마트 확언"),
     "supportButtonTitle": MessageLookupByLibrary.simpleMessage("지원 및 피드백"),
     "thirdBenefitTitle": MessageLookupByLibrary.simpleMessage("사용자 정의 가능한 확언"),
     "timePickerDescription": MessageLookupByLibrary.simpleMessage(

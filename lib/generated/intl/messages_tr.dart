@@ -22,9 +22,39 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "categoryCardAnxiety": MessageLookupByLibrary.simpleMessage(
+      "Stres ve Anksiyete",
+    ),
+    "categoryCardBodyAffirmation": MessageLookupByLibrary.simpleMessage(
+      "Beden Olumlaması",
+    ),
+    "categoryCardCalmness": MessageLookupByLibrary.simpleMessage("Sakinlik"),
+    "categoryCardGeneral": MessageLookupByLibrary.simpleMessage("Genel"),
+    "categoryCardGratitude": MessageLookupByLibrary.simpleMessage("Şükran"),
+    "categoryCardGrowth": MessageLookupByLibrary.simpleMessage(
+      "Kişisel Gelişim",
+    ),
+    "categoryCardHappiness": MessageLookupByLibrary.simpleMessage("Mutluluk"),
+    "categoryCardHealth": MessageLookupByLibrary.simpleMessage("Sağlık"),
+    "categoryCardLove": MessageLookupByLibrary.simpleMessage("Aşkı Bulmak"),
+    "categoryCardOptimistic": MessageLookupByLibrary.simpleMessage(
+      "Pozitif Düşünme",
+    ),
+    "categoryCardSelfConfidence": MessageLookupByLibrary.simpleMessage(
+      "Öz Güven",
+    ),
+    "categoryCardSelfLove": MessageLookupByLibrary.simpleMessage("Kendini Sev"),
+    "categoryWorkSuccess": MessageLookupByLibrary.simpleMessage("İş Başarısı"),
     "discountLabel": MessageLookupByLibrary.simpleMessage("%80 İndirim"),
+    "feedCustomizationScreenAppBarTitle": MessageLookupByLibrary.simpleMessage(
+      "Kategoriler",
+    ),
     "firstBenefitTitle": MessageLookupByLibrary.simpleMessage(
       "Gelişmiş Yapay Zeka Deneyimi",
+    ),
+    "generateNowTitle": MessageLookupByLibrary.simpleMessage("Şimdi Oluştur"),
+    "generateWithAiTitle": MessageLookupByLibrary.simpleMessage(
+      "Yapay Zeka ile Oluştur",
     ),
     "goPremiumButtonTitle": MessageLookupByLibrary.simpleMessage("Premium Ol!"),
     "message": MessageLookupByLibrary.simpleMessage("Mesaj"),
@@ -89,6 +119,33 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "secondBenefitTitle": MessageLookupByLibrary.simpleMessage(
       "Sesli Asistan Desteği",
+    ),
+    "smartAffirmationBody": MessageLookupByLibrary.simpleMessage(
+      "Düşünceleriniz, hisleriniz, hedefleriniz ve yaşadığınız deneyimleri buraya yazın. Yapay zeka, verdiğiniz bilgiler doğrultusunda size özel olumlamalar oluşturacaktır",
+    ),
+    "smartAffirmationsTextFieldHint1": MessageLookupByLibrary.simpleMessage(
+      "Son zamanlarda motivasyonum düşük.",
+    ),
+    "smartAffirmationsTextFieldHint2": MessageLookupByLibrary.simpleMessage(
+      "Daha özgüvenli hissetmek istiyorum.",
+    ),
+    "smartAffirmationsTextFieldHint3": MessageLookupByLibrary.simpleMessage(
+      "Doktor olmak istiyorum.",
+    ),
+    "smartAffirmationsTextFieldHint4": MessageLookupByLibrary.simpleMessage(
+      "Şu an önemli bir sınav için çalışıyorum.",
+    ),
+    "smartAffirmationsTextFieldHint5": MessageLookupByLibrary.simpleMessage(
+      "Çocukluğumda sürekli dışlandım.",
+    ),
+    "smartAffirmationsTextFieldHint6": MessageLookupByLibrary.simpleMessage(
+      "Aşk için olumlamalar oluştur.",
+    ),
+    "smartAffirmationsTextFieldHint7": MessageLookupByLibrary.simpleMessage(
+      "Ailem beni anlamıyor.",
+    ),
+    "smartAffirmationsTitle": MessageLookupByLibrary.simpleMessage(
+      "Akıllı Olumlamalar",
     ),
     "supportButtonTitle": MessageLookupByLibrary.simpleMessage(
       "Destek & Geri Bildirim",

@@ -339,6 +339,266 @@ class S {
       args: [],
     );
   }
+
+  /// `Categories`
+  String get feedCustomizationScreenAppBarTitle {
+    return Intl.message(
+      'Categories',
+      name: 'feedCustomizationScreenAppBarTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Generate with AI`
+  String get generateWithAiTitle {
+    return Intl.message(
+      'Generate with AI',
+      name: 'generateWithAiTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `General`
+  String get categoryCardGeneral {
+    return Intl.message(
+      'General',
+      name: 'categoryCardGeneral',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Stress and Anxiety`
+  String get categoryCardAnxiety {
+    return Intl.message(
+      'Stress and Anxiety',
+      name: 'categoryCardAnxiety',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Finding Love`
+  String get categoryCardLove {
+    return Intl.message(
+      'Finding Love',
+      name: 'categoryCardLove',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Personal Development`
+  String get categoryCardGrowth {
+    return Intl.message(
+      'Personal Development',
+      name: 'categoryCardGrowth',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Positive Thinking`
+  String get categoryCardOptimistic {
+    return Intl.message(
+      'Positive Thinking',
+      name: 'categoryCardOptimistic',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Body Affirmation`
+  String get categoryCardBodyAffirmation {
+    return Intl.message(
+      'Body Affirmation',
+      name: 'categoryCardBodyAffirmation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tough Days`
+  String get categoryCardtoughDays {
+    return Intl.message(
+      'Tough Days',
+      name: 'categoryCardtoughDays',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Self-confidence`
+  String get categoryCardSelfConfidence {
+    return Intl.message(
+      'Self-confidence',
+      name: 'categoryCardSelfConfidence',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Happiness`
+  String get categoryCardHappiness {
+    return Intl.message(
+      'Happiness',
+      name: 'categoryCardHappiness',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Work Success`
+  String get categoryWorkSuccess {
+    return Intl.message(
+      'Work Success',
+      name: 'categoryWorkSuccess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Calmness`
+  String get categoryCardCalmness {
+    return Intl.message(
+      'Calmness',
+      name: 'categoryCardCalmness',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gratitude`
+  String get categoryCardGratitude {
+    return Intl.message(
+      'Gratitude',
+      name: 'categoryCardGratitude',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Health`
+  String get categoryCardHealth {
+    return Intl.message(
+      'Health',
+      name: 'categoryCardHealth',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Love Yourself`
+  String get categoryCardSelfLove {
+    return Intl.message(
+      'Love Yourself',
+      name: 'categoryCardSelfLove',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Smart Affirmations`
+  String get smartAffirmationsTitle {
+    return Intl.message(
+      'Smart Affirmations',
+      name: 'smartAffirmationsTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Write your thoughts, feelings, goals, and experiences here. Based on the information you provide, AI will generate personalized affirmations for you.`
+  String get smartAffirmationBody {
+    return Intl.message(
+      'Write your thoughts, feelings, goals, and experiences here. Based on the information you provide, AI will generate personalized affirmations for you.',
+      name: 'smartAffirmationBody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My motivation is low these days.`
+  String get smartAffirmationsTextFieldHint1 {
+    return Intl.message(
+      'My motivation is low these days.',
+      name: 'smartAffirmationsTextFieldHint1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `I want to feel more confident.`
+  String get smartAffirmationsTextFieldHint2 {
+    return Intl.message(
+      'I want to feel more confident.',
+      name: 'smartAffirmationsTextFieldHint2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `I want to become a doctor.`
+  String get smartAffirmationsTextFieldHint3 {
+    return Intl.message(
+      'I want to become a doctor.',
+      name: 'smartAffirmationsTextFieldHint3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `I am preparing for an important exam right now.`
+  String get smartAffirmationsTextFieldHint4 {
+    return Intl.message(
+      'I am preparing for an important exam right now.',
+      name: 'smartAffirmationsTextFieldHint4',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `I was constantly excluded during my childhood.`
+  String get smartAffirmationsTextFieldHint5 {
+    return Intl.message(
+      'I was constantly excluded during my childhood.',
+      name: 'smartAffirmationsTextFieldHint5',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create affirmations for love.`
+  String get smartAffirmationsTextFieldHint6 {
+    return Intl.message(
+      'Create affirmations for love.',
+      name: 'smartAffirmationsTextFieldHint6',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My family does not understand me.`
+  String get smartAffirmationsTextFieldHint7 {
+    return Intl.message(
+      'My family does not understand me.',
+      name: 'smartAffirmationsTextFieldHint7',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Generate Now!`
+  String get generateNowTitle {
+    return Intl.message(
+      'Generate Now!',
+      name: 'generateNowTitle',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:ionicons/ionicons.dart';
+import 'package:zihnai/screens/feed/feed_customization.dart';
 import 'package:zihnai/ultils/constant/color.dart';
 
 class FeedCard extends StatefulWidget {
@@ -28,12 +30,37 @@ class _FeedCardState extends State<FeedCard> {
             child: Text(
               widget.title,
               style: TextStyle(
-                  fontSize: 24,
-                  color: HexColor(white),
-                  fontWeight: FontWeight.bold),
+                fontSize: 24,
+                color: HexColor(white),
+                fontWeight: FontWeight.bold,
+              ),
               textAlign: TextAlign.center,
             ),
-          )
+          ),
+          Positioned(
+            bottom: 20,
+            left: 20,
+            child: Container(
+              width: 50,
+              height: 50,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+                color: HexColor(secondary),
+              ),
+              child: IconButton(
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const FeedCustomizationScreen(),
+                    ),
+                  );
+                },
+                icon: Icon(Ionicons.grid_outline),
+                color: HexColor(white),
+                iconSize: 25,
+              ),
+            ),
+          ),
         ],
       ),
     );

@@ -22,8 +22,26 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "categoryCardAnxiety": MessageLookupByLibrary.simpleMessage("ストレスと不安"),
+    "categoryCardBodyAffirmation": MessageLookupByLibrary.simpleMessage("体の肯定"),
+    "categoryCardCalmness": MessageLookupByLibrary.simpleMessage("落ち着き"),
+    "categoryCardGeneral": MessageLookupByLibrary.simpleMessage("一般"),
+    "categoryCardGratitude": MessageLookupByLibrary.simpleMessage("感謝"),
+    "categoryCardGrowth": MessageLookupByLibrary.simpleMessage("個人の成長"),
+    "categoryCardHappiness": MessageLookupByLibrary.simpleMessage("幸福"),
+    "categoryCardHealth": MessageLookupByLibrary.simpleMessage("健康"),
+    "categoryCardLove": MessageLookupByLibrary.simpleMessage("愛を見つける"),
+    "categoryCardOptimistic": MessageLookupByLibrary.simpleMessage("前向きな思考"),
+    "categoryCardSelfConfidence": MessageLookupByLibrary.simpleMessage("自信"),
+    "categoryCardSelfLove": MessageLookupByLibrary.simpleMessage("自分を愛する"),
+    "categoryWorkSuccess": MessageLookupByLibrary.simpleMessage("仕事の成功"),
     "discountLabel": MessageLookupByLibrary.simpleMessage("%80 割引"),
+    "feedCustomizationScreenAppBarTitle": MessageLookupByLibrary.simpleMessage(
+      "カテゴリー",
+    ),
     "firstBenefitTitle": MessageLookupByLibrary.simpleMessage("高度なAI体験"),
+    "generateNowTitle": MessageLookupByLibrary.simpleMessage("今すぐ生成"),
+    "generateWithAiTitle": MessageLookupByLibrary.simpleMessage("AIで生成"),
     "goPremiumButtonTitle": MessageLookupByLibrary.simpleMessage("プレミアムになる！"),
     "message": MessageLookupByLibrary.simpleMessage("メッセージ"),
     "monthlyOfferTitle": MessageLookupByLibrary.simpleMessage("月額"),
@@ -80,6 +98,33 @@ class MessageLookup extends MessageLookupByLibrary {
       "購入時に料金が発生し、キャンセルしない限り請求期間の終了時に自動更新されます。",
     ),
     "secondBenefitTitle": MessageLookupByLibrary.simpleMessage("音声アシスタントサポート"),
+    "smartAffirmationBody": MessageLookupByLibrary.simpleMessage(
+      "ここにあなたの思考、感情、目標、経験を書いてください。提供された情報に基づいて、AIがあなたのためにパーソナライズされたアファメーションを生成します。",
+    ),
+    "smartAffirmationsTextFieldHint1": MessageLookupByLibrary.simpleMessage(
+      "最近モチベーションが低いです。",
+    ),
+    "smartAffirmationsTextFieldHint2": MessageLookupByLibrary.simpleMessage(
+      "もっと自信を持ちたい。",
+    ),
+    "smartAffirmationsTextFieldHint3": MessageLookupByLibrary.simpleMessage(
+      "医者になりたい。",
+    ),
+    "smartAffirmationsTextFieldHint4": MessageLookupByLibrary.simpleMessage(
+      "今、大事な試験の準備をしています。",
+    ),
+    "smartAffirmationsTextFieldHint5": MessageLookupByLibrary.simpleMessage(
+      "子供の頃、私はいつも排除されていました。",
+    ),
+    "smartAffirmationsTextFieldHint6": MessageLookupByLibrary.simpleMessage(
+      "愛のためのアファメーションを作成する。",
+    ),
+    "smartAffirmationsTextFieldHint7": MessageLookupByLibrary.simpleMessage(
+      "家族は私を理解していません。",
+    ),
+    "smartAffirmationsTitle": MessageLookupByLibrary.simpleMessage(
+      "スマートアファメーション",
+    ),
     "supportButtonTitle": MessageLookupByLibrary.simpleMessage("サポート＆フィードバック"),
     "thirdBenefitTitle": MessageLookupByLibrary.simpleMessage(
       "カスタマイズ可能なアファメーション",
