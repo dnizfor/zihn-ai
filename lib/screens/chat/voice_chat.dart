@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:lottie/lottie.dart';
 import 'package:zihnai/ultils/constant/color.dart';
-import 'package:zihnai/widgets/typing_indicator.dart';
+import 'package:avatar_glow/avatar_glow.dart';
 
 class VoiceChatScreen extends StatefulWidget {
   const VoiceChatScreen({super.key});
@@ -22,20 +21,30 @@ class _VoiceChatScreenState extends State<VoiceChatScreen> {
           backgroundColor: HexColor(dark),
           body: Column(
             children: [
-              SizedBox(
-                width: double.infinity,
-                child: Lottie.asset(
-                  'lib/assets/lotties/voiceChatAnimation.json',
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(left: 20),
-                child: Align(
-                  alignment: Alignment.topLeft,
-                  child: TypingAnimation(),
-                ),
-              ),
               Expanded(
+                child: Align(
+                  alignment: Alignment.center,
+                  child: AvatarGlow(
+                    startDelay: const Duration(milliseconds: 1000),
+                    glowColor: HexColor(primary),
+                    glowShape: BoxShape.circle,
+                    animate: isMicOn,
+                    curve: Curves.fastOutSlowIn,
+                    child: const Material(
+                      elevation: 8.0,
+                      shape: CircleBorder(),
+                      color: Colors.transparent,
+                      child: CircleAvatar(
+                        backgroundImage: AssetImage('lib/assets/icon/icon.png'),
+                        radius: 100.0,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
+              Padding(
+                padding: EdgeInsets.only(bottom: 40),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.end,
