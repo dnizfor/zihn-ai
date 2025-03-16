@@ -1,13 +1,14 @@
+import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
 import 'package:zihnai/generated/l10n.dart';
-import 'package:zihnai/screens/chat/voice_chat.dart';
 import 'package:zihnai/ultils/classes/chat_class.dart';
 import 'package:zihnai/ultils/constant/color.dart';
 import 'package:zihnai/ultils/providers/chat_provider.dart';
 import 'package:zihnai/ultils/services/api_services.dart';
 import 'package:zihnai/widgets/typing_indicator.dart';
+import 'package:speech_to_text/speech_to_text.dart' as stt;
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
@@ -20,7 +21,8 @@ class _ChatScreenState extends State<ChatScreen> {
   final ScrollController scrollController = ScrollController();
   final TextEditingController textController = TextEditingController();
   String userMessage = '';
-
+  bool isListening = false;
+  stt.SpeechToText? _speechToText;
   bool showTypingAnimation = false;
   void onFocusEnd() {
     Future.delayed(Duration(milliseconds: 100), () {
@@ -44,6 +46,8 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   void initState() {
     super.initState();
+    _speechToText = stt.SpeechToText();
+
     textController.addListener(updateUserMessage);
   }
 
@@ -60,13 +64,9 @@ class _ChatScreenState extends State<ChatScreen> {
     ApiService chatService = ApiService();
     double maxWidth = MediaQuery.of(context).size.width * 0.8;
 
-    onSave() async {
-      String usrMsg = textController.text;
+    void onSave(usrMsg) async {
       textController.clear();
       if (usrMsg.trim() == '') {
-        Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => const VoiceChatScreen()),
-        );
         return;
       }
       context.read<ChatProvider>().setChat(Chat(role: 'user', message: usrMsg));
@@ -91,6 +91,37 @@ class _ChatScreenState extends State<ChatScreen> {
       });
 
       onFocusEnd();
+    }
+
+    void capture() async {
+      if (!isListening) {
+        // _speechToText null değilse initialize'ı çağır
+        if (_speechToText != null) {
+          bool listen = await _speechToText!.initialize();
+          if (listen) {
+            setState(() {
+              isListening = true;
+            });
+            await _speechToText?.listen(
+              onResult:
+                  (result) => {
+                    if (result.finalResult)
+                      {
+                        setState(() {
+                          isListening = false;
+                        }),
+                        onSave(result.recognizedWords),
+                      },
+                  },
+            );
+          }
+        }
+      } else {
+        setState(() {
+          isListening = false;
+        });
+        _speechToText?.stop();
+      }
     }
 
     return MaterialApp(
@@ -167,19 +198,37 @@ class _ChatScreenState extends State<ChatScreen> {
                     SizedBox(
                       width: 50,
                       height: 50,
-                      child: IconButton(
-                        onPressed: onSave,
-                        style: ButtonStyle(
-                          backgroundColor: WidgetStatePropertyAll<Color>(
-                            Colors.white,
+                      child: AvatarGlow(
+                        startDelay: const Duration(milliseconds: 1000),
+                        glowColor: HexColor(primary),
+                        glowShape: BoxShape.circle,
+                        animate: isListening,
+                        curve: Curves.fastOutSlowIn,
+                        child: Material(
+                          elevation: 8.0,
+                          shape: const CircleBorder(),
+                          color: Colors.transparent,
+                          child: IconButton(
+                            onPressed:
+                                userMessage.trim() == ""
+                                    ? capture
+                                    : () => onSave(textController.text),
+                            style: const ButtonStyle(
+                              backgroundColor: WidgetStatePropertyAll<Color>(
+                                Colors.white,
+                              ),
+                            ),
+                            icon: Icon(
+                              userMessage.trim() == ""
+                                  ? Icons.mic
+                                  : Icons.arrow_forward,
+                              color:
+                                  isListening
+                                      ? HexColor(primary)
+                                      : HexColor(dark),
+                              size: 25,
+                            ),
                           ),
-                        ),
-                        icon: Icon(
-                          userMessage.trim() == ""
-                              ? Icons.mic
-                              : Icons.arrow_forward,
-                          color: HexColor(dark),
-                          size: 25,
                         ),
                       ),
                     ),
