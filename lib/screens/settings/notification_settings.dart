@@ -64,7 +64,7 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
           'id_unique', // Görev ID'si, benzersiz olmalı
           'affirmationNotification', // Görev adı
           tag: "affirmationNotification",
-          frequency: Duration(minutes: 15),
+          frequency: Duration(hours: 6),
           constraints: Constraints(
             networkType:
                 NetworkType.connected, // Sadece internet bağlıyken çalışsın
