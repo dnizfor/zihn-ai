@@ -58,7 +58,11 @@ dependencies:
   animated_hint_textfield: ^1.0.3
   avatar_glow: ^3.0.1
   speech_to_text: ^7.0.0
-
+  workmanager:
+      git:
+        url: https://github.com/fluttercommunity/flutter_workmanager.git
+        path: workmanager
+        ref: main
 dev_dependencies:
   flutter_test:
     sdk: flutter

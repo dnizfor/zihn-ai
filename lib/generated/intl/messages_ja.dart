@@ -22,19 +22,6 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-    "categoryCardAnxiety": MessageLookupByLibrary.simpleMessage("ストレスと不安"),
-    "categoryCardBodyAffirmation": MessageLookupByLibrary.simpleMessage("体の肯定"),
-    "categoryCardCalmness": MessageLookupByLibrary.simpleMessage("落ち着き"),
-    "categoryCardGeneral": MessageLookupByLibrary.simpleMessage("一般"),
-    "categoryCardGratitude": MessageLookupByLibrary.simpleMessage("感謝"),
-    "categoryCardGrowth": MessageLookupByLibrary.simpleMessage("個人の成長"),
-    "categoryCardHappiness": MessageLookupByLibrary.simpleMessage("幸福"),
-    "categoryCardHealth": MessageLookupByLibrary.simpleMessage("健康"),
-    "categoryCardLove": MessageLookupByLibrary.simpleMessage("愛を見つける"),
-    "categoryCardOptimistic": MessageLookupByLibrary.simpleMessage("前向きな思考"),
-    "categoryCardSelfConfidence": MessageLookupByLibrary.simpleMessage("自信"),
-    "categoryCardSelfLove": MessageLookupByLibrary.simpleMessage("自分を愛する"),
-    "categoryWorkSuccess": MessageLookupByLibrary.simpleMessage("仕事の成功"),
     "discountLabel": MessageLookupByLibrary.simpleMessage("%80 割引"),
     "feedCustomizationScreenAppBarTitle": MessageLookupByLibrary.simpleMessage(
       "カテゴリー",
@@ -45,6 +32,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "goPremiumButtonTitle": MessageLookupByLibrary.simpleMessage("プレミアムになる！"),
     "message": MessageLookupByLibrary.simpleMessage("メッセージ"),
     "monthlyOfferTitle": MessageLookupByLibrary.simpleMessage("月額"),
+    "motivationalNotificationButtonTitle": MessageLookupByLibrary.simpleMessage(
+      "通知を有効にする",
+    ),
+    "motivationalNotificationSubtitle": MessageLookupByLibrary.simpleMessage(
+      "定期的にモチベーション通知を受け取るには、通知を有効にしてください。",
+    ),
+    "motivationalNotificationTitle": MessageLookupByLibrary.simpleMessage(
+      "アファメーション通知",
+    ),
     "networkErrorTitle": MessageLookupByLibrary.simpleMessage(
       "おっと！インターネットがありません",
     ),
@@ -132,6 +128,19 @@ class MessageLookup extends MessageLookupByLibrary {
     "timePickerDescription": MessageLookupByLibrary.simpleMessage(
       "セラピーのリマインダーを設定しましょう。",
     ),
+    "topicCardAnxiety": MessageLookupByLibrary.simpleMessage("ストレスと不安"),
+    "topicCardBodyAffirmation": MessageLookupByLibrary.simpleMessage("体の肯定"),
+    "topicCardCalmness": MessageLookupByLibrary.simpleMessage("落ち着き"),
+    "topicCardGeneral": MessageLookupByLibrary.simpleMessage("一般"),
+    "topicCardGratitude": MessageLookupByLibrary.simpleMessage("感謝"),
+    "topicCardGrowth": MessageLookupByLibrary.simpleMessage("個人の成長"),
+    "topicCardHappiness": MessageLookupByLibrary.simpleMessage("幸福"),
+    "topicCardHealth": MessageLookupByLibrary.simpleMessage("健康"),
+    "topicCardLove": MessageLookupByLibrary.simpleMessage("愛を見つける"),
+    "topicCardOptimistic": MessageLookupByLibrary.simpleMessage("前向きな思考"),
+    "topicCardSelfConfidence": MessageLookupByLibrary.simpleMessage("自信"),
+    "topicCardSelfLove": MessageLookupByLibrary.simpleMessage("自分を愛する"),
+    "topicWorkSuccess": MessageLookupByLibrary.simpleMessage("仕事の成功"),
     "yearlyOfferTitle": MessageLookupByLibrary.simpleMessage("年間"),
   };
 }

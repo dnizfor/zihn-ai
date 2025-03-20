@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -75,34 +74,19 @@ class _OnboardingState extends State<Onboarding> {
       // go home
 
       if (context.mounted) {
-        Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => const Home()),
-        );
+        Navigator.of(
+          context,
+        ).push(MaterialPageRoute(builder: (context) => const Home()));
       }
     }
 
     if (step == 0) {
-      return OnboardingHome(
-        onNext: goToNextStep,
-      );
+      return OnboardingHome(onNext: goToNextStep);
     }
     if (step == 1) {
-      return NameOnboarding(
-        onNext: goToNextStep,
-        onBack: goToPreviousStep,
-      );
-    }
-    // if (step == 2) {
-    //   return NotificationsOnboarding(
-    //     onNext: goToNextStep,
-    //     onBack: goToPreviousStep,
-    //   );
-    // }
-    else {
-      return ReminderOnboarding(
-        onNext: onDone,
-        onBack: goToPreviousStep,
-      );
+      return NameOnboarding(onNext: goToNextStep, onBack: goToPreviousStep);
+    } else {
+      return ReminderOnboarding(onNext: onDone, onBack: goToPreviousStep);
     }
   }
 }

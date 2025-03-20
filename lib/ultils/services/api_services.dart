@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:http/http.dart' as http;
 import 'dart:ui';
 
@@ -37,6 +36,20 @@ class ApiService {
   static final String affirmationMessage =
       "Write 15 affirmations in $deviceLanguage for someone who is depressed, "
       "separating each one with \\n. Write only the sentences, nothing else.";
+
+  static String createCustomAffirmationMessage(List<String> topicList) {
+    String topicText = topicList.join(",");
+    return "Write  15  affirmation about one of these topics: $topicText .Response should be in $deviceLanguage.Json response should contain only the 'affirmations' key ";
+  }
+
+  static String createCustomOneAffirmationMessage(List<String> topicList) {
+    String topicText = topicList.join(",");
+    return "Write a single affirmation about one of these topics: $topicText .Response should be in $deviceLanguage. Write only the sentence, nothing else.";
+  }
+
+  static String generateTopicMessage(String text) {
+    return "Analyze the following text and extract the fewest possible affirmation topic keywords that still cover all the main themes of the text. The keywords should combine related concepts into a single term if necessary. Provide the output as a list of single words, separated by commas. The output should be in English.  text=$text";
+  }
 
   Future<String> sendRequest(
     String message,

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:workmanager/workmanager.dart';
 import 'package:zihnai/generated/l10n.dart';
 import 'package:zihnai/ultils/constant/color.dart';
 import 'package:zihnai/ultils/providers/user_provider.dart';
@@ -19,13 +20,16 @@ class NotificationSettingScreen extends StatefulWidget {
 }
 
 class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
-  bool notificationIsEnabled = false;
   void setHours(int hours) {
     context.read<UserProvider>().setReminderHours(hours);
   }
 
   void setMinutes(int minutes) {
     context.read<UserProvider>().setReminderMinutes(minutes);
+  }
+
+  void setNotification(bool notificationIsEnabled) {
+    context.read<UserProvider>().setNotification(notificationIsEnabled);
   }
 
   @override
@@ -51,12 +55,25 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
       await prefs.setString('user', jsonEncode(userDataMap));
 
-      // request notification
-      // if (userNotification) {
-      //   NotificationService().requestNotificationPermission();
-      // } // bg fetch islemi
-      if (userReminder) {
+      if (userReminder || userNotification) {
         NotificationService().requestNotificationPermission();
+      }
+
+      if (userNotification) {
+        Workmanager().registerPeriodicTask(
+          'id_unique', // Görev ID'si, benzersiz olmalı
+          'affirmationNotification', // Görev adı
+          tag: "affirmationNotification",
+          frequency: Duration(minutes: 15),
+          constraints: Constraints(
+            networkType:
+                NetworkType.connected, // Sadece internet bağlıyken çalışsın
+          ),
+        );
+      } else {
+        Workmanager().cancelByTag("affirmationNotification");
+      }
+      if (userReminder) {
         NotificationService().scheduleDailyNotification(
           userReminderHours,
           userReminderMinutes,
@@ -87,52 +104,45 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Text(
-                //   'Affirmation Notification',
-                //   style: TextStyle(
-                //     color: Colors.white,
-                //     fontWeight: FontWeight.bold,
-                //     fontSize: 24,
-                //   ),
-                // ),
-                // Padding(
-                //   padding: EdgeInsets.symmetric(vertical: 20),
-                //   child: Text(
-                //     'Enable notifications for regular motivational notifications.',
-                //     style: TextStyle(
-                //       color: Colors.grey,
-                //       fontSize: 16,
-                //     ),
-                //   ),
-                // ),
-                // // Switchable Button
-                // Container(
-                //   height: 100,
-                //   alignment: Alignment.center,
-                //   decoration: BoxDecoration(
-                //     color: HexColor(secondary), // Arka plan rengi
-                //     borderRadius: BorderRadius.circular(12),
-                //   ),
-                //   child: SwitchListTile(
-                //     value: notificationIsEnabled,
-                //     onChanged: (bool value) {
-                //       setState(() {
-                //         notificationIsEnabled = value;
-                //       });
-                //     },
-                //     title: Text(
-                //       'Enable Notifications',
-                //       style: TextStyle(
-                //           color: Colors.white,
-                //           fontSize: 15,
-                //           fontWeight: FontWeight.bold),
-                //     ),
-                //     activeColor: Colors.blue,
-                //     inactiveThumbColor: Colors.grey,
-                //     inactiveTrackColor: Colors.grey[600],
-                //   ),
-                // ),
-                // SizedBox(height: 20),
+                Text(
+                  S.of(context).motivationalNotificationTitle,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 24,
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 20),
+                  child: Text(
+                    S.of(context).motivationalNotificationSubtitle,
+                    style: TextStyle(color: Colors.grey, fontSize: 16),
+                  ),
+                ),
+                // Switchable Button
+                Container(
+                  height: 100,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: HexColor(secondary), // Arka plan rengi
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: SwitchListTile(
+                    value: context.watch<UserProvider>().notification,
+                    onChanged: (value) => setNotification(value),
+                    title: Text(
+                      S.of(context).motivationalNotificationButtonTitle,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    activeColor: HexColor(primary),
+                    inactiveThumbColor: Colors.grey,
+                  ),
+                ),
+                SizedBox(height: 20),
                 // REMINDER SETTINGS
                 Text(
                   S.of(context).onboardingReminderTitle,
@@ -171,7 +181,7 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
                     onChanged: (bool value) {
                       context.read<UserProvider>().setReminder(value);
                     },
-                    activeColor: Colors.blue,
+                    activeColor: HexColor(primary),
                     inactiveThumbColor: Colors.grey,
                   ),
                 ),

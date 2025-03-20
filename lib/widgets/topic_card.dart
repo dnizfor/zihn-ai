@@ -2,22 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:zihnai/ultils/constant/color.dart';
 
-class SelectedForwardButton extends StatefulWidget {
-  const SelectedForwardButton({
+class TopicCard extends StatefulWidget {
+  const TopicCard({
     super.key,
     required this.title,
+    required this.icon,
     required this.onTap,
-    this.enabled = false,
+    required this.value,
   });
   final String title;
+  final IconData icon;
   final Function onTap;
-  final bool enabled;
-
+  final bool value;
   @override
-  State<SelectedForwardButton> createState() => _SelectedForwardButtonState();
+  State<TopicCard> createState() => _TopicCardState();
 }
 
-class _SelectedForwardButtonState extends State<SelectedForwardButton> {
+class _TopicCardState extends State<TopicCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,28 +28,31 @@ class _SelectedForwardButtonState extends State<SelectedForwardButton> {
         borderRadius: BorderRadius.circular(20),
         color: HexColor(secondary),
         border: Border.all(
-          color: widget.enabled ? HexColor(primary) : Colors.transparent,
+          color: widget.value ? HexColor(primary) : Colors.transparent,
           width: 2,
         ),
       ),
-      child: ListTile(
+
+      child: CheckboxListTile(
+        onChanged: (value) {
+          widget.onTap();
+        },
         tileColor: HexColor(secondary),
+        value: widget.value,
+        activeColor: HexColor(primary),
         title: Text(
           widget.title,
           style: TextStyle(
-            color: widget.enabled ? HexColor(primary) : HexColor(white),
+            color: widget.value ? HexColor(primary) : HexColor(white),
             fontSize: 15,
             fontWeight: FontWeight.bold,
           ),
         ),
-        trailing: Icon(
-          Icons.arrow_forward_ios,
-          color: widget.enabled ? HexColor(primary) : HexColor(white),
+        secondary: Icon(
+          widget.icon,
+          color: widget.value ? HexColor(primary) : HexColor(white),
           size: 30,
         ),
-        onTap: () {
-          widget.onTap();
-        },
       ),
     );
   }

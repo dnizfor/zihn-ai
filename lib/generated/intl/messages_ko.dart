@@ -22,21 +22,6 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-    "categoryCardAnxiety": MessageLookupByLibrary.simpleMessage("스트레스와 불안"),
-    "categoryCardBodyAffirmation": MessageLookupByLibrary.simpleMessage(
-      "신체 긍정",
-    ),
-    "categoryCardCalmness": MessageLookupByLibrary.simpleMessage("평온함"),
-    "categoryCardGeneral": MessageLookupByLibrary.simpleMessage("일반"),
-    "categoryCardGratitude": MessageLookupByLibrary.simpleMessage("감사"),
-    "categoryCardGrowth": MessageLookupByLibrary.simpleMessage("개인 개발"),
-    "categoryCardHappiness": MessageLookupByLibrary.simpleMessage("행복"),
-    "categoryCardHealth": MessageLookupByLibrary.simpleMessage("건강"),
-    "categoryCardLove": MessageLookupByLibrary.simpleMessage("사랑 찾기"),
-    "categoryCardOptimistic": MessageLookupByLibrary.simpleMessage("긍정적 사고"),
-    "categoryCardSelfConfidence": MessageLookupByLibrary.simpleMessage("자신감"),
-    "categoryCardSelfLove": MessageLookupByLibrary.simpleMessage("자기 사랑"),
-    "categoryWorkSuccess": MessageLookupByLibrary.simpleMessage("직장 성공"),
     "discountLabel": MessageLookupByLibrary.simpleMessage("%80 할인"),
     "feedCustomizationScreenAppBarTitle": MessageLookupByLibrary.simpleMessage(
       "카테고리",
@@ -47,6 +32,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "goPremiumButtonTitle": MessageLookupByLibrary.simpleMessage("프리미엄 되기!"),
     "message": MessageLookupByLibrary.simpleMessage("메시지"),
     "monthlyOfferTitle": MessageLookupByLibrary.simpleMessage("월간"),
+    "motivationalNotificationButtonTitle": MessageLookupByLibrary.simpleMessage(
+      "알림 활성화",
+    ),
+    "motivationalNotificationSubtitle": MessageLookupByLibrary.simpleMessage(
+      "정기적인 동기 부여 알림을 받으려면 알림을 활성화하세요.",
+    ),
+    "motivationalNotificationTitle": MessageLookupByLibrary.simpleMessage(
+      "확언 알림",
+    ),
     "networkErrorTitle": MessageLookupByLibrary.simpleMessage("어머! 인터넷 없음"),
     "noCommitmentText": MessageLookupByLibrary.simpleMessage(
       "계약 없음, 언제든지 취소 가능합니다.",
@@ -126,6 +120,19 @@ class MessageLookup extends MessageLookupByLibrary {
     "timePickerDescription": MessageLookupByLibrary.simpleMessage(
       "테라피 알림을 설정하세요.",
     ),
+    "topicCardAnxiety": MessageLookupByLibrary.simpleMessage("스트레스와 불안"),
+    "topicCardBodyAffirmation": MessageLookupByLibrary.simpleMessage("신체 긍정"),
+    "topicCardCalmness": MessageLookupByLibrary.simpleMessage("평온함"),
+    "topicCardGeneral": MessageLookupByLibrary.simpleMessage("일반"),
+    "topicCardGratitude": MessageLookupByLibrary.simpleMessage("감사"),
+    "topicCardGrowth": MessageLookupByLibrary.simpleMessage("개인 개발"),
+    "topicCardHappiness": MessageLookupByLibrary.simpleMessage("행복"),
+    "topicCardHealth": MessageLookupByLibrary.simpleMessage("건강"),
+    "topicCardLove": MessageLookupByLibrary.simpleMessage("사랑 찾기"),
+    "topicCardOptimistic": MessageLookupByLibrary.simpleMessage("긍정적 사고"),
+    "topicCardSelfConfidence": MessageLookupByLibrary.simpleMessage("자신감"),
+    "topicCardSelfLove": MessageLookupByLibrary.simpleMessage("자기 사랑"),
+    "topicWorkSuccess": MessageLookupByLibrary.simpleMessage("직장 성공"),
     "yearlyOfferTitle": MessageLookupByLibrary.simpleMessage("연간"),
   };
 }

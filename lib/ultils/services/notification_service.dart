@@ -16,15 +16,16 @@ class NotificationService {
         AndroidInitializationSettings('@mipmap/ic_launcher');
     final DarwinInitializationSettings initializationSettingsDarwin =
         DarwinInitializationSettings(
-            requestAlertPermission: true,
-            requestBadgePermission: true,
-            requestSoundPermission: true);
+          requestAlertPermission: true,
+          requestBadgePermission: true,
+          requestSoundPermission: true,
+        );
 
     final InitializationSettings initializationSettings =
         InitializationSettings(
-      android: initializationSettingsAndroid,
-      iOS: initializationSettingsDarwin,
-    );
+          android: initializationSettingsAndroid,
+          iOS: initializationSettingsDarwin,
+        );
     await flutterLocalNotificationsPlugin.initialize(initializationSettings);
   }
 
@@ -32,39 +33,56 @@ class NotificationService {
     if (Platform.isAndroid) {
       await flutterLocalNotificationsPlugin
           .resolvePlatformSpecificImplementation<
-              AndroidFlutterLocalNotificationsPlugin>()
+            AndroidFlutterLocalNotificationsPlugin
+          >()
           ?.requestNotificationsPermission();
     } else if (Platform.isIOS) {
       await flutterLocalNotificationsPlugin
           .resolvePlatformSpecificImplementation<
-              IOSFlutterLocalNotificationsPlugin>()
-          ?.requestPermissions(
-            alert: true,
-            badge: true,
-            sound: true,
-          );
+            IOSFlutterLocalNotificationsPlugin
+          >()
+          ?.requestPermissions(alert: true, badge: true, sound: true);
     }
   }
 
-  Future<void> showNotification() async {
+  Future<void> showNotification(String title, String body) async {
     const AndroidNotificationDetails androidNotificationDetails =
-        AndroidNotificationDetails('your channel id', 'your channel name',
-            channelDescription: 'your channel description',
-            importance: Importance.max,
-            priority: Priority.high,
-            ticker: 'ticker');
+        AndroidNotificationDetails(
+          'your channel id',
+          'your channel name',
+          channelDescription: 'your channel description',
+          importance: Importance.max,
+          priority: Priority.high,
+          ticker: 'ticker',
+        );
     const NotificationDetails notificationDetails = NotificationDetails(
-        android: androidNotificationDetails, iOS: DarwinNotificationDetails());
+      android: androidNotificationDetails,
+      iOS: DarwinNotificationDetails(),
+    );
     await flutterLocalNotificationsPlugin.show(
-        0, 'plain title', 'plain body', notificationDetails,
-        payload: 'item x');
+      1,
+      title,
+      body,
+      notificationDetails,
+      payload: 'item x',
+    );
   }
 
   Future<void> scheduleDailyNotification(
-      int hours, int minutes, String title, String body) async {
+    int hours,
+    int minutes,
+    String title,
+    String body,
+  ) async {
     final tz.TZDateTime now = tz.TZDateTime.now(tz.local);
-    tz.TZDateTime scheduledDate =
-        tz.TZDateTime(tz.local, now.year, now.month, now.day, hours, minutes);
+    tz.TZDateTime scheduledDate = tz.TZDateTime(
+      tz.local,
+      now.year,
+      now.month,
+      now.day,
+      hours,
+      minutes,
+    );
 
     await flutterLocalNotificationsPlugin.zonedSchedule(
       0,
@@ -72,13 +90,14 @@ class NotificationService {
       body,
       scheduledDate,
       const NotificationDetails(
-          android: AndroidNotificationDetails(
-            'reminder',
-            'reminder',
-            channelDescription: 'therapy reminder',
-            playSound: true,
-          ),
-          iOS: DarwinNotificationDetails()),
+        android: AndroidNotificationDetails(
+          'reminder',
+          'reminder',
+          channelDescription: 'therapy reminder',
+          playSound: true,
+        ),
+        iOS: DarwinNotificationDetails(),
+      ),
       androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
       uiLocalNotificationDateInterpretation:
           UILocalNotificationDateInterpretation.absoluteTime,

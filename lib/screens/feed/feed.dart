@@ -3,7 +3,6 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
 import 'package:zihnai/ultils/constant/color.dart';
 import 'package:zihnai/ultils/providers/feed_provider.dart';
-import 'package:zihnai/ultils/services/api_services.dart';
 import 'package:zihnai/widgets/feed_card.dart';
 import 'package:zihnai/widgets/loading_widget.dart';
 
@@ -15,7 +14,6 @@ class FeedScreen extends StatefulWidget {
 }
 
 class _FeedScreenState extends State<FeedScreen> {
-  ApiService affirmationService = ApiService();
   PageController pageController = PageController();
 
   @override
@@ -23,18 +21,21 @@ class _FeedScreenState extends State<FeedScreen> {
     final feedList = context.watch<FeedProvider>().feedList;
     return Container(
       color: HexColor(dark),
-      child: feedList.isEmpty
-          ? LoadingWidget()
-          : PageView.builder(
-              scrollDirection: Axis.vertical,
-              onPageChanged: (index) => {
-                    if (index > feedList.length - 5)
-                      {context.read<FeedProvider>().updateFeedList()}
-                  },
-              itemCount: feedList.length,
-              controller: pageController,
-              itemBuilder: (context, index) =>
-                  (FeedCard(title: feedList[index]))),
+      child:
+          feedList.isEmpty
+              ? LoadingWidget()
+              : PageView.builder(
+                scrollDirection: Axis.vertical,
+                onPageChanged:
+                    (index) => {
+                      if (index > feedList.length - 5)
+                        {context.read<FeedProvider>().updateFeedList()},
+                    },
+                itemCount: feedList.length,
+                controller: pageController,
+                itemBuilder:
+                    (context, index) => (FeedCard(title: feedList[index])),
+              ),
     );
   }
 }

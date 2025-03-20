@@ -22,19 +22,6 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-    "categoryCardAnxiety": MessageLookupByLibrary.simpleMessage("压力与焦虑"),
-    "categoryCardBodyAffirmation": MessageLookupByLibrary.simpleMessage("身体肯定"),
-    "categoryCardCalmness": MessageLookupByLibrary.simpleMessage("平静"),
-    "categoryCardGeneral": MessageLookupByLibrary.simpleMessage("通用"),
-    "categoryCardGratitude": MessageLookupByLibrary.simpleMessage("感恩"),
-    "categoryCardGrowth": MessageLookupByLibrary.simpleMessage("个人发展"),
-    "categoryCardHappiness": MessageLookupByLibrary.simpleMessage("幸福"),
-    "categoryCardHealth": MessageLookupByLibrary.simpleMessage("健康"),
-    "categoryCardLove": MessageLookupByLibrary.simpleMessage("寻找爱"),
-    "categoryCardOptimistic": MessageLookupByLibrary.simpleMessage("积极思考"),
-    "categoryCardSelfConfidence": MessageLookupByLibrary.simpleMessage("自信"),
-    "categoryCardSelfLove": MessageLookupByLibrary.simpleMessage("爱自己"),
-    "categoryWorkSuccess": MessageLookupByLibrary.simpleMessage("工作成功"),
     "discountLabel": MessageLookupByLibrary.simpleMessage("%80 折扣"),
     "feedCustomizationScreenAppBarTitle": MessageLookupByLibrary.simpleMessage(
       "类别",
@@ -45,6 +32,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "goPremiumButtonTitle": MessageLookupByLibrary.simpleMessage("升级为高级版！"),
     "message": MessageLookupByLibrary.simpleMessage("消息"),
     "monthlyOfferTitle": MessageLookupByLibrary.simpleMessage("每月"),
+    "motivationalNotificationButtonTitle": MessageLookupByLibrary.simpleMessage(
+      "启用通知",
+    ),
+    "motivationalNotificationSubtitle": MessageLookupByLibrary.simpleMessage(
+      "启用通知，以定期接收激励通知。",
+    ),
+    "motivationalNotificationTitle": MessageLookupByLibrary.simpleMessage(
+      "肯定通知",
+    ),
     "networkErrorTitle": MessageLookupByLibrary.simpleMessage("哎呀！没有互联网"),
     "noCommitmentText": MessageLookupByLibrary.simpleMessage("没有承诺，随时取消。"),
     "notificationSettingsButtonTitle": MessageLookupByLibrary.simpleMessage(
@@ -116,6 +112,19 @@ class MessageLookup extends MessageLookupByLibrary {
     "supportButtonTitle": MessageLookupByLibrary.simpleMessage("支持与反馈"),
     "thirdBenefitTitle": MessageLookupByLibrary.simpleMessage("可自定义的肯定语"),
     "timePickerDescription": MessageLookupByLibrary.simpleMessage("为您的治疗设置提醒。"),
+    "topicCardAnxiety": MessageLookupByLibrary.simpleMessage("压力与焦虑"),
+    "topicCardBodyAffirmation": MessageLookupByLibrary.simpleMessage("身体肯定"),
+    "topicCardCalmness": MessageLookupByLibrary.simpleMessage("平静"),
+    "topicCardGeneral": MessageLookupByLibrary.simpleMessage("通用"),
+    "topicCardGratitude": MessageLookupByLibrary.simpleMessage("感恩"),
+    "topicCardGrowth": MessageLookupByLibrary.simpleMessage("个人发展"),
+    "topicCardHappiness": MessageLookupByLibrary.simpleMessage("幸福"),
+    "topicCardHealth": MessageLookupByLibrary.simpleMessage("健康"),
+    "topicCardLove": MessageLookupByLibrary.simpleMessage("寻找爱"),
+    "topicCardOptimistic": MessageLookupByLibrary.simpleMessage("积极思考"),
+    "topicCardSelfConfidence": MessageLookupByLibrary.simpleMessage("自信"),
+    "topicCardSelfLove": MessageLookupByLibrary.simpleMessage("爱自己"),
+    "topicWorkSuccess": MessageLookupByLibrary.simpleMessage("工作成功"),
     "yearlyOfferTitle": MessageLookupByLibrary.simpleMessage("年度"),
   };
 }

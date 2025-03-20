@@ -361,140 +361,135 @@ class S {
   }
 
   /// `General`
-  String get categoryCardGeneral {
+  String get topicCardGeneral {
     return Intl.message(
       'General',
-      name: 'categoryCardGeneral',
+      name: 'topicCardGeneral',
       desc: '',
       args: [],
     );
   }
 
   /// `Stress and Anxiety`
-  String get categoryCardAnxiety {
+  String get topicCardAnxiety {
     return Intl.message(
       'Stress and Anxiety',
-      name: 'categoryCardAnxiety',
+      name: 'topicCardAnxiety',
       desc: '',
       args: [],
     );
   }
 
   /// `Finding Love`
-  String get categoryCardLove {
+  String get topicCardLove {
     return Intl.message(
       'Finding Love',
-      name: 'categoryCardLove',
+      name: 'topicCardLove',
       desc: '',
       args: [],
     );
   }
 
   /// `Personal Development`
-  String get categoryCardGrowth {
+  String get topicCardGrowth {
     return Intl.message(
       'Personal Development',
-      name: 'categoryCardGrowth',
+      name: 'topicCardGrowth',
       desc: '',
       args: [],
     );
   }
 
   /// `Positive Thinking`
-  String get categoryCardOptimistic {
+  String get topicCardOptimistic {
     return Intl.message(
       'Positive Thinking',
-      name: 'categoryCardOptimistic',
+      name: 'topicCardOptimistic',
       desc: '',
       args: [],
     );
   }
 
   /// `Body Affirmation`
-  String get categoryCardBodyAffirmation {
+  String get topicCardBodyAffirmation {
     return Intl.message(
       'Body Affirmation',
-      name: 'categoryCardBodyAffirmation',
+      name: 'topicCardBodyAffirmation',
       desc: '',
       args: [],
     );
   }
 
   /// `Tough Days`
-  String get categoryCardtoughDays {
+  String get topicCardtoughDays {
     return Intl.message(
       'Tough Days',
-      name: 'categoryCardtoughDays',
+      name: 'topicCardtoughDays',
       desc: '',
       args: [],
     );
   }
 
   /// `Self-confidence`
-  String get categoryCardSelfConfidence {
+  String get topicCardSelfConfidence {
     return Intl.message(
       'Self-confidence',
-      name: 'categoryCardSelfConfidence',
+      name: 'topicCardSelfConfidence',
       desc: '',
       args: [],
     );
   }
 
   /// `Happiness`
-  String get categoryCardHappiness {
+  String get topicCardHappiness {
     return Intl.message(
       'Happiness',
-      name: 'categoryCardHappiness',
+      name: 'topicCardHappiness',
       desc: '',
       args: [],
     );
   }
 
   /// `Work Success`
-  String get categoryWorkSuccess {
+  String get topicWorkSuccess {
     return Intl.message(
       'Work Success',
-      name: 'categoryWorkSuccess',
+      name: 'topicWorkSuccess',
       desc: '',
       args: [],
     );
   }
 
   /// `Calmness`
-  String get categoryCardCalmness {
+  String get topicCardCalmness {
     return Intl.message(
       'Calmness',
-      name: 'categoryCardCalmness',
+      name: 'topicCardCalmness',
       desc: '',
       args: [],
     );
   }
 
   /// `Gratitude`
-  String get categoryCardGratitude {
+  String get topicCardGratitude {
     return Intl.message(
       'Gratitude',
-      name: 'categoryCardGratitude',
+      name: 'topicCardGratitude',
       desc: '',
       args: [],
     );
   }
 
   /// `Health`
-  String get categoryCardHealth {
-    return Intl.message(
-      'Health',
-      name: 'categoryCardHealth',
-      desc: '',
-      args: [],
-    );
+  String get topicCardHealth {
+    return Intl.message('Health', name: 'topicCardHealth', desc: '', args: []);
   }
 
   /// `Love Yourself`
-  String get categoryCardSelfLove {
+  String get topicCardSelfLove {
     return Intl.message(
       'Love Yourself',
-      name: 'categoryCardSelfLove',
+      name: 'topicCardSelfLove',
       desc: '',
       args: [],
     );
@@ -595,6 +590,36 @@ class S {
     return Intl.message(
       'Generate Now!',
       name: 'generateNowTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Affirmation Notifications`
+  String get motivationalNotificationTitle {
+    return Intl.message(
+      'Affirmation Notifications',
+      name: 'motivationalNotificationTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enable notifications for regular motivational notifications.`
+  String get motivationalNotificationSubtitle {
+    return Intl.message(
+      'Enable notifications for regular motivational notifications.',
+      name: 'motivationalNotificationSubtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enable Notifications`
+  String get motivationalNotificationButtonTitle {
+    return Intl.message(
+      'Enable Notifications',
+      name: 'motivationalNotificationButtonTitle',
       desc: '',
       args: [],
     );

@@ -22,35 +22,6 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-    "categoryCardAnxiety": MessageLookupByLibrary.simpleMessage(
-      "Stress und Angst",
-    ),
-    "categoryCardBodyAffirmation": MessageLookupByLibrary.simpleMessage(
-      "Körperaffirmation",
-    ),
-    "categoryCardCalmness": MessageLookupByLibrary.simpleMessage("Ruhe"),
-    "categoryCardGeneral": MessageLookupByLibrary.simpleMessage("Allgemein"),
-    "categoryCardGratitude": MessageLookupByLibrary.simpleMessage(
-      "Dankbarkeit",
-    ),
-    "categoryCardGrowth": MessageLookupByLibrary.simpleMessage(
-      "Persönliche Entwicklung",
-    ),
-    "categoryCardHappiness": MessageLookupByLibrary.simpleMessage("Glück"),
-    "categoryCardHealth": MessageLookupByLibrary.simpleMessage("Gesundheit"),
-    "categoryCardLove": MessageLookupByLibrary.simpleMessage(
-      "Die Liebe finden",
-    ),
-    "categoryCardOptimistic": MessageLookupByLibrary.simpleMessage(
-      "Positive Denkweise",
-    ),
-    "categoryCardSelfConfidence": MessageLookupByLibrary.simpleMessage(
-      "Selbstvertrauen",
-    ),
-    "categoryCardSelfLove": MessageLookupByLibrary.simpleMessage("Selbstliebe"),
-    "categoryWorkSuccess": MessageLookupByLibrary.simpleMessage(
-      "Beruflicher Erfolg",
-    ),
     "discountLabel": MessageLookupByLibrary.simpleMessage("%80 Rabatt"),
     "feedCustomizationScreenAppBarTitle": MessageLookupByLibrary.simpleMessage(
       "Kategorien",
@@ -69,6 +40,15 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "message": MessageLookupByLibrary.simpleMessage("Nachricht"),
     "monthlyOfferTitle": MessageLookupByLibrary.simpleMessage("Monatlich"),
+    "motivationalNotificationButtonTitle": MessageLookupByLibrary.simpleMessage(
+      "Benachrichtigungen aktivieren",
+    ),
+    "motivationalNotificationSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Aktivieren Sie Benachrichtigungen für regelmäßige motivierende Nachrichten.",
+    ),
+    "motivationalNotificationTitle": MessageLookupByLibrary.simpleMessage(
+      "Affirmationsbenachrichtigungen",
+    ),
     "networkErrorTitle": MessageLookupByLibrary.simpleMessage(
       "Huch! Kein Internet",
     ),
@@ -163,6 +143,31 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "timePickerDescription": MessageLookupByLibrary.simpleMessage(
       "Lege Erinnerungen für deine Therapie fest.",
+    ),
+    "topicCardAnxiety": MessageLookupByLibrary.simpleMessage(
+      "Stress und Angst",
+    ),
+    "topicCardBodyAffirmation": MessageLookupByLibrary.simpleMessage(
+      "Körperaffirmation",
+    ),
+    "topicCardCalmness": MessageLookupByLibrary.simpleMessage("Ruhe"),
+    "topicCardGeneral": MessageLookupByLibrary.simpleMessage("Allgemein"),
+    "topicCardGratitude": MessageLookupByLibrary.simpleMessage("Dankbarkeit"),
+    "topicCardGrowth": MessageLookupByLibrary.simpleMessage(
+      "Persönliche Entwicklung",
+    ),
+    "topicCardHappiness": MessageLookupByLibrary.simpleMessage("Glück"),
+    "topicCardHealth": MessageLookupByLibrary.simpleMessage("Gesundheit"),
+    "topicCardLove": MessageLookupByLibrary.simpleMessage("Die Liebe finden"),
+    "topicCardOptimistic": MessageLookupByLibrary.simpleMessage(
+      "Positive Denkweise",
+    ),
+    "topicCardSelfConfidence": MessageLookupByLibrary.simpleMessage(
+      "Selbstvertrauen",
+    ),
+    "topicCardSelfLove": MessageLookupByLibrary.simpleMessage("Selbstliebe"),
+    "topicWorkSuccess": MessageLookupByLibrary.simpleMessage(
+      "Beruflicher Erfolg",
     ),
     "yearlyOfferTitle": MessageLookupByLibrary.simpleMessage("Jährlich"),
   };

@@ -22,29 +22,6 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-    "categoryCardAnxiety": MessageLookupByLibrary.simpleMessage(
-      "Stres ve Anksiyete",
-    ),
-    "categoryCardBodyAffirmation": MessageLookupByLibrary.simpleMessage(
-      "Beden Olumlaması",
-    ),
-    "categoryCardCalmness": MessageLookupByLibrary.simpleMessage("Sakinlik"),
-    "categoryCardGeneral": MessageLookupByLibrary.simpleMessage("Genel"),
-    "categoryCardGratitude": MessageLookupByLibrary.simpleMessage("Şükran"),
-    "categoryCardGrowth": MessageLookupByLibrary.simpleMessage(
-      "Kişisel Gelişim",
-    ),
-    "categoryCardHappiness": MessageLookupByLibrary.simpleMessage("Mutluluk"),
-    "categoryCardHealth": MessageLookupByLibrary.simpleMessage("Sağlık"),
-    "categoryCardLove": MessageLookupByLibrary.simpleMessage("Aşkı Bulmak"),
-    "categoryCardOptimistic": MessageLookupByLibrary.simpleMessage(
-      "Pozitif Düşünme",
-    ),
-    "categoryCardSelfConfidence": MessageLookupByLibrary.simpleMessage(
-      "Öz Güven",
-    ),
-    "categoryCardSelfLove": MessageLookupByLibrary.simpleMessage("Kendini Sev"),
-    "categoryWorkSuccess": MessageLookupByLibrary.simpleMessage("İş Başarısı"),
     "discountLabel": MessageLookupByLibrary.simpleMessage("%80 İndirim"),
     "feedCustomizationScreenAppBarTitle": MessageLookupByLibrary.simpleMessage(
       "Kategoriler",
@@ -59,6 +36,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "goPremiumButtonTitle": MessageLookupByLibrary.simpleMessage("Premium Ol!"),
     "message": MessageLookupByLibrary.simpleMessage("Mesaj"),
     "monthlyOfferTitle": MessageLookupByLibrary.simpleMessage("Aylık"),
+    "motivationalNotificationButtonTitle": MessageLookupByLibrary.simpleMessage(
+      "Bildirimleri Etkinleştir",
+    ),
+    "motivationalNotificationSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Düzenli motivasyon bildirimleri almak için bildirimleri etkinleştirin.",
+    ),
+    "motivationalNotificationTitle": MessageLookupByLibrary.simpleMessage(
+      "Olumlama Bildirimleri",
+    ),
     "networkErrorTitle": MessageLookupByLibrary.simpleMessage(
       "Aman! İnternet Yok",
     ),
@@ -156,6 +142,25 @@ class MessageLookup extends MessageLookupByLibrary {
     "timePickerDescription": MessageLookupByLibrary.simpleMessage(
       "Terapiniz için hatırlatıcılar ayarlayın.",
     ),
+    "topicCardAnxiety": MessageLookupByLibrary.simpleMessage(
+      "Stres ve Anksiyete",
+    ),
+    "topicCardBodyAffirmation": MessageLookupByLibrary.simpleMessage(
+      "Beden Olumlaması",
+    ),
+    "topicCardCalmness": MessageLookupByLibrary.simpleMessage("Sakinlik"),
+    "topicCardGeneral": MessageLookupByLibrary.simpleMessage("Genel"),
+    "topicCardGratitude": MessageLookupByLibrary.simpleMessage("Şükran"),
+    "topicCardGrowth": MessageLookupByLibrary.simpleMessage("Kişisel Gelişim"),
+    "topicCardHappiness": MessageLookupByLibrary.simpleMessage("Mutluluk"),
+    "topicCardHealth": MessageLookupByLibrary.simpleMessage("Sağlık"),
+    "topicCardLove": MessageLookupByLibrary.simpleMessage("Aşkı Bulmak"),
+    "topicCardOptimistic": MessageLookupByLibrary.simpleMessage(
+      "Pozitif Düşünme",
+    ),
+    "topicCardSelfConfidence": MessageLookupByLibrary.simpleMessage("Öz Güven"),
+    "topicCardSelfLove": MessageLookupByLibrary.simpleMessage("Kendini Sev"),
+    "topicWorkSuccess": MessageLookupByLibrary.simpleMessage("İş Başarısı"),
     "yearlyOfferTitle": MessageLookupByLibrary.simpleMessage("Yıllık"),
   };
 }

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:zihnai/generated/l10n.dart';
 import 'package:zihnai/screens/feed/smart_customization.dart';
 import 'package:zihnai/ultils/constant/color.dart';
-import 'package:zihnai/widgets/category_card.dart';
+import 'package:zihnai/widgets/topic_card.dart';
 import 'package:zihnai/widgets/selected_forward_button.dart';
 
 class FeedCustomizationScreen extends StatefulWidget {
@@ -15,7 +16,8 @@ class FeedCustomizationScreen extends StatefulWidget {
 }
 
 class _FeedCustomizationScreenState extends State<FeedCustomizationScreen> {
-  bool isCheckedAI = false;
+  bool isCheckedAI = true;
+  List<String> selectedList = [];
 
   void updateAIStatus(value) {
     setState(() {
@@ -23,78 +25,111 @@ class _FeedCustomizationScreenState extends State<FeedCustomizationScreen> {
     });
   }
 
+  Future<void> onBack(context) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setStringList('topics', selectedList);
+    prefs.setBool('isCheckedAI', isCheckedAI);
+    Navigator.pop(context);
+  }
+
+  Future<void> loadListFromSharedPreferences() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    List<String>? selectedTopicList = prefs.getStringList('topics');
+    if (selectedTopicList != null) {
+      setState(() {
+        selectedList = selectedTopicList;
+      });
+    }
+    bool? savedIsCheckedAIData = prefs.getBool('isCheckedAI');
+    if (savedIsCheckedAIData != null) {
+      setState(() {
+        isCheckedAI = savedIsCheckedAIData;
+      });
+    } else {
+      setState(() {
+        isCheckedAI = true;
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    loadListFromSharedPreferences();
+  }
+
   @override
   Widget build(BuildContext context) {
-    List<Map<String, dynamic>> feedCategories = [
+    List<Map<String, dynamic>> feedTopics = [
       {
-        "category": "General",
+        "topic": "General",
         "icon": Icons.gesture,
-        "label": S.of(context).categoryCardGeneral,
+        "label": S.of(context).topicCardGeneral,
       },
       {
-        "category": "Stress and anxiety",
+        "topic": "Stress and anxiety",
         "icon": Icons.sick,
-        "label": S.of(context).categoryCardAnxiety,
+        "label": S.of(context).topicCardAnxiety,
       },
       {
-        "category": "Finding love",
+        "topic": "Finding love",
         "icon": Icons.favorite,
-        "label": S.of(context).categoryCardLove,
+        "label": S.of(context).topicCardLove,
       },
       {
-        "category": "Personal Development",
+        "topic": "Personal Development",
         "icon": Icons.park,
-        "label": S.of(context).categoryCardGrowth,
+        "label": S.of(context).topicCardGrowth,
       },
       {
-        "category": "Positive thinking",
+        "topic": "Positive thinking",
         "icon": Icons.airplanemode_active,
-        "label": S.of(context).categoryCardOptimistic,
+        "label": S.of(context).topicCardOptimistic,
       },
       {
-        "category": "Body affirmation",
+        "topic": "Body affirmation",
         "icon": Icons.accessibility,
-        "label": S.of(context).categoryCardBodyAffirmation,
+        "label": S.of(context).topicCardBodyAffirmation,
       },
       {
-        "category": "Tough days",
+        "topic": "Tough days",
         "icon": Icons.cloud,
-        "label": S.of(context).categoryCardtoughDays,
+        "label": S.of(context).topicCardtoughDays,
       },
       {
-        "category": "Self-confidence",
+        "topic": "Self-confidence",
         "icon": Icons.brightness_high,
-        "label": S.of(context).categoryCardSelfConfidence,
+        "label": S.of(context).topicCardSelfConfidence,
       },
       {
-        "category": "Happiness",
+        "topic": "Happiness",
         "icon": Icons.sunny,
-        "label": S.of(context).categoryCardHappiness,
+        "label": S.of(context).topicCardHappiness,
       },
       {
-        "category": "Work success",
+        "topic": "Work success",
         "icon": Icons.work,
-        "label": S.of(context).categoryWorkSuccess,
+        "label": S.of(context).topicWorkSuccess,
       },
       {
-        "category": "Calmness",
+        "topic": "Calmness",
         "icon": Icons.spa,
-        "label": S.of(context).categoryCardCalmness,
+        "label": S.of(context).topicCardCalmness,
       },
       {
-        "category": "Gratitude",
+        "topic": "Gratitude",
         "icon": Icons.handshake,
-        "label": S.of(context).categoryCardGratitude,
+        "label": S.of(context).topicCardGratitude,
       },
       {
-        "category": "Health",
+        "topic": "Health",
         "icon": Icons.health_and_safety,
-        "label": S.of(context).categoryCardHealth,
+        "label": S.of(context).topicCardHealth,
       },
       {
-        "category": "Love yourself",
+        "topic": "Love yourself",
         "icon": Icons.favorite_border,
-        "label": S.of(context).categoryCardSelfLove,
+        "label": S.of(context).topicCardSelfLove,
       },
     ];
 
@@ -111,9 +146,7 @@ class _FeedCustomizationScreenState extends State<FeedCustomizationScreen> {
           ),
           backgroundColor: HexColor(dark),
           leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
+            onPressed: () => onBack(context),
             icon: Icon(Icons.arrow_back, color: HexColor(white)),
           ),
         ),
@@ -123,9 +156,9 @@ class _FeedCustomizationScreenState extends State<FeedCustomizationScreen> {
             children: [
               Expanded(
                 child: ListView.separated(
-                  itemCount: feedCategories.length,
+                  itemCount: feedTopics.length,
                   itemBuilder: (context, index) {
-                    var category = feedCategories[index];
+                    var topic = feedTopics[index];
                     if (index == 0) {
                       return Column(
                         children: [
@@ -150,20 +183,66 @@ class _FeedCustomizationScreenState extends State<FeedCustomizationScreen> {
                             height: 40,
                           ),
 
-                          CategoryCard(
-                            title: category["label"],
-                            icon: category["icon"],
-                            onTap: () => updateAIStatus(false),
-                            enabled: !isCheckedAI,
+                          TopicCard(
+                            title: topic["label"],
+                            icon: topic["icon"],
+                            onTap:
+                                () => {
+                                  updateAIStatus(false),
+                                  if (selectedList.contains(topic["topic"]))
+                                    {
+                                      setState(() {
+                                        selectedList =
+                                            selectedList
+                                                .where(
+                                                  (item) =>
+                                                      item != topic["topic"],
+                                                )
+                                                .toList();
+                                      }),
+                                    }
+                                  else
+                                    {
+                                      selectedList = [
+                                        ...selectedList,
+                                        topic["topic"],
+                                      ],
+                                    },
+                                },
+                            value:
+                                selectedList.contains(topic["topic"]) &&
+                                !isCheckedAI,
                           ),
                         ],
                       );
                     }
-                    return CategoryCard(
-                      title: category["label"],
-                      icon: category["icon"],
-                      onTap: () => updateAIStatus(false),
-                      enabled: !isCheckedAI,
+                    return TopicCard(
+                      title: topic["label"],
+                      icon: topic["icon"],
+                      onTap:
+                          () => {
+                            updateAIStatus(false),
+                            if (selectedList.contains(topic["topic"]))
+                              {
+                                setState(() {
+                                  selectedList =
+                                      selectedList
+                                          .where(
+                                            (item) => item != topic["topic"],
+                                          )
+                                          .toList();
+                                }),
+                              }
+                            else
+                              {
+                                selectedList = [
+                                  ...selectedList,
+                                  topic["topic"],
+                                ],
+                              },
+                          },
+                      value:
+                          selectedList.contains(topic["topic"]) && !isCheckedAI,
                     );
                   },
                   separatorBuilder: (context, index) {
