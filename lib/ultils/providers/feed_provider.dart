@@ -9,7 +9,7 @@ class FeedProvider extends ChangeNotifier {
 
   Future<void> updateFeedList() async {
     var response = await ApiService().sendRequest(
-      ApiService.affirmationMessage,
+      ApiService.createAffirmationMessage(),
       'you are a psychologist',
       false,
       true,
