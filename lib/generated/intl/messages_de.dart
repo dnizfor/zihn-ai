@@ -29,6 +29,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "firstBenefitTitle": MessageLookupByLibrary.simpleMessage(
       "Erweiterte KI-Erfahrung",
     ),
+    "fourthBenefitTitle": MessageLookupByLibrary.simpleMessage(
+      "Motivationale Benachrichtigungen",
+    ),
     "generateNowTitle": MessageLookupByLibrary.simpleMessage(
       "Jetzt generieren",
     ),

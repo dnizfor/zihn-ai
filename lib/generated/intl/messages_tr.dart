@@ -29,6 +29,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "firstBenefitTitle": MessageLookupByLibrary.simpleMessage(
       "Gelişmiş Yapay Zeka Deneyimi",
     ),
+    "fourthBenefitTitle": MessageLookupByLibrary.simpleMessage(
+      "Motivasyon Bildirimleri",
+    ),
     "generateNowTitle": MessageLookupByLibrary.simpleMessage("Şimdi Oluştur"),
     "generateWithAiTitle": MessageLookupByLibrary.simpleMessage(
       "Yapay Zeka ile Oluştur",

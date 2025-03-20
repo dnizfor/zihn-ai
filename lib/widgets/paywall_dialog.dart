@@ -81,6 +81,16 @@ class _PaywallDialogState extends State<PaywallDialog> {
           visualDensity: VisualDensity(horizontal: 0, vertical: -4),
           minVerticalPadding: 0,
         ),
+        ListTile(
+          leading: Icon(Icons.notifications),
+          title: Text(
+            S.of(context).fourthBenefitTitle,
+            style: TextStyle(color: HexColor(white)),
+          ),
+          dense: true,
+          visualDensity: VisualDensity(horizontal: 0, vertical: -4),
+          minVerticalPadding: 0,
+        ),
         SizedBox(height: 10),
         Padding(
           padding: EdgeInsets.all(10),

@@ -27,6 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "类别",
     ),
     "firstBenefitTitle": MessageLookupByLibrary.simpleMessage("高级AI体验"),
+    "fourthBenefitTitle": MessageLookupByLibrary.simpleMessage("激励通知"),
     "generateNowTitle": MessageLookupByLibrary.simpleMessage("现在生成!"),
     "generateWithAiTitle": MessageLookupByLibrary.simpleMessage("使用AI生成"),
     "goPremiumButtonTitle": MessageLookupByLibrary.simpleMessage("升级为高级版！"),

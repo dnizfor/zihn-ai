@@ -290,6 +290,16 @@ class S {
     );
   }
 
+  /// `Motivational Notifications`
+  String get fourthBenefitTitle {
+    return Intl.message(
+      'Motivational Notifications',
+      name: 'fourthBenefitTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Yearly`
   String get yearlyOfferTitle {
     return Intl.message('Yearly', name: 'yearlyOfferTitle', desc: '', args: []);

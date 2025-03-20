@@ -29,6 +29,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "firstBenefitTitle": MessageLookupByLibrary.simpleMessage(
       "Expérience IA Avancée",
     ),
+    "fourthBenefitTitle": MessageLookupByLibrary.simpleMessage(
+      "Notifications de motivation",
+    ),
     "generateNowTitle": MessageLookupByLibrary.simpleMessage(
       "Générer maintenant!",
     ),

@@ -27,6 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "카테고리",
     ),
     "firstBenefitTitle": MessageLookupByLibrary.simpleMessage("고급 AI 경험"),
+    "fourthBenefitTitle": MessageLookupByLibrary.simpleMessage("동기 부여 알림"),
     "generateNowTitle": MessageLookupByLibrary.simpleMessage("지금 생성하기!"),
     "generateWithAiTitle": MessageLookupByLibrary.simpleMessage("AI로 생성하기"),
     "goPremiumButtonTitle": MessageLookupByLibrary.simpleMessage("프리미엄 되기!"),

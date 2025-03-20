@@ -27,6 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "カテゴリー",
     ),
     "firstBenefitTitle": MessageLookupByLibrary.simpleMessage("高度なAI体験"),
+    "fourthBenefitTitle": MessageLookupByLibrary.simpleMessage("モチベーション通知"),
     "generateNowTitle": MessageLookupByLibrary.simpleMessage("今すぐ生成"),
     "generateWithAiTitle": MessageLookupByLibrary.simpleMessage("AIで生成"),
     "goPremiumButtonTitle": MessageLookupByLibrary.simpleMessage("プレミアムになる！"),
