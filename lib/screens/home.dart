@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:zihnai/screens/chat/chat.dart';
+import 'package:zihnai/screens/chat.dart';
 import 'package:zihnai/screens/feed/feed.dart';
 import 'package:zihnai/screens/settings/settings.dart';
 import 'package:zihnai/ultils/constant/color.dart';
