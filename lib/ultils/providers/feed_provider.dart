@@ -40,4 +40,10 @@ class FeedProvider extends ChangeNotifier {
     feedList.addAll(affirmations);
     notifyListeners();
   }
+
+  void resetFeedList() async {
+    feedList = [];
+    updatePremiumFeedList();
+    notifyListeners();
+  }
 }

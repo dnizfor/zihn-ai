@@ -169,6 +169,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Selbstvertrauen",
     ),
     "topicCardSelfLove": MessageLookupByLibrary.simpleMessage("Selbstliebe"),
+    "topicCardToughDays": MessageLookupByLibrary.simpleMessage(
+      "Schwierige Tage",
+    ),
     "topicWorkSuccess": MessageLookupByLibrary.simpleMessage(
       "Beruflicher Erfolg",
     ),

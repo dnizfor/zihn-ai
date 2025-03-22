@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:zihnai/generated/l10n.dart';
 import 'package:zihnai/screens/feed/smart_customization.dart';
 import 'package:zihnai/ultils/constant/color.dart';
+import 'package:zihnai/ultils/providers/feed_provider.dart';
 import 'package:zihnai/widgets/topic_card.dart';
 import 'package:zihnai/widgets/selected_forward_button.dart';
 
@@ -25,19 +27,16 @@ class _FeedCustomizationScreenState extends State<FeedCustomizationScreen> {
     });
   }
 
-  Future<void> onBack(context) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setStringList('topics', selectedList);
-    prefs.setBool('isCheckedAI', isCheckedAI);
-    Navigator.pop(context);
-  }
-
   Future<void> loadListFromSharedPreferences() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     List<String>? selectedTopicList = prefs.getStringList('topics');
     if (selectedTopicList != null) {
       setState(() {
         selectedList = selectedTopicList;
+      });
+    } else {
+      setState(() {
+        selectedList = [...selectedList, "General"];
       });
     }
     bool? savedIsCheckedAIData = prefs.getBool('isCheckedAI');
@@ -47,7 +46,7 @@ class _FeedCustomizationScreenState extends State<FeedCustomizationScreen> {
       });
     } else {
       setState(() {
-        isCheckedAI = true;
+        isCheckedAI = false;
       });
     }
   }
@@ -60,6 +59,15 @@ class _FeedCustomizationScreenState extends State<FeedCustomizationScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Future<void> onBack() async {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      prefs.setStringList('topics', selectedList);
+      prefs.setBool('isCheckedAI', isCheckedAI);
+      if (!context.mounted) return;
+      context.read<FeedProvider>().resetFeedList();
+      Navigator.pop(context);
+    }
+
     List<Map<String, dynamic>> feedTopics = [
       {
         "topic": "General",
@@ -94,7 +102,7 @@ class _FeedCustomizationScreenState extends State<FeedCustomizationScreen> {
       {
         "topic": "Tough days",
         "icon": Icons.cloud,
-        "label": S.of(context).topicCardtoughDays,
+        "label": S.of(context).topicCardToughDays,
       },
       {
         "topic": "Self-confidence",
@@ -146,7 +154,7 @@ class _FeedCustomizationScreenState extends State<FeedCustomizationScreen> {
           ),
           backgroundColor: HexColor(dark),
           leading: IconButton(
-            onPressed: () => onBack(context),
+            onPressed: onBack,
             icon: Icon(Icons.arrow_back, color: HexColor(white)),
           ),
         ),

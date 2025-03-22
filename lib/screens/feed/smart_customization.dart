@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:lottie/lottie.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:zihnai/generated/l10n.dart';
 import 'package:zihnai/ultils/constant/color.dart';
 import 'package:animated_hint_textfield/animated_hint_textfield.dart';
 import 'package:zihnai/screens/home.dart';
+import 'package:zihnai/ultils/providers/feed_provider.dart';
 import 'package:zihnai/ultils/services/api_services.dart';
 
 class SmartFeedCustomizationScreen extends StatefulWidget {
@@ -29,32 +31,37 @@ class _SmartFeedCustomizationScreenState
     super.dispose();
   }
 
-  Future<void> onSave(context) async {
-    if (textController.text.trim() == "") {
-      return;
-    }
-    setState(() {
-      step = 1;
-    });
-
-    String response = await apiService.sendRequest(
-      ApiService.generateTopicMessage(textController.text),
-      "you are a mental health specialist.",
-    );
-    final prefs = await SharedPreferences.getInstance();
-    List<String> smartTopics =
-        response.split(", ").map((word) => word.trim()).toList();
-    await prefs.setStringList('topics', smartTopics);
-    await prefs.setBool('isCheckedAI', true);
-    setState(() {
-      step = 2;
-    });
-    await Future.delayed(Duration(seconds: 2));
-    Navigator.of(context).push(MaterialPageRoute(builder: (context) => Home()));
-  }
-
   @override
   Widget build(BuildContext context) {
+    Future<void> onSave() async {
+      if (textController.text.trim() == "") {
+        return;
+      }
+      setState(() {
+        step = 1;
+      });
+
+      String response = await apiService.sendRequest(
+        ApiService.generateTopicMessage(textController.text),
+        "you are a mental health specialist.",
+      );
+      final prefs = await SharedPreferences.getInstance();
+      List<String> smartTopics =
+          response.split(", ").map((word) => word.trim()).toList();
+      await prefs.setStringList('topics', smartTopics);
+      await prefs.setBool('isCheckedAI', true);
+      if (!context.mounted) return;
+      context.read<FeedProvider>().resetFeedList();
+      setState(() {
+        step = 2;
+      });
+      await Future.delayed(Duration(seconds: 2));
+      if (!context.mounted) return;
+      Navigator.of(
+        context,
+      ).push(MaterialPageRoute(builder: (context) => Home()));
+    }
+
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
@@ -147,7 +154,7 @@ class _SmartFeedCustomizationScreenState
                                     width: double.infinity,
                                     height: 50,
                                     child: ElevatedButton(
-                                      onPressed: () => onSave(context),
+                                      onPressed: onSave,
                                       style: ElevatedButton.styleFrom(
                                         backgroundColor: HexColor(primary),
                                         shape: RoundedRectangleBorder(

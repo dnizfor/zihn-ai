@@ -141,6 +141,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "topicCardOptimistic": MessageLookupByLibrary.simpleMessage("前向きな思考"),
     "topicCardSelfConfidence": MessageLookupByLibrary.simpleMessage("自信"),
     "topicCardSelfLove": MessageLookupByLibrary.simpleMessage("自分を愛する"),
+    "topicCardToughDays": MessageLookupByLibrary.simpleMessage("困難な日々"),
     "topicWorkSuccess": MessageLookupByLibrary.simpleMessage("仕事の成功"),
     "yearlyOfferTitle": MessageLookupByLibrary.simpleMessage("年間"),
   };

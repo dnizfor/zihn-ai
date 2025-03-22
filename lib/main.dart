@@ -99,10 +99,17 @@ class _MainState extends State<Main> {
     Future.microtask(() async {
       bool networkIsConnected = await checkConnectivity();
       if (mounted && networkIsConnected) {
-        await Provider.of<FeedProvider>(
-          context,
-          listen: false,
-        ).updateFeedList();
+        if (Provider.of<UserProvider>(context, listen: false).isUserPremium) {
+          await Provider.of<FeedProvider>(
+            context,
+            listen: false,
+          ).updatePremiumFeedList();
+        } else {
+          await Provider.of<FeedProvider>(
+            context,
+            listen: false,
+          ).updateFeedList();
+        }
       }
       if (mounted && networkIsConnected && widget.showHome) {
         await Provider.of<UserProvider>(

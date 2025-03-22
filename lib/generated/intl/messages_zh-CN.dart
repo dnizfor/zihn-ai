@@ -125,6 +125,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "topicCardOptimistic": MessageLookupByLibrary.simpleMessage("积极思考"),
     "topicCardSelfConfidence": MessageLookupByLibrary.simpleMessage("自信"),
     "topicCardSelfLove": MessageLookupByLibrary.simpleMessage("爱自己"),
+    "topicCardToughDays": MessageLookupByLibrary.simpleMessage("艰难的日子"),
     "topicWorkSuccess": MessageLookupByLibrary.simpleMessage("工作成功"),
     "yearlyOfferTitle": MessageLookupByLibrary.simpleMessage("年度"),
   };

@@ -163,6 +163,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "topicCardSelfConfidence": MessageLookupByLibrary.simpleMessage("Öz Güven"),
     "topicCardSelfLove": MessageLookupByLibrary.simpleMessage("Kendini Sev"),
+    "topicCardToughDays": MessageLookupByLibrary.simpleMessage("Zor Günler"),
     "topicWorkSuccess": MessageLookupByLibrary.simpleMessage("İş Başarısı"),
     "yearlyOfferTitle": MessageLookupByLibrary.simpleMessage("Yıllık"),
   };

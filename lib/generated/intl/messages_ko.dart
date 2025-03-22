@@ -133,6 +133,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "topicCardOptimistic": MessageLookupByLibrary.simpleMessage("긍정적 사고"),
     "topicCardSelfConfidence": MessageLookupByLibrary.simpleMessage("자신감"),
     "topicCardSelfLove": MessageLookupByLibrary.simpleMessage("자기 사랑"),
+    "topicCardToughDays": MessageLookupByLibrary.simpleMessage("힘든 날들"),
     "topicWorkSuccess": MessageLookupByLibrary.simpleMessage("직장 성공"),
     "yearlyOfferTitle": MessageLookupByLibrary.simpleMessage("연간"),
   };

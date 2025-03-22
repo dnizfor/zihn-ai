@@ -431,10 +431,10 @@ class S {
   }
 
   /// `Tough Days`
-  String get topicCardtoughDays {
+  String get topicCardToughDays {
     return Intl.message(
       'Tough Days',
-      name: 'topicCardtoughDays',
+      name: 'topicCardToughDays',
       desc: '',
       args: [],
     );
