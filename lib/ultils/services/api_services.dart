@@ -36,7 +36,7 @@ class ApiService {
   static String createAffirmationMessage() {
     Random random = Random();
     int randomNumber = random.nextInt(100);
-    return "Write 15 affirmations in $deviceLanguage for someone who is depressed, "
+    return "Write 15 affirmations in $deviceLanguage language for someone who is depressed, "
         "separating each one with \\n. Write only the sentences, nothing else. 'seed': $randomNumber";
   }
 
@@ -44,14 +44,14 @@ class ApiService {
     Random random = Random();
     int randomNumber = random.nextInt(100);
     String topicText = topicList.join(",");
-    return "Write  15  affirmation about one of these topics: $topicText .Response should be in $deviceLanguage.Json response should contain only the 'affirmations' key .'seed': $randomNumber";
+    return "Write  15  affirmation about one of these topics: $topicText .Response should be in $deviceLanguage language.Json response should contain only the 'affirmations' key .'seed': $randomNumber";
   }
 
   static String createCustomOneAffirmationMessage(List<String> topicList) {
     Random random = Random();
     int randomNumber = random.nextInt(100);
     String topicText = topicList.join(",");
-    return "Write a single affirmation about one of these topics: $topicText .Response should be in $deviceLanguage. Write only the sentence, nothing else.'seed': $randomNumber";
+    return "Write a single affirmation about one of these topics: $topicText .Response should be in $deviceLanguage language. Write only the sentence, nothing else.'seed': $randomNumber";
   }
 
   static String generateTopicMessage(String text) {
