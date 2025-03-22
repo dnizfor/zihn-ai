@@ -63,6 +63,8 @@ dependencies:
         url: https://github.com/fluttercommunity/flutter_workmanager.git
         path: workmanager
         ref: main
+  purchases_flutter: ^8.6.1
+  purchases_ui_flutter: ^8.6.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

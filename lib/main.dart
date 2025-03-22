@@ -15,7 +15,7 @@ import 'package:zihnai/ultils/services/api_services.dart';
 import 'package:zihnai/ultils/services/notification_service.dart';
 import 'package:zihnai/ultils/constant/color.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
-
+import 'package:purchases_flutter/purchases_flutter.dart';
 import 'package:workmanager/workmanager.dart';
 
 // Bu arka plan görevini çalıştıracak fonksiyon
@@ -56,6 +56,13 @@ Future main() async {
     ),
   );
   WidgetsFlutterBinding.ensureInitialized();
+
+  await Purchases.setLogLevel(LogLevel.debug);
+
+  await Purchases.configure(
+    PurchasesConfiguration("goog_CLiuYsgdymVOsnRsMEzzBMhNzIK"),
+  );
+
   final prefs = await SharedPreferences.getInstance();
   final bool showHome = prefs.getBool('showHome') ?? false;
 

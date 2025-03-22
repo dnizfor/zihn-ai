@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:purchases_flutter/purchases_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class UserProvider extends ChangeNotifier {
@@ -10,6 +11,7 @@ class UserProvider extends ChangeNotifier {
     this.reminder = false,
     this.reminderHours = 0,
     this.reminderMinutes = 0,
+    this.isUserPremium = false,
   });
 
   String name;
@@ -17,6 +19,7 @@ class UserProvider extends ChangeNotifier {
   bool reminder;
   int reminderHours;
   int reminderMinutes;
+  bool isUserPremium;
 
   void setName(String newName) {
     name = newName;
@@ -34,20 +37,24 @@ class UserProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void setReminderHours(
-    int newReminderHours,
-  ) {
+  void setReminderHours(int newReminderHours) {
     reminderHours = newReminderHours;
 
     notifyListeners();
   }
 
-  void setReminderMinutes(
-    int newReminderMinutes,
-  ) {
+  void setReminderMinutes(int newReminderMinutes) {
     reminderMinutes = newReminderMinutes;
 
     notifyListeners();
+  }
+
+  Future<void> checkPremiumStatus() async {
+    Purchases.addCustomerInfoUpdateListener((customerInfo) async {
+      EntitlementInfo? entitlement = customerInfo.entitlements.all['premium'];
+      isUserPremium = entitlement?.isActive ?? false;
+      notifyListeners();
+    });
   }
 
   Future<Map<String, dynamic>?> initializeUserData() async {
@@ -60,6 +67,8 @@ class UserProvider extends ChangeNotifier {
     reminder = userData?['reminder'];
     reminderHours = userData?['reminderHours'];
     reminderMinutes = userData?['reminderMinutes'];
+
+    checkPremiumStatus();
 
     return null;
   }

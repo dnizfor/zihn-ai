@@ -4,9 +4,12 @@ import 'package:zihnai/generated/l10n.dart';
 import 'package:zihnai/screens/settings/notification_settings.dart';
 import 'package:zihnai/ultils/constant/color.dart';
 import 'package:zihnai/ultils/functions/send_mail.dart';
+import 'package:zihnai/ultils/providers/user_provider.dart';
 import 'package:zihnai/widgets/paywall_dialog.dart';
 import 'package:zihnai/widgets/arrow_forward_button.dart';
 import 'package:store_redirect/store_redirect.dart';
+import 'package:provider/provider.dart';
+import 'package:purchases_ui_flutter/purchases_ui_flutter.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -29,19 +32,18 @@ class SettingsScreen extends StatelessWidget {
                       width: double.infinity,
                     ),
                     SizedBox(height: 10),
-                    ArrowForwardButton(
-                      title: S.of(context).goPremiumButtonTitle,
-                      onTap:
-                          () => showDialog(
-                            context: context,
-                            builder: (context) {
-                              return Dialog.fullscreen(
-                                backgroundColor: HexColor(dark),
-                                child: PaywallDialog(),
-                              );
-                            },
-                          ),
-                    ),
+                    !context.read<UserProvider>().isUserPremium
+                        ? ArrowForwardButton(
+                          title: S.of(context).goPremiumButtonTitle,
+                          onTap: () async {
+                            await RevenueCatUI.presentPaywallIfNeeded(
+                              "default",
+                            );
+                            if (!context.mounted) return;
+                            context.read<UserProvider>().checkPremiumStatus();
+                          },
+                        )
+                        : SizedBox.shrink(),
                     SizedBox(height: 10),
                     ArrowForwardButton(
                       title: S.of(context).notificationSettingsButtonTitle,

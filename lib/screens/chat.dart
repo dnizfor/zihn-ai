@@ -2,10 +2,12 @@ import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
+import 'package:purchases_ui_flutter/purchases_ui_flutter.dart';
 import 'package:zihnai/generated/l10n.dart';
 import 'package:zihnai/ultils/classes/chat_class.dart';
 import 'package:zihnai/ultils/constant/color.dart';
 import 'package:zihnai/ultils/providers/chat_provider.dart';
+import 'package:zihnai/ultils/providers/user_provider.dart';
 import 'package:zihnai/ultils/services/api_services.dart';
 import 'package:zihnai/widgets/typing_indicator.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
@@ -94,6 +96,11 @@ class _ChatScreenState extends State<ChatScreen> {
     }
 
     void capture() async {
+      if (!context.read<UserProvider>().isUserPremium) {
+        await RevenueCatUI.presentPaywallIfNeeded("default");
+        context.read<UserProvider>().checkPremiumStatus();
+        return;
+      }
       if (!isListening) {
         // _speechToText null değilse initialize'ı çağır
         if (_speechToText != null) {

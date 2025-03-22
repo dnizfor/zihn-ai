@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:provider/provider.dart';
+import 'package:purchases_ui_flutter/purchases_ui_flutter.dart';
 import 'package:zihnai/screens/feed/feed_customization.dart';
 import 'package:zihnai/ultils/constant/color.dart';
+import 'package:zihnai/ultils/providers/user_provider.dart';
 
 class FeedCard extends StatefulWidget {
   const FeedCard({super.key, required this.title});
@@ -48,7 +51,13 @@ class _FeedCardState extends State<FeedCard> {
                 color: HexColor(secondary),
               ),
               child: IconButton(
-                onPressed: () {
+                onPressed: () async {
+                  if (!context.read<UserProvider>().isUserPremium) {
+                    await RevenueCatUI.presentPaywallIfNeeded("default");
+                    if (!context.mounted) return;
+                    context.read<UserProvider>().checkPremiumStatus();
+                    return;
+                  }
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) => const FeedCustomizationScreen(),

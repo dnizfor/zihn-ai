@@ -5,6 +5,7 @@ import 'package:zihnai/ultils/constant/color.dart';
 import 'package:zihnai/ultils/providers/feed_provider.dart';
 import 'package:zihnai/widgets/feed_card.dart';
 import 'package:zihnai/widgets/loading_widget.dart';
+import 'package:zihnai/ultils/providers/user_provider.dart';
 
 class FeedScreen extends StatefulWidget {
   const FeedScreen({super.key});
@@ -29,7 +30,13 @@ class _FeedScreenState extends State<FeedScreen> {
                 onPageChanged:
                     (index) => {
                       if (index > feedList.length - 5)
-                        {context.read<FeedProvider>().updateFeedList()},
+                        {
+                          context.read<UserProvider>().isUserPremium
+                              ? context
+                                  .read<FeedProvider>()
+                                  .updatePremiumFeedList()
+                              : context.read<FeedProvider>().updateFeedList(),
+                        },
                     },
                 itemCount: feedList.length,
                 controller: pageController,

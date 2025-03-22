@@ -10,6 +10,7 @@ import 'package:zihnai/ultils/constant/color.dart';
 import 'package:zihnai/ultils/providers/user_provider.dart';
 import 'package:zihnai/ultils/services/notification_service.dart';
 import 'package:zihnai/widgets/wheel_time_picker.dart';
+import 'package:purchases_ui_flutter/purchases_ui_flutter.dart';
 
 class NotificationSettingScreen extends StatefulWidget {
   const NotificationSettingScreen({super.key});
@@ -129,7 +130,16 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
                   ),
                   child: SwitchListTile(
                     value: context.watch<UserProvider>().notification,
-                    onChanged: (value) => setNotification(value),
+                    onChanged: (value) async {
+                      if (!context.read<UserProvider>().isUserPremium) {
+                        await RevenueCatUI.presentPaywallIfNeeded("default");
+                        if (!context.mounted) return;
+                        context.read<UserProvider>().checkPremiumStatus();
+                        return;
+                      }
+
+                      setNotification(value);
+                    },
                     title: Text(
                       S.of(context).motivationalNotificationButtonTitle,
                       style: TextStyle(
