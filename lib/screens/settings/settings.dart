@@ -5,7 +5,6 @@ import 'package:zihnai/screens/settings/notification_settings.dart';
 import 'package:zihnai/ultils/constant/color.dart';
 import 'package:zihnai/ultils/functions/send_mail.dart';
 import 'package:zihnai/ultils/providers/user_provider.dart';
-import 'package:zihnai/widgets/paywall_dialog.dart';
 import 'package:zihnai/widgets/arrow_forward_button.dart';
 import 'package:store_redirect/store_redirect.dart';
 import 'package:provider/provider.dart';

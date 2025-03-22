@@ -98,6 +98,7 @@ class _ChatScreenState extends State<ChatScreen> {
     void capture() async {
       if (!context.read<UserProvider>().isUserPremium) {
         await RevenueCatUI.presentPaywallIfNeeded("default");
+        if (!context.mounted) return;
         context.read<UserProvider>().checkPremiumStatus();
         return;
       }
