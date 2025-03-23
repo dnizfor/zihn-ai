@@ -68,7 +68,7 @@ Future main() async {
 
   NotificationService().initializeNotifications();
 
-  Workmanager().initialize(callbackDispatcher, isInDebugMode: true);
+  Workmanager().initialize(callbackDispatcher);
 
   runApp(
     MultiProvider(
