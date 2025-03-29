@@ -195,6 +195,26 @@ class S {
     );
   }
 
+  /// `Battery Optimization`
+  String get batteryOptimization {
+    return Intl.message(
+      'Battery Optimization',
+      name: 'batteryOptimization',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `If you're experiencing notification display issues, click the button below to go to the battery optimization menu. Select Zihn AI, and if 'Optimized' is selected, change it to 'Unoptimized' or 'No Restrictions'.`
+  String get batteryOptimizationBody {
+    return Intl.message(
+      'If you\'re experiencing notification display issues, click the button below to go to the battery optimization menu. Select Zihn AI, and if \'Optimized\' is selected, change it to \'Unoptimized\' or \'No Restrictions\'.',
+      name: 'batteryOptimizationBody',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Message`
   String get message {
     return Intl.message('Message', name: 'message', desc: '', args: []);

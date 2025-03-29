@@ -22,6 +22,10 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "batteryOptimization": MessageLookupByLibrary.simpleMessage("電池優化"),
+    "batteryOptimizationBody": MessageLookupByLibrary.simpleMessage(
+      "如果您遇到通知顯示問題，請點擊下面的按鈕進入電池優化菜單。選擇Zihn AI，如果選擇了\'已優化\'，請將其更改為\'未優化\'或\'無限制\'。",
+    ),
     "discountLabel": MessageLookupByLibrary.simpleMessage("%80 折扣"),
     "feedCustomizationScreenAppBarTitle": MessageLookupByLibrary.simpleMessage(
       "類別",

@@ -1,5 +1,7 @@
 import 'dart:convert';
-
+import 'dart:io';
+import 'package:app_settings/app_settings.dart';
+import 'package:purchases_ui_flutter/purchases_ui_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
@@ -9,8 +11,8 @@ import 'package:zihnai/generated/l10n.dart';
 import 'package:zihnai/ultils/constant/color.dart';
 import 'package:zihnai/ultils/providers/user_provider.dart';
 import 'package:zihnai/ultils/services/notification_service.dart';
+import 'package:zihnai/widgets/arrow_forward_button.dart';
 import 'package:zihnai/widgets/wheel_time_picker.dart';
-import 'package:purchases_ui_flutter/purchases_ui_flutter.dart';
 
 class NotificationSettingScreen extends StatefulWidget {
   const NotificationSettingScreen({super.key});
@@ -39,6 +41,7 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
 
     final reminderNotificationTitle = S.of(context).reminderNotificationTitle;
     final reminderNotificationBody = S.of(context).reminderNotificationBody;
+
     Future<void> onDone() async {
       String userName = userProvider.name;
       bool userNotification = userProvider.notification;
@@ -65,11 +68,8 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
           'id_unique', // Görev ID'si, benzersiz olmalı
           'affirmationNotification', // Görev adı
           tag: "affirmationNotification",
-          frequency: Duration(hours: 6),
-          constraints: Constraints(
-            networkType:
-                NetworkType.connected, // Sadece internet bağlıyken çalışsın
-          ),
+          frequency: Duration(hours: 4),
+          // constraints: Constraints(networkType: NetworkType.connected),
         );
       } else {
         Workmanager().cancelByTag("affirmationNotification");
@@ -195,7 +195,6 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
                     inactiveThumbColor: Colors.grey,
                   ),
                 ),
-
                 // Time Picker
                 if (context.watch<UserProvider>().reminder) ...[
                   Padding(
@@ -215,6 +214,36 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
                     ),
                   ),
                 ],
+                Platform.isAndroid
+                    ? Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(height: 20),
+                        Text(
+                          S.of(context).batteryOptimization,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 24,
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(vertical: 20),
+                          child: Text(
+                            S.of(context).batteryOptimizationBody,
+                            style: TextStyle(color: Colors.grey, fontSize: 16),
+                          ),
+                        ),
+                        ArrowForwardButton(
+                          title: S.of(context).batteryOptimization,
+                          onTap:
+                              () => AppSettings.openAppSettings(
+                                type: AppSettingsType.batteryOptimization,
+                              ),
+                        ),
+                      ],
+                    )
+                    : SizedBox.shrink(),
               ],
             ),
           ),

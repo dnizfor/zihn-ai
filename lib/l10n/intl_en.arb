@@ -14,6 +14,8 @@
     "timePickerDescription": "Set reminders for your therapy.",
     "reminderNotificationTitle": "Ready to Talk? 😊",
     "reminderNotificationBody": "It`s time to chat with your psychologist! Share your feelings and relax. 🌸",
+    "batteryOptimization": "Battery Optimization",
+    "batteryOptimizationBody": "If you're experiencing notification display issues, click the button below to go to the battery optimization menu. Select Zihn AI, and if 'Optimized' is selected, change it to 'Unoptimized' or 'No Restrictions'.",
     "message": "Message",
     "goPremiumButtonTitle": "Be Premium!",
     "notificationSettingsButtonTitle": "Notifications",

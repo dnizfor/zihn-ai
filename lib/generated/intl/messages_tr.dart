@@ -22,6 +22,12 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "batteryOptimization": MessageLookupByLibrary.simpleMessage(
+      "Pil Optimizasyonu",
+    ),
+    "batteryOptimizationBody": MessageLookupByLibrary.simpleMessage(
+      "Bildirim görüntüleme sorunu yaşıyorsanız, aşağıdaki butona tıklayarak pil optimizasyonu menüsüne gidin. Zihn AI\'yi seçin ve \'Optimize Edildi\' seçiliyse, bunu \'Optimize Edilmemiş\' veya \'Kısıtlama Yok\' olarak değiştirin.",
+    ),
     "discountLabel": MessageLookupByLibrary.simpleMessage("%80 İndirim"),
     "feedCustomizationScreenAppBarTitle": MessageLookupByLibrary.simpleMessage(
       "Kategoriler",

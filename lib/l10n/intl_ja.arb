@@ -14,6 +14,8 @@
     "timePickerDescription": "セラピーのリマインダーを設定しましょう。",
     "reminderNotificationTitle": "お話しする準備はできましたか？ 😊",
     "reminderNotificationBody": "心理カウンセラーと話す時間です！気持ちをシェアしてリラックスしましょう。🌸",
+    "batteryOptimization": "バッテリーの最適化",
+    "batteryOptimizationBody": "通知表示の問題が発生している場合は、下のボタンをクリックしてバッテリー最適化メニューに移動してください。 Zihn AIを選択し、'最適化済み'が選択されている場合は、'未最適化'または'制限なし'に変更してください。",
     "message": "メッセージ",
     "goPremiumButtonTitle": "プレミアムになる！",
     "notificationSettingsButtonTitle": "通知",

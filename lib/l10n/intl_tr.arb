@@ -14,6 +14,8 @@
     "timePickerDescription": "Terapiniz için hatırlatıcılar ayarlayın.",
     "reminderNotificationTitle": "Konuşmaya Hazır mısınız? 😊",
     "reminderNotificationBody": "Psikoloğunuzla konuşma zamanı geldi! Duygularınızı paylaşın ve rahatlayın. 🌸",
+    "batteryOptimization": "Pil Optimizasyonu",
+    "batteryOptimizationBody": "Bildirim görüntüleme sorunu yaşıyorsanız, aşağıdaki butona tıklayarak pil optimizasyonu menüsüne gidin. Zihn AI'yi seçin ve 'Optimize Edildi' seçiliyse, bunu 'Optimize Edilmemiş' veya 'Kısıtlama Yok' olarak değiştirin.",
     "message": "Mesaj",
     "goPremiumButtonTitle": "Premium Ol!",
     "notificationSettingsButtonTitle": "Bildirimler",

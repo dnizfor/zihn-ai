@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'dart:io';
 import 'package:timezone/timezone.dart' as tz;
@@ -46,11 +48,13 @@ class NotificationService {
   }
 
   Future<void> showNotification(String title, String body) async {
+    Random random = Random();
+    int randomNumber = random.nextInt(100);
     const AndroidNotificationDetails androidNotificationDetails =
         AndroidNotificationDetails(
-          'your channel id',
-          'your channel name',
-          channelDescription: 'your channel description',
+          'zihn',
+          'zihn',
+          channelDescription: 'ai notification channel',
           importance: Importance.max,
           priority: Priority.high,
           ticker: 'ticker',
@@ -60,7 +64,7 @@ class NotificationService {
       iOS: DarwinNotificationDetails(),
     );
     await flutterLocalNotificationsPlugin.show(
-      1,
+      randomNumber,
       title,
       body,
       notificationDetails,
@@ -99,8 +103,6 @@ class NotificationService {
         iOS: DarwinNotificationDetails(),
       ),
       androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
-      // uiLocalNotificationDateInterpretation: (sanirim kaldirilmis)
-      //     UILocalNotificationDateInterpretation.absoluteTime,
       matchDateTimeComponents: DateTimeComponents.time,
     );
   }

@@ -14,6 +14,8 @@
     "timePickerDescription": "為您的治療設定提醒。",
     "reminderNotificationTitle": "準備好聊天了嗎？😊",
     "reminderNotificationBody": "現在是與您的心理學家對話的時間！分享您的感受並放鬆心情。🌸",
+    "batteryOptimization": "電池優化",
+    "batteryOptimizationBody": "如果您遇到通知顯示問題，請點擊下面的按鈕進入電池優化菜單。選擇Zihn AI，如果選擇了'已優化'，請將其更改為'未優化'或'無限制'。",
     "message": "訊息",
     "goPremiumButtonTitle": "升級為高級版",
     "notificationSettingsButtonTitle": "通知",

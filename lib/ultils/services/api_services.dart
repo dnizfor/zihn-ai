@@ -47,15 +47,23 @@ class ApiService {
     return "Write  15  affirmation about one of these topics: $topicText .Response should be in $deviceLanguage language.Json response should contain only the 'affirmations' key .'seed': $randomNumber";
   }
 
-  static String createCustomOneAffirmationMessage(List<String> topicList) {
+  static String generateTopicMessage(String text) {
+    return "Analyze the following text and extract the fewest possible affirmation topic keywords that still cover all the main themes of the text. The keywords should combine related concepts into a single term if necessary. Provide the output as a list of single words, separated by commas. The output should be in English.  text=$text";
+  }
+
+  Future<String> generateMotivationNotification(List<String> topicList) async {
     Random random = Random();
     int randomNumber = random.nextInt(100);
     String topicText = topicList.join(",");
-    return "Write a single affirmation about one of these topics: $topicText .Response should be in $deviceLanguage language. Write only the sentence, nothing else.'seed': $randomNumber";
-  }
-
-  static String generateTopicMessage(String text) {
-    return "Analyze the following text and extract the fewest possible affirmation topic keywords that still cover all the main themes of the text. The keywords should combine related concepts into a single term if necessary. Provide the output as a list of single words, separated by commas. The output should be in English.  text=$text";
+    String message =
+        "Write a single affirmation about one of these topics: $topicText .Response should be in $deviceLanguage language. Write only the sentence, nothing else.'seed': $randomNumber";
+    String urlMessage = message.replaceAll(" ", "%20");
+    final response = await http.get(
+      Uri.parse(
+        "https://text.pollinations.ai/$urlMessage?model=open_ai&private=true",
+      ),
+    );
+    return response.body;
   }
 
   Future<String> sendRequest(

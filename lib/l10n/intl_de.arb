@@ -14,6 +14,8 @@
     "timePickerDescription": "Lege Erinnerungen für deine Therapie fest.",
     "reminderNotificationTitle": "Bereit zum Gespräch? 😊",
     "reminderNotificationBody": "Es ist Zeit, mit deinem Psychologen zu sprechen! Teile deine Gefühle und entspanne dich. 🌸",
+    "batteryOptimization": "Batterieoptimierung",
+    "batteryOptimizationBody": "Wenn Sie Probleme mit der Anzeige von Benachrichtigungen haben, klicken Sie unten auf die Schaltfläche, um zum Menü für die Batterieoptimierung zu gelangen. Wählen Sie Zihn AI aus und ändern Sie es, wenn 'Optimiert' ausgewählt ist, in 'Nicht optimiert' oder 'Keine Einschränkungen'.",
     "message": "Nachricht",
     "goPremiumButtonTitle": "Premium werden!",
     "notificationSettingsButtonTitle": "Benachrichtigungen",

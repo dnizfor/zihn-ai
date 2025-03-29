@@ -25,22 +25,22 @@ void callbackDispatcher() {
   Workmanager().executeTask((task, inputData) async {
     switch (task) {
       case "affirmationNotification":
-        final prefs = await SharedPreferences.getInstance();
-        List<String>? topicList = prefs.getStringList('topics');
-        if (topicList == null) {
-          await prefs.setStringList('topics', ["General"]);
-          topicList = ["General"];
+        try {
+          final prefs = await SharedPreferences.getInstance();
+          List<String>? topicList = prefs.getStringList('topics');
+          if (topicList == null) {
+            await prefs.setStringList('topics', ["General"]);
+            topicList = ["General"];
+          }
+
+          String response = await ApiService().generateMotivationNotification(
+            topicList,
+          );
+          await NotificationService().showNotification('Zihn AI', response);
+        } catch (e) {
+          return Future.value(true);
         }
 
-        var response = await ApiService().sendRequest(
-          ApiService.createCustomOneAffirmationMessage(topicList),
-          'you are a psychologist',
-          false,
-          false,
-        );
-        NotificationService().initializeNotifications();
-
-        NotificationService().showNotification('Zihn AI', response);
         break;
       default:
     }

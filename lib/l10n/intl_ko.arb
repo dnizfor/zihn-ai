@@ -14,6 +14,8 @@
     "timePickerDescription": "테라피 알림을 설정하세요.",
     "reminderNotificationTitle": "대화할 준비가 되었나요? 😊",
     "reminderNotificationBody": "심리 상담사와 이야기할 시간이에요! 감정을 나누고 편안해지세요. 🌸",
+    "batteryOptimization": "배터리 최적화",
+    "batteryOptimizationBody": "알림 표시 문제를 겪고 있다면, 아래 버튼을 클릭하여 배터리 최적화 메뉴로 이동하세요. Zihn AI를 선택하고, '최적화됨'이 선택되어 있다면 이를 '최적화되지 않음' 또는 '제한 없음'으로 변경하세요.",
     "message": "메시지",
     "goPremiumButtonTitle": "프리미엄 되기!",
     "notificationSettingsButtonTitle": "알림",
