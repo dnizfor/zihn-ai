@@ -6,6 +6,7 @@ import 'package:purchases_ui_flutter/purchases_ui_flutter.dart';
 import 'package:zihnai/generated/l10n.dart';
 import 'package:zihnai/ultils/classes/chat_class.dart';
 import 'package:zihnai/ultils/constant/color.dart';
+import 'package:zihnai/ultils/enums/subscription_status_enum.dart';
 import 'package:zihnai/ultils/providers/chat_provider.dart';
 import 'package:zihnai/ultils/providers/user_provider.dart';
 import 'package:zihnai/ultils/services/api_services.dart';
@@ -96,7 +97,8 @@ class _ChatScreenState extends State<ChatScreen> {
     }
 
     void capture() async {
-      if (!context.read<UserProvider>().isUserPremium) {
+      if (context.read<UserProvider>().userSubscriptionStatus ==
+          SubscriptionStatus.basic) {
         await RevenueCatUI.presentPaywallIfNeeded("default");
         if (!context.mounted) return;
         context.read<UserProvider>().checkPremiumStatus();

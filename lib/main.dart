@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:zihnai/generated/l10n.dart';
 import 'package:zihnai/screens/network_error.dart';
+import 'package:zihnai/ultils/enums/subscription_status_enum.dart';
 import 'package:zihnai/ultils/providers/chat_provider.dart';
 import 'package:zihnai/ultils/providers/feed_provider.dart';
 import 'package:zihnai/ultils/providers/user_provider.dart';
@@ -99,7 +100,11 @@ class _MainState extends State<Main> {
     Future.microtask(() async {
       bool networkIsConnected = await checkConnectivity();
       if (mounted && networkIsConnected) {
-        if (Provider.of<UserProvider>(context, listen: false).isUserPremium) {
+        if (Provider.of<UserProvider>(
+              context,
+              listen: false,
+            ).userSubscriptionStatus ==
+            SubscriptionStatus.premium) {
           await Provider.of<FeedProvider>(
             context,
             listen: false,

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:zihnai/ultils/enums/subscription_status_enum.dart';
 
 class UserProvider extends ChangeNotifier {
   UserProvider({
@@ -11,7 +12,7 @@ class UserProvider extends ChangeNotifier {
     this.reminder = false,
     this.reminderHours = 0,
     this.reminderMinutes = 0,
-    this.isUserPremium = false,
+    this.userSubscriptionStatus = SubscriptionStatus.loading,
   });
 
   String name;
@@ -19,7 +20,7 @@ class UserProvider extends ChangeNotifier {
   bool reminder;
   int reminderHours;
   int reminderMinutes;
-  bool isUserPremium;
+  SubscriptionStatus userSubscriptionStatus;
 
   void setName(String newName) {
     name = newName;
@@ -50,11 +51,14 @@ class UserProvider extends ChangeNotifier {
   }
 
   Future<void> checkPremiumStatus() async {
-    Purchases.addCustomerInfoUpdateListener((customerInfo) async {
-      EntitlementInfo? entitlement = customerInfo.entitlements.all['premium'];
-      isUserPremium = entitlement?.isActive ?? false;
-      notifyListeners();
-    });
+    CustomerInfo customerInfo = await Purchases.getCustomerInfo();
+    final premiumEntitlement = customerInfo.entitlements.all["premium"];
+    if (premiumEntitlement != null && premiumEntitlement.isActive) {
+      userSubscriptionStatus = SubscriptionStatus.premium;
+    } else {
+      userSubscriptionStatus = SubscriptionStatus.basic;
+    }
+    notifyListeners();
   }
 
   Future<Map<String, dynamic>?> initializeUserData() async {

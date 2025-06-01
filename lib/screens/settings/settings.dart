@@ -3,6 +3,7 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:zihnai/generated/l10n.dart';
 import 'package:zihnai/screens/settings/notification_settings.dart';
 import 'package:zihnai/ultils/constant/color.dart';
+import 'package:zihnai/ultils/enums/subscription_status_enum.dart';
 import 'package:zihnai/ultils/functions/send_mail.dart';
 import 'package:zihnai/ultils/providers/user_provider.dart';
 import 'package:zihnai/widgets/arrow_forward_button.dart';
@@ -31,7 +32,11 @@ class SettingsScreen extends StatelessWidget {
                       width: double.infinity,
                     ),
                     SizedBox(height: 10),
-                    !context.read<UserProvider>().isUserPremium
+                    context.watch<UserProvider>().userSubscriptionStatus ==
+                            SubscriptionStatus.loading
+                        ? SizedBox.shrink()
+                        : context.read<UserProvider>().userSubscriptionStatus ==
+                            SubscriptionStatus.basic
                         ? ArrowForwardButton(
                           title: S.of(context).goPremiumButtonTitle,
                           onTap: () async {

@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:purchases_ui_flutter/purchases_ui_flutter.dart';
 import 'package:zihnai/screens/feed/feed_customization.dart';
 import 'package:zihnai/ultils/constant/color.dart';
+import 'package:zihnai/ultils/enums/subscription_status_enum.dart';
 import 'package:zihnai/ultils/providers/user_provider.dart';
 
 class FeedCard extends StatefulWidget {
@@ -52,7 +53,8 @@ class _FeedCardState extends State<FeedCard> {
               ),
               child: IconButton(
                 onPressed: () async {
-                  if (!context.read<UserProvider>().isUserPremium) {
+                  if (context.read<UserProvider>().userSubscriptionStatus ==
+                      SubscriptionStatus.basic) {
                     await RevenueCatUI.presentPaywallIfNeeded("default");
                     if (!context.mounted) return;
                     context.read<UserProvider>().checkPremiumStatus();

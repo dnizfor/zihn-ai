@@ -9,6 +9,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:workmanager/workmanager.dart';
 import 'package:zihnai/generated/l10n.dart';
 import 'package:zihnai/ultils/constant/color.dart';
+import 'package:zihnai/ultils/enums/subscription_status_enum.dart';
 import 'package:zihnai/ultils/providers/user_provider.dart';
 import 'package:zihnai/ultils/services/notification_service.dart';
 import 'package:zihnai/widgets/arrow_forward_button.dart';
@@ -131,7 +132,8 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
                   child: SwitchListTile(
                     value: context.watch<UserProvider>().notification,
                     onChanged: (value) async {
-                      if (!context.read<UserProvider>().isUserPremium) {
+                      if (context.read<UserProvider>().userSubscriptionStatus ==
+                          SubscriptionStatus.basic) {
                         await RevenueCatUI.presentPaywallIfNeeded("default");
                         if (!context.mounted) return;
                         context.read<UserProvider>().checkPremiumStatus();
