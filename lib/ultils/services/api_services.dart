@@ -37,7 +37,7 @@ class ApiService {
     Random random = Random();
     int randomNumber = random.nextInt(100);
     return "Write 15 affirmations in $deviceLanguage language for someone who is depressed, "
-        "separating each one with \\n. Write only the sentences, nothing else. 'seed': $randomNumber";
+        "Json response should contain only the 'affirmations' key. 'seed': $randomNumber";
   }
 
   static String createCustomAffirmationMessage(List<String> topicList) {
@@ -80,7 +80,7 @@ class ApiService {
           {"role": "system", "content": systemMessage},
           {"role": "user", "content": message},
         ],
-        "model": "openai-large",
+        "model": "openai",
         if (useSeed) "seed": 42, // JSON içinde sayı olarak kalabilir
         "jsonMode": jsonMode,
         "private": true,

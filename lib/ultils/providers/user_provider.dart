@@ -61,7 +61,7 @@ class UserProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<Map<String, dynamic>?> initializeUserData() async {
+  Future<void> initializeUserData() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     final String? userDataString = prefs.getString('user');
 
@@ -71,9 +71,8 @@ class UserProvider extends ChangeNotifier {
     reminder = userData?['reminder'];
     reminderHours = userData?['reminderHours'];
     reminderMinutes = userData?['reminderMinutes'];
+    notifyListeners();
 
-    checkPremiumStatus();
-
-    return null;
+    await checkPremiumStatus();
   }
 }

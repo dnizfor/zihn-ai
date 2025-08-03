@@ -15,9 +15,8 @@ class FeedProvider extends ChangeNotifier {
       true,
     );
     Map<String, dynamic> jsonData = jsonDecode(response);
-    List<String> affirmations = (jsonData['affirmations'] as String).split(
-      '\n',
-    );
+    List<String> affirmations = List<String>.from(jsonData['affirmations']);
+
     feedList.addAll(affirmations);
     notifyListeners();
   }
