@@ -60,7 +60,7 @@ class ApiService {
     String urlMessage = message.replaceAll(" ", "%20");
     final response = await http.get(
       Uri.parse(
-        "https://text.pollinations.ai/$urlMessage?model=open_ai&private=true",
+        "https://text.pollinations.ai/$urlMessage?model=openai&private=true",
       ),
     );
     return response.body;
