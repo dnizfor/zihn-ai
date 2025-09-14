@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -60,9 +62,15 @@ Future main() async {
 
   await Purchases.setLogLevel(LogLevel.debug);
 
-  await Purchases.configure(
-    PurchasesConfiguration("goog_CLiuYsgdymVOsnRsMEzzBMhNzIK"),
-  );
+  if (Platform.isIOS) {
+    await Purchases.configure(
+      PurchasesConfiguration("appl_wgxpzWOErULJIOrMnAiiwZjAEYg"),
+    );
+  } else if (Platform.isAndroid) {
+    await Purchases.configure(
+      PurchasesConfiguration("goog_CLiuYsgdymVOsnRsMEzzBMhNzIK"),
+    );
+  }
 
   final prefs = await SharedPreferences.getInstance();
   final bool showHome = prefs.getBool('showHome') ?? false;

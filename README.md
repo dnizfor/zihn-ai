@@ -1,7 +1,5 @@
 # zihnai
 
-- workmanager ios icin kurulmadi!
-
 
 ### Bu bilgileri kimseyle paylasma !
 - [android build alirken kullanilan key.properties](https://docs.flutter.dev/deployment/android)
