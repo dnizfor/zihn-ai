@@ -45,6 +45,25 @@ void callbackDispatcher() {
         }
 
         break;
+
+      case Workmanager.iOSBackgroundTask:
+        try {
+          final prefs = await SharedPreferences.getInstance();
+          List<String>? topicList = prefs.getStringList('topics');
+          if (topicList == null) {
+            await prefs.setStringList('topics', ["General"]);
+            topicList = ["General"];
+          }
+
+          String response = await ApiService().generateMotivationNotification(
+            topicList,
+          );
+          await NotificationService().showNotification('Zihn AI', response);
+        } catch (e) {
+          return Future.value(true);
+        }
+
+        break;
       default:
     }
     return Future.value(true);
