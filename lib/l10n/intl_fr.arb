@@ -61,5 +61,10 @@
     "generateNowTitle": "Générer maintenant!",
     "motivationalNotificationTitle": "Notifications d'affirmation",
     "motivationalNotificationSubtitle": "Activez les notifications pour recevoir régulièrement des messages de motivation.",
-    "motivationalNotificationButtonTitle": "Activer les notifications"
+    "motivationalNotificationButtonTitle": "Activer les notifications",
+    "bePremiumToastification":"Vous utilisez actuellement la version Basique. Passez à Premium pour des réponses d'IA plus rapides et plus précises !",
+    "bePremiumSnackbarTitle": "Passez à Premium !",
+    "bePremiumSnackbarMessage": "Passez à Premium pour débloquer cette fonctionnalité géniale !"
+
+    
 }

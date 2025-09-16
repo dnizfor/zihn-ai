@@ -80,7 +80,7 @@ class ApiService {
           {"role": "system", "content": systemMessage},
           {"role": "user", "content": message},
         ],
-        "model": "gemini",
+        "model": "openai",
         if (useSeed) "seed": 42, // JSON içinde sayı olarak kalabilir
         "jsonMode": jsonMode,
         "private": true,

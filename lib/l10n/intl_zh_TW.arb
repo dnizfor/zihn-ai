@@ -61,5 +61,9 @@
     "generateNowTitle": "現在生成!",
     "motivationalNotificationTitle": "肯定通知",
     "motivationalNotificationSubtitle": "啟用通知，以定期接收激勵通知。",
-    "motivationalNotificationButtonTitle": "啟用通知"
+    "motivationalNotificationButtonTitle": "啟用通知",
+    "bePremiumToastification":  "您目前正在使用基本版本。升級到高級版即可獲得更快、更準確的AI回覆！",
+    "bePremiumSnackbarTitle": "升級到高級版！",
+    "bePremiumSnackbarMessage": "升級到高級版即可解鎖此超棒功能！"
+
 }

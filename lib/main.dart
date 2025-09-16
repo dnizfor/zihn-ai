@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -20,7 +21,8 @@ import 'package:zihnai/ultils/constant/color.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
 import 'package:workmanager/workmanager.dart';
-
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 // Bu arka plan görevini çalıştıracak fonksiyon
 
 @pragma('vm:entry-point')
@@ -85,7 +87,7 @@ Future main() async {
     await Purchases.configure(
       PurchasesConfiguration("appl_wgxpzWOErULJIOrMnAiiwZjAEYg"),
     );
-  } else if (Platform.isAndroid) {
+  } else {
     await Purchases.configure(
       PurchasesConfiguration("goog_CLiuYsgdymVOsnRsMEzzBMhNzIK"),
     );
@@ -97,6 +99,13 @@ Future main() async {
   NotificationService().initializeNotifications();
 
   Workmanager().initialize(callbackDispatcher);
+
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+  await FirebaseAppCheck.instance.activate(
+    androidProvider: AndroidProvider.playIntegrity,
+    appleProvider: AppleProvider.appAttest,
+  );
 
   runApp(
     MultiProvider(

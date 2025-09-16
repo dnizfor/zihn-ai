@@ -61,5 +61,9 @@
     "generateNowTitle": "지금 생성하기!",
     "motivationalNotificationTitle": "확언 알림",
     "motivationalNotificationSubtitle": "정기적인 동기 부여 알림을 받으려면 알림을 활성화하세요.",
-    "motivationalNotificationButtonTitle": "알림 활성화"
+    "motivationalNotificationButtonTitle": "알림 활성화",
+    "bePremiumToastification": "현재 기본 버전을 사용 중입니다. 더 빠르고 정확한 AI 답변을 받으려면 Premium으로 업그레이드하세요!",
+    "bePremiumSnackbarTitle": "프리미엄으로 업그레이드!",
+    "bePremiumSnackbarMessage": "이 멋진 기능을 사용하려면 프리미엄으로 업그레이드하세요!"
+
 }

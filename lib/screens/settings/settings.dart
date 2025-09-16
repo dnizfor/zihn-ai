@@ -33,9 +33,6 @@ class SettingsScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 10),
                     context.watch<UserProvider>().userSubscriptionStatus ==
-                            SubscriptionStatus.loading
-                        ? SizedBox.shrink()
-                        : context.read<UserProvider>().userSubscriptionStatus ==
                             SubscriptionStatus.basic
                         ? ArrowForwardButton(
                           title: S.of(context).goPremiumButtonTitle,

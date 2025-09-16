@@ -2,7 +2,7 @@ import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
-import 'package:purchases_ui_flutter/purchases_ui_flutter.dart';
+import 'package:toastification/toastification.dart';
 import 'package:zihnai/generated/l10n.dart';
 import 'package:zihnai/ultils/classes/chat_class.dart';
 import 'package:zihnai/ultils/constant/color.dart';
@@ -10,6 +10,7 @@ import 'package:zihnai/ultils/enums/subscription_status_enum.dart';
 import 'package:zihnai/ultils/providers/chat_provider.dart';
 import 'package:zihnai/ultils/providers/user_provider.dart';
 import 'package:zihnai/ultils/services/api_services.dart';
+import 'package:zihnai/ultils/services/vertex_ai_service.dart';
 import 'package:zihnai/widgets/typing_indicator.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 
@@ -52,6 +53,19 @@ class _ChatScreenState extends State<ChatScreen> {
     _speechToText = stt.SpeechToText();
 
     textController.addListener(updateUserMessage);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (context.read<UserProvider>().userSubscriptionStatus ==
+          SubscriptionStatus.basic) {
+        toastification.show(
+          context: context,
+          description: Text(S.of(context).bePremiumToastification),
+          autoCloseDuration: const Duration(seconds: 3),
+          style: ToastificationStyle.fillColored,
+          primaryColor: HexColor(primary),
+          showIcon: false,
+        );
+      }
+    });
   }
 
   @override
@@ -77,13 +91,20 @@ class _ChatScreenState extends State<ChatScreen> {
       setState(() {
         showTypingAnimation = true;
       });
-      String response = await chatService.sendRequest(
-        usrMsg,
-        ApiService.createMessageWithHistory(
-          ApiService.systemTherapistMessage,
-          chatList,
-        ),
-      );
+      late String response;
+      if (context.watch<UserProvider>().userSubscriptionStatus ==
+          SubscriptionStatus.premium) {
+        response = await VertexAiService.sendChatMessage(usrMsg);
+      } else {
+        response = await chatService.sendRequest(
+          usrMsg,
+          ApiService.createMessageWithHistory(
+            ApiService.systemTherapistMessage,
+            chatList,
+          ),
+        );
+      }
+
       if (context.mounted) {
         context.read<ChatProvider>().setChat(
           Chat(role: 'assistant', message: response),
@@ -97,13 +118,6 @@ class _ChatScreenState extends State<ChatScreen> {
     }
 
     void capture() async {
-      if (context.read<UserProvider>().userSubscriptionStatus ==
-          SubscriptionStatus.basic) {
-        await RevenueCatUI.presentPaywallIfNeeded("default");
-        if (!context.mounted) return;
-        context.read<UserProvider>().checkPremiumStatus();
-        return;
-      }
       if (!isListening) {
         // _speechToText null değilse initialize'ı çağır
         if (_speechToText != null) {

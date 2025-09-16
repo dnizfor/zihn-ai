@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "105051374079",
+    "project_id": "zihn-ai-9c62a",
+    "storage_bucket": "zihn-ai-9c62a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:105051374079:android:e57b738b8401900a2d27ca",
+        "android_client_info": {
+          "package_name": "com.viralmo.zihnai"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCnL75ikJP1f8J4bEEkbcCYWgWyQilCAc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

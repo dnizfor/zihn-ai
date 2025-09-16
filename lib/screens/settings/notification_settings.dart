@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:app_settings/app_settings.dart';
-import 'package:purchases_ui_flutter/purchases_ui_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
@@ -10,6 +9,7 @@ import 'package:workmanager/workmanager.dart';
 import 'package:zihnai/generated/l10n.dart';
 import 'package:zihnai/ultils/constant/color.dart';
 import 'package:zihnai/ultils/enums/subscription_status_enum.dart';
+import 'package:zihnai/ultils/functions/show_snackbar.dart';
 import 'package:zihnai/ultils/providers/user_provider.dart';
 import 'package:zihnai/ultils/services/notification_service.dart';
 import 'package:zihnai/widgets/arrow_forward_button.dart';
@@ -134,9 +134,13 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
                     onChanged: (value) async {
                       if (context.read<UserProvider>().userSubscriptionStatus ==
                           SubscriptionStatus.basic) {
-                        await RevenueCatUI.presentPaywallIfNeeded("default");
-                        if (!context.mounted) return;
-                        context.read<UserProvider>().checkPremiumStatus();
+                        showSnackbar(
+                          context,
+                          HexColor(primary),
+                          S.of(context).bePremiumSnackbarTitle,
+                          S.of(context).bePremiumSnackbarMessage,
+                        );
+
                         return;
                       }
 

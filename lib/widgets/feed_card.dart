@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:provider/provider.dart';
-import 'package:purchases_ui_flutter/purchases_ui_flutter.dart';
+import 'package:zihnai/generated/l10n.dart';
 import 'package:zihnai/screens/feed/feed_customization.dart';
 import 'package:zihnai/ultils/constant/color.dart';
 import 'package:zihnai/ultils/enums/subscription_status_enum.dart';
+import 'package:zihnai/ultils/functions/show_snackbar.dart';
 import 'package:zihnai/ultils/providers/user_provider.dart';
 
 class FeedCard extends StatefulWidget {
@@ -55,11 +56,15 @@ class _FeedCardState extends State<FeedCard> {
                 onPressed: () async {
                   if (context.read<UserProvider>().userSubscriptionStatus ==
                       SubscriptionStatus.basic) {
-                    await RevenueCatUI.presentPaywallIfNeeded("default");
-                    if (!context.mounted) return;
-                    context.read<UserProvider>().checkPremiumStatus();
+                    showSnackbar(
+                      context,
+                      HexColor(primary),
+                      S.of(context).bePremiumSnackbarTitle,
+                      S.of(context).bePremiumSnackbarMessage,
+                    );
                     return;
                   }
+
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) => const FeedCustomizationScreen(),

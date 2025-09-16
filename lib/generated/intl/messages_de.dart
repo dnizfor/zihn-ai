@@ -28,6 +28,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "batteryOptimizationBody": MessageLookupByLibrary.simpleMessage(
       "Wenn Sie Probleme mit der Anzeige von Benachrichtigungen haben, klicken Sie unten auf die Schaltfläche, um zum Menü für die Batterieoptimierung zu gelangen. Wählen Sie Zihn AI aus und ändern Sie es, wenn \'Optimiert\' ausgewählt ist, in \'Nicht optimiert\' oder \'Keine Einschränkungen\'.",
     ),
+    "bePremiumSnackbarMessage": MessageLookupByLibrary.simpleMessage(
+      "Wechseln Sie zu Premium, um diese großartige Funktion freizuschalten!",
+    ),
+    "bePremiumSnackbarTitle": MessageLookupByLibrary.simpleMessage(
+      "Premium nutzen!",
+    ),
+    "bePremiumToastification": MessageLookupByLibrary.simpleMessage(
+      "Sie verwenden derzeit die Basisversion. Wechseln Sie zu Premium für schnellere und genauere KI-Antworten!",
+    ),
     "discountLabel": MessageLookupByLibrary.simpleMessage("%80 Rabatt"),
     "feedCustomizationScreenAppBarTitle": MessageLookupByLibrary.simpleMessage(
       "Kategorien",

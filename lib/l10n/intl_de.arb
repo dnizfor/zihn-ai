@@ -61,5 +61,9 @@
     "generateNowTitle": "Jetzt generieren",
     "motivationalNotificationTitle": "Affirmationsbenachrichtigungen",
     "motivationalNotificationSubtitle": "Aktivieren Sie Benachrichtigungen für regelmäßige motivierende Nachrichten.",
-    "motivationalNotificationButtonTitle": "Benachrichtigungen aktivieren"
+    "motivationalNotificationButtonTitle": "Benachrichtigungen aktivieren",
+    "bePremiumToastification":"Sie verwenden derzeit die Basisversion. Wechseln Sie zu Premium für schnellere und genauere KI-Antworten!",
+    "bePremiumSnackbarTitle": "Premium nutzen!",
+    "bePremiumSnackbarMessage": "Wechseln Sie zu Premium, um diese großartige Funktion freizuschalten!"
+
 }

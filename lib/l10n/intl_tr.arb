@@ -61,5 +61,9 @@
     "generateNowTitle": "Şimdi Oluştur",
     "motivationalNotificationTitle": "Olumlama Bildirimleri",
     "motivationalNotificationSubtitle": "Düzenli motivasyon bildirimleri almak için bildirimleri etkinleştirin.",
-    "motivationalNotificationButtonTitle": "Bildirimleri Etkinleştir"
+    "motivationalNotificationButtonTitle": "Bildirimleri Etkinleştir",
+    "bePremiumToastification": "Şu anda Temel sürümü kullanıyorsunuz. Daha hızlı ve daha doğru yapay zeka cevapları için Premium’a geçin!",
+    "bePremiumSnackbarTitle": "Premium’a Geçin!",
+    "bePremiumSnackbarMessage": "Bu harika özelliğin kilidini açmak için Premium’a geçin!"
+
 }

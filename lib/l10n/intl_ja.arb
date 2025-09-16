@@ -61,5 +61,9 @@
     "generateNowTitle": "今すぐ生成",
     "motivationalNotificationTitle": "アファメーション通知",
     "motivationalNotificationSubtitle": "定期的にモチベーション通知を受け取るには、通知を有効にしてください。",
-    "motivationalNotificationButtonTitle": "通知を有効にする"
+    "motivationalNotificationButtonTitle": "通知を有効にする",
+    "bePremiumToastification":"現在、基本バージョンを使用しています。より高速で正確なAIの回答を得るには、Premiumにアップグレードしてください！",
+    "bePremiumSnackbarTitle": "プレミアムにアップグレード！",
+    "bePremiumSnackbarMessage": "この素晴らしい機能を利用するには、プレミアムにアップグレードしてください！"
+
 }

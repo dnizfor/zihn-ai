@@ -654,6 +654,36 @@ class S {
       args: [],
     );
   }
+
+  /// `You are currently using the Basic version. Upgrade to Premium for faster and more accurate AI responses!`
+  String get bePremiumToastification {
+    return Intl.message(
+      'You are currently using the Basic version. Upgrade to Premium for faster and more accurate AI responses!',
+      name: 'bePremiumToastification',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Go Premium!`
+  String get bePremiumSnackbarTitle {
+    return Intl.message(
+      'Go Premium!',
+      name: 'bePremiumSnackbarTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Upgrade to Premium to unlock this awesome feature!`
+  String get bePremiumSnackbarMessage {
+    return Intl.message(
+      'Upgrade to Premium to unlock this awesome feature!',
+      name: 'bePremiumSnackbarMessage',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

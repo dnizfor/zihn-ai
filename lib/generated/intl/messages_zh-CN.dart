@@ -26,6 +26,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "batteryOptimizationBody": MessageLookupByLibrary.simpleMessage(
       "如果您遇到通知显示问题，请点击下面的按钮进入电池优化菜单。选择Zihn AI，如果选择了\'已优化\'，请将其更改为\'未优化\'或\'无限制\'。",
     ),
+    "bePremiumSnackbarMessage": MessageLookupByLibrary.simpleMessage(
+      "升级到高级版即可解锁此超棒功能！",
+    ),
+    "bePremiumSnackbarTitle": MessageLookupByLibrary.simpleMessage("升级到高级版！"),
+    "bePremiumToastification": MessageLookupByLibrary.simpleMessage(
+      "您当前正在使用基础版。升级到高级版即可获得更快、更准确的AI回答！",
+    ),
     "discountLabel": MessageLookupByLibrary.simpleMessage("%80 折扣"),
     "feedCustomizationScreenAppBarTitle": MessageLookupByLibrary.simpleMessage(
       "类别",

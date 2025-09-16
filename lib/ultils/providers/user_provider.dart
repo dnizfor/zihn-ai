@@ -12,7 +12,7 @@ class UserProvider extends ChangeNotifier {
     this.reminder = false,
     this.reminderHours = 0,
     this.reminderMinutes = 0,
-    this.userSubscriptionStatus = SubscriptionStatus.loading,
+    this.userSubscriptionStatus = SubscriptionStatus.basic,
   });
 
   String name;

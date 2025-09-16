@@ -1,1 +1,1 @@
-enum SubscriptionStatus { premium, basic, loading }
+enum SubscriptionStatus { premium, basic }

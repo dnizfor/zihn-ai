@@ -28,6 +28,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "batteryOptimizationBody": MessageLookupByLibrary.simpleMessage(
       "Bildirim görüntüleme sorunu yaşıyorsanız, aşağıdaki butona tıklayarak pil optimizasyonu menüsüne gidin. Zihn AI\'yi seçin ve \'Optimize Edildi\' seçiliyse, bunu \'Optimize Edilmemiş\' veya \'Kısıtlama Yok\' olarak değiştirin.",
     ),
+    "bePremiumSnackbarMessage": MessageLookupByLibrary.simpleMessage(
+      "Bu harika özelliğin kilidini açmak için Premium’a geçin!",
+    ),
+    "bePremiumSnackbarTitle": MessageLookupByLibrary.simpleMessage(
+      "Premium’a Geçin!",
+    ),
+    "bePremiumToastification": MessageLookupByLibrary.simpleMessage(
+      "Şu anda Temel sürümü kullanıyorsunuz. Daha hızlı ve daha doğru yapay zeka cevapları için Premium’a geçin!",
+    ),
     "discountLabel": MessageLookupByLibrary.simpleMessage("%80 İndirim"),
     "feedCustomizationScreenAppBarTitle": MessageLookupByLibrary.simpleMessage(
       "Kategoriler",

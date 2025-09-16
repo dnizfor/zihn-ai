@@ -32,7 +32,9 @@ class _FeedScreenState extends State<FeedScreen> {
                     (index) => {
                       if (index > feedList.length - 5)
                         {
-                          context.read<UserProvider>().userSubscriptionStatus ==
+                          context
+                                      .watch<UserProvider>()
+                                      .userSubscriptionStatus ==
                                   SubscriptionStatus.premium
                               ? context
                                   .read<FeedProvider>()
