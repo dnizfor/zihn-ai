@@ -25,20 +25,27 @@ MindMate AI is the **ultimate self-care app for the digital generation**.
 
 ## ⚠️ Limitations & Technical Notes  
 
-- Affirmations & affirmation notifications **always use Pollinations AI**.  
+- Affirmations & affirmation notifications **always use [Pollinations AI](https://pollinations.ai/)**.  
 - **Therapy bot**:  
-  - **Free version → Pollinations AI**  
+  - **Free version → [Pollinations AI](https://pollinations.ai/)**  
   - **Premium version → Vertex AI (Gemini)**  
-- Since Pollinations AI is free, you may encounter **errors, broken answers, or low-quality responses**.  
+- Since [Pollinations AI](https://pollinations.ai/) is free, you may encounter **errors, broken answers, or low-quality responses**.  
 - Test results showed:  
   - Pollinations AI → **Works well for affirmations 👍**  
   - Pollinations AI → **Less effective for therapy 🫠**  
 
 ---
 
+## 📱 Platform Support  
+
+- ✅ Tested on **Android**  
+- ⚠️ iOS version not tested yet
+
+---
+
 ## 🚀 Getting Started  
 
-1. Download the app & sign up.  
+1. [Download the app & sign up. ](https://play.google.com/store/apps/details?id=com.viralmo.zihnai) 
 2. Enter your goals & mood → get your personalized affirmations.  
 3. Start chatting with the AI therapist.  
 4. Set your therapy alarm & enable notifications → motivation always with you.  
