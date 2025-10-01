@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:zihnai/generated/l10n.dart';
-import 'package:zihnai/ultils/constant/color.dart';
+import 'package:zihnai/ultils/color.dart';
 import 'package:animated_hint_textfield/animated_hint_textfield.dart';
 import 'package:zihnai/screens/home.dart';
-import 'package:zihnai/ultils/providers/feed_provider.dart';
-import 'package:zihnai/ultils/services/api_services.dart';
+import 'package:zihnai/providers/feed_provider.dart';
+import 'package:zihnai/services/api_services.dart';
 
 class SmartFeedCustomizationScreen extends StatefulWidget {
   const SmartFeedCustomizationScreen({super.key});
@@ -65,16 +64,16 @@ class _SmartFeedCustomizationScreenState
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: HexColor(dark),
+        backgroundColor: CustomColors.dark,
         appBar: AppBar(
-          backgroundColor: HexColor(dark),
+          backgroundColor: CustomColors.dark,
           leading:
               step == 0
                   ? IconButton(
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    icon: Icon(Icons.arrow_back, color: HexColor(white)),
+                    icon: Icon(Icons.arrow_back, color: CustomColors.dark),
                   )
                   : null,
         ),
@@ -127,7 +126,7 @@ class _SmartFeedCustomizationScreenState
                               ],
                               decoration: InputDecoration(
                                 filled: true,
-                                fillColor: HexColor(white),
+                                fillColor: Colors.white,
                                 border: OutlineInputBorder(
                                   borderSide: const BorderSide(
                                     color: Colors.black,
@@ -137,7 +136,7 @@ class _SmartFeedCustomizationScreenState
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                    color: HexColor(primary),
+                                    color: CustomColors.primary,
                                     width: 2,
                                   ),
                                   borderRadius: BorderRadius.circular(20),
@@ -156,7 +155,7 @@ class _SmartFeedCustomizationScreenState
                                     child: ElevatedButton(
                                       onPressed: onSave,
                                       style: ElevatedButton.styleFrom(
-                                        backgroundColor: HexColor(primary),
+                                        backgroundColor: CustomColors.primary,
                                         shape: RoundedRectangleBorder(
                                           borderRadius: BorderRadius.circular(
                                             20,
@@ -166,7 +165,7 @@ class _SmartFeedCustomizationScreenState
                                       child: Text(
                                         S.of(context).generateNowTitle,
                                         style: TextStyle(
-                                          color: HexColor(white),
+                                          color: Colors.white,
                                           fontSize: 20,
                                         ),
                                       ),
@@ -190,7 +189,7 @@ class _SmartFeedCustomizationScreenState
                   ? Center(
                     child: LoadingAnimationWidget.threeArchedCircle(
                       size: 150,
-                      color: HexColor(white),
+                      color: Colors.white,
                     ),
                   )
                   : Center(

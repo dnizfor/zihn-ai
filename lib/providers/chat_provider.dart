@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zihnai/ultils/classes/chat_class.dart';
+import 'package:zihnai/ultils/chat.dart';
 
 class ChatProvider extends ChangeNotifier {
   List<Chat> chatList = [];

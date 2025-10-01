@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:zihnai/generated/l10n.dart';
 import 'package:zihnai/screens/settings/notification_settings.dart';
-import 'package:zihnai/ultils/constant/color.dart';
-import 'package:zihnai/ultils/enums/subscription_status_enum.dart';
-import 'package:zihnai/ultils/functions/send_mail.dart';
-import 'package:zihnai/ultils/providers/user_provider.dart';
+import 'package:zihnai/ultils/Utils.dart';
+import 'package:zihnai/ultils/color.dart';
+import 'package:zihnai/enums/subscription_status_enum.dart';
+import 'package:zihnai/providers/user_provider.dart';
 import 'package:zihnai/widgets/arrow_forward_button.dart';
 import 'package:store_redirect/store_redirect.dart';
 import 'package:provider/provider.dart';
@@ -17,7 +16,7 @@ class SettingsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: HexColor(dark),
+        backgroundColor: CustomColors.dark,
         body: Padding(
           padding: EdgeInsets.fromLTRB(20, 10, 20, 0),
           child: Column(
@@ -69,7 +68,7 @@ class SettingsScreen extends StatelessWidget {
                     SizedBox(height: 10),
                     ArrowForwardButton(
                       title: S.of(context).supportButtonTitle,
-                      onTap: () => sendMail('Support Zihn AI'),
+                      onTap: () => Utils.sendMail('Support Zihn AI'),
                     ),
                   ],
                 ),

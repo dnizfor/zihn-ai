@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
-import 'package:zihnai/ultils/constant/color.dart';
-import 'package:zihnai/ultils/enums/subscription_status_enum.dart';
-import 'package:zihnai/ultils/providers/feed_provider.dart';
+import 'package:zihnai/ultils/color.dart';
+import 'package:zihnai/enums/subscription_status_enum.dart';
+import 'package:zihnai/providers/feed_provider.dart';
 import 'package:zihnai/widgets/feed_card.dart';
 import 'package:zihnai/widgets/loading_widget.dart';
-import 'package:zihnai/ultils/providers/user_provider.dart';
+import 'package:zihnai/providers/user_provider.dart';
 
 class FeedScreen extends StatefulWidget {
   const FeedScreen({super.key});
@@ -22,7 +21,7 @@ class _FeedScreenState extends State<FeedScreen> {
   Widget build(BuildContext context) {
     final feedList = context.watch<FeedProvider>().feedList;
     return Container(
-      color: HexColor(dark),
+      color: CustomColors.dark,
       child:
           feedList.isEmpty
               ? LoadingWidget()

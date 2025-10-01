@@ -67,6 +67,7 @@ dependencies:
   awesome_snackbar_content: ^0.1.8
   toastification: ^3.0.3
   firebase_app_check: ^0.4.0+1
+  flutter_native_splash: ^2.4.6
 
 dev_dependencies:
   flutter_test:

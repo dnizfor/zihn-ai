@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:zihnai/generated/l10n.dart';
 import 'package:zihnai/screens/feed/smart_customization.dart';
-import 'package:zihnai/ultils/constant/color.dart';
-import 'package:zihnai/ultils/providers/feed_provider.dart';
+import 'package:zihnai/ultils/color.dart';
+import 'package:zihnai/providers/feed_provider.dart';
 import 'package:zihnai/widgets/topic_card.dart';
 import 'package:zihnai/widgets/selected_forward_button.dart';
 
@@ -143,19 +142,16 @@ class _FeedCustomizationScreenState extends State<FeedCustomizationScreen> {
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: HexColor(dark),
+        backgroundColor: CustomColors.dark,
         appBar: AppBar(
           title: Text(
             S.of(context).feedCustomizationScreenAppBarTitle,
-            style: TextStyle(
-              color: HexColor(white),
-              fontWeight: FontWeight.bold,
-            ),
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
-          backgroundColor: HexColor(dark),
+          backgroundColor: CustomColors.dark,
           leading: IconButton(
             onPressed: onBack,
-            icon: Icon(Icons.arrow_back, color: HexColor(white)),
+            icon: Icon(Icons.arrow_back, color: Colors.white),
           ),
         ),
         body: Padding(
@@ -184,7 +180,7 @@ class _FeedCustomizationScreenState extends State<FeedCustomizationScreen> {
                             enabled: isCheckedAI,
                           ),
                           Divider(
-                            color: HexColor(white),
+                            color: Colors.white,
                             thickness: 1,
                             indent: 80,
                             endIndent: 80,

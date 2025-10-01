@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
-import 'package:zihnai/ultils/constant/color.dart';
+import 'package:zihnai/ultils/color.dart';
 
 class TopicCard extends StatefulWidget {
   const TopicCard({
@@ -26,9 +25,9 @@ class _TopicCardState extends State<TopicCard> {
       height: 100,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: HexColor(secondary),
+        color: CustomColors.secondary,
         border: Border.all(
-          color: widget.value ? HexColor(primary) : Colors.transparent,
+          color: widget.value ? CustomColors.primary : Colors.transparent,
           width: 2,
         ),
       ),
@@ -37,20 +36,20 @@ class _TopicCardState extends State<TopicCard> {
         onChanged: (value) {
           widget.onTap();
         },
-        tileColor: HexColor(secondary),
+        tileColor: CustomColors.secondary,
         value: widget.value,
-        activeColor: HexColor(primary),
+        activeColor: CustomColors.primary,
         title: Text(
           widget.title,
           style: TextStyle(
-            color: widget.value ? HexColor(primary) : HexColor(white),
+            color: widget.value ? CustomColors.primary : Colors.white,
             fontSize: 15,
             fontWeight: FontWeight.bold,
           ),
         ),
         secondary: Icon(
           widget.icon,
-          color: widget.value ? HexColor(primary) : HexColor(white),
+          color: widget.value ? CustomColors.primary : Colors.white,
           size: 30,
         ),
       ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
-import 'package:zihnai/ultils/constant/color.dart';
+import 'package:zihnai/ultils/color.dart';
 
 class ArrowForwardButton extends StatefulWidget {
   const ArrowForwardButton({
@@ -20,17 +19,21 @@ class _ArrowForwardButtonState extends State<ArrowForwardButton> {
   Widget build(BuildContext context) {
     return ListTile(
       minTileHeight: 100,
-      tileColor: HexColor(secondary),
+      tileColor: CustomColors.secondary,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       title: Text(
         widget.title,
         style: TextStyle(
-          color: HexColor(white),
+          color: CustomColors.white,
           fontSize: 15,
           fontWeight: FontWeight.bold,
         ),
       ),
-      trailing: Icon(Icons.arrow_forward_ios, color: HexColor(white), size: 30),
+      trailing: Icon(
+        Icons.arrow_forward_ios,
+        color: CustomColors.white,
+        size: 30,
+      ),
       onTap: () => widget.onTap(),
     );
   }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:wheel_picker/wheel_picker.dart';
-import 'package:zihnai/ultils/constant/color.dart';
+import 'package:zihnai/ultils/color.dart';
 
 class WheelTimePicker extends StatefulWidget {
   const WheelTimePicker({
@@ -35,8 +34,11 @@ class _WheelTimePickerState extends State<WheelTimePicker> {
 
   @override
   Widget build(BuildContext context) {
-    const textStyle =
-        TextStyle(fontSize: 26.0, height: 1.5, color: Colors.white);
+    const textStyle = TextStyle(
+      fontSize: 26.0,
+      height: 1.5,
+      color: Colors.white,
+    );
     final wheelStyle = WheelPickerStyle(
       itemExtent: textStyle.fontSize! * textStyle.height!, // Text height
       squeeze: 1.25,
@@ -55,12 +57,13 @@ class _WheelTimePickerState extends State<WheelTimePicker> {
           child: WheelPicker(
             builder: itemBuilder,
             controller: wheelController,
-            onIndexChanged: (index, interactionType) => {
-              if (wheelController == _hoursWheel)
-                {widget.setHours(index)}
-              else if (wheelController == _minutesWheel)
-                {widget.setMinutes(index)}
-            },
+            onIndexChanged:
+                (index, interactionType) => {
+                  if (wheelController == _hoursWheel)
+                    {widget.setHours(index)}
+                  else if (wheelController == _minutesWheel)
+                    {widget.setMinutes(index)},
+                },
             looping: true,
             style: wheelStyle,
             selectedIndexColor: Colors.white,
@@ -88,7 +91,9 @@ class _WheelTimePickerState extends State<WheelTimePicker> {
 
     return Container(
       decoration: BoxDecoration(
-          color: HexColor(secondary), borderRadius: BorderRadius.circular(15)),
+        color: CustomColors.secondary,
+        borderRadius: BorderRadius.circular(15),
+      ),
       child: SizedBox(
         width: double.infinity,
         height: 200.0,

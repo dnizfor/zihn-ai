@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
-import 'package:zihnai/ultils/providers/user_provider.dart';
-import 'package:zihnai/ultils/constant/color.dart';
+import 'package:zihnai/providers/user_provider.dart';
+import 'package:zihnai/ultils/color.dart';
 
 class NotificationsOnboarding extends StatefulWidget {
   const NotificationsOnboarding({
@@ -13,8 +12,7 @@ class NotificationsOnboarding extends StatefulWidget {
   final void Function() onNext;
   final void Function() onBack;
   @override
-  NotificationsOnboardingState createState() =>
-      NotificationsOnboardingState(); // Public state class
+  NotificationsOnboardingState createState() => NotificationsOnboardingState(); // Public state class
 }
 
 class NotificationsOnboardingState extends State<NotificationsOnboarding> {
@@ -30,17 +28,14 @@ class NotificationsOnboardingState extends State<NotificationsOnboarding> {
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: HexColor(dark),
+        backgroundColor: CustomColors.dark,
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Back Button
-              BackButton(
-                onPressed: widget.onBack,
-                color: Colors.white,
-              ),
+              BackButton(onPressed: widget.onBack, color: Colors.white),
 
               // Content Section
               Expanded(
@@ -59,10 +54,7 @@ class NotificationsOnboardingState extends State<NotificationsOnboarding> {
                       padding: EdgeInsets.symmetric(vertical: 20),
                       child: Text(
                         'Enable notifications for regular motivational notifications.',
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 16,
-                        ),
+                        style: TextStyle(color: Colors.grey, fontSize: 16),
                       ),
                     ),
                     // Switchable Button
@@ -70,7 +62,7 @@ class NotificationsOnboardingState extends State<NotificationsOnboarding> {
                       height: 100,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
-                        color: HexColor(secondary), // Arka plan rengi
+                        color: CustomColors.secondary, // Arka plan rengi
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: SwitchListTile(
@@ -83,9 +75,10 @@ class NotificationsOnboardingState extends State<NotificationsOnboarding> {
                         title: Text(
                           'Enable Notifications',
                           style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold),
+                            color: Colors.white,
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                         activeColor: Colors.blue,
                         inactiveThumbColor: Colors.grey,
@@ -100,20 +93,23 @@ class NotificationsOnboardingState extends State<NotificationsOnboarding> {
               Padding(
                 padding: const EdgeInsets.only(bottom: 30),
                 child: Align(
-                    alignment: Alignment.bottomRight,
-                    child: SizedBox(
-                      width: 50,
-                      height: 50,
-                      child: IconButton(
-                        onPressed: onPress,
-                        icon: Icon(Icons.arrow_forward), // Arrow icon
-                        iconSize: 30,
-                        color: HexColor(dark),
-                        style: ButtonStyle(
-                            backgroundColor:
-                                WidgetStatePropertyAll<Color>(Colors.white)),
+                  alignment: Alignment.bottomRight,
+                  child: SizedBox(
+                    width: 50,
+                    height: 50,
+                    child: IconButton(
+                      onPressed: onPress,
+                      icon: Icon(Icons.arrow_forward), // Arrow icon
+                      iconSize: 30,
+                      color: CustomColors.dark,
+                      style: ButtonStyle(
+                        backgroundColor: WidgetStatePropertyAll<Color>(
+                          Colors.white,
+                        ),
                       ),
-                    )),
+                    ),
+                  ),
+                ),
               ),
             ],
           ),

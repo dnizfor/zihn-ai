@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:lottie/lottie.dart';
 import 'package:zihnai/generated/l10n.dart';
-import 'package:zihnai/ultils/constant/color.dart';
+import 'package:zihnai/ultils/color.dart';
 
 class PaywallDialog extends StatefulWidget {
   const PaywallDialog({super.key});
@@ -32,7 +31,7 @@ class _PaywallDialogState extends State<PaywallDialog> {
               child: IconButton(
                 onPressed: () => Navigator.pop(context),
                 icon: Icon(Icons.close),
-                color: HexColor(dark),
+                color: CustomColors.dark,
                 iconSize: 24,
               ),
             ),
@@ -42,10 +41,7 @@ class _PaywallDialogState extends State<PaywallDialog> {
         ListTile(
           title: Text(
             S.of(context).paywallTitle,
-            style: TextStyle(
-              color: HexColor(white),
-              fontWeight: FontWeight.bold,
-            ),
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
           dense: true,
           visualDensity: VisualDensity(horizontal: 0, vertical: -4),
@@ -55,7 +51,7 @@ class _PaywallDialogState extends State<PaywallDialog> {
           leading: Icon(Ionicons.trending_up),
           title: Text(
             S.of(context).firstBenefitTitle,
-            style: TextStyle(color: HexColor(white)),
+            style: TextStyle(color: Colors.white),
           ),
           dense: true,
           visualDensity: VisualDensity(horizontal: 0, vertical: -4),
@@ -65,7 +61,7 @@ class _PaywallDialogState extends State<PaywallDialog> {
           leading: Icon(Ionicons.mic),
           title: Text(
             S.of(context).secondBenefitTitle,
-            style: TextStyle(color: HexColor(white)),
+            style: TextStyle(color: Colors.white),
           ),
           dense: true,
           visualDensity: VisualDensity(horizontal: 0, vertical: -4),
@@ -75,7 +71,7 @@ class _PaywallDialogState extends State<PaywallDialog> {
           leading: Icon(Ionicons.heart),
           title: Text(
             S.of(context).thirdBenefitTitle,
-            style: TextStyle(color: HexColor(white)),
+            style: TextStyle(color: Colors.white),
           ),
           dense: true,
           visualDensity: VisualDensity(horizontal: 0, vertical: -4),
@@ -85,7 +81,7 @@ class _PaywallDialogState extends State<PaywallDialog> {
           leading: Icon(Icons.notifications),
           title: Text(
             S.of(context).fourthBenefitTitle,
-            style: TextStyle(color: HexColor(white)),
+            style: TextStyle(color: Colors.white),
           ),
           dense: true,
           visualDensity: VisualDensity(horizontal: 0, vertical: -4),
@@ -103,23 +99,25 @@ class _PaywallDialogState extends State<PaywallDialog> {
             title: Text(
               S.of(context).yearlyOfferTitle,
               style: TextStyle(
-                color: HexColor(white),
+                color: Colors.white,
                 fontWeight: FontWeight.bold,
               ),
             ),
             subtitle: Text(
               S.of(context).discountLabel,
-              style: TextStyle(color: HexColor(successful)),
+              style: TextStyle(color: CustomColors.successful),
             ),
             trailing: Text(
               '5\$',
-              style: TextStyle(color: HexColor(white), fontSize: 14),
+              style: TextStyle(color: Colors.white, fontSize: 14),
             ),
-            tileColor: HexColor(secondary),
+            tileColor: CustomColors.secondary,
             shape: RoundedRectangleBorder(
               side: BorderSide(
                 color:
-                    isSelectedYearly ? HexColor(primary) : Colors.transparent,
+                    isSelectedYearly
+                        ? CustomColors.primary
+                        : Colors.transparent,
                 width: 1,
               ),
               borderRadius: BorderRadius.circular(20),
@@ -138,19 +136,21 @@ class _PaywallDialogState extends State<PaywallDialog> {
             title: Text(
               S.of(context).monthlyOfferTitle,
               style: TextStyle(
-                color: HexColor(white),
+                color: Colors.white,
                 fontWeight: FontWeight.bold,
               ),
             ),
             trailing: Text(
               '5\$',
-              style: TextStyle(color: HexColor(white), fontSize: 14),
+              style: TextStyle(color: Colors.white, fontSize: 14),
             ),
-            tileColor: HexColor(secondary),
+            tileColor: CustomColors.secondary,
             shape: RoundedRectangleBorder(
               side: BorderSide(
                 color:
-                    !isSelectedYearly ? HexColor(primary) : Colors.transparent,
+                    !isSelectedYearly
+                        ? CustomColors.primary
+                        : Colors.transparent,
                 width: 1,
               ),
               borderRadius: BorderRadius.circular(20),
@@ -167,7 +167,7 @@ class _PaywallDialogState extends State<PaywallDialog> {
                 children: [
                   Icon(
                     Ionicons.shield_checkmark_outline,
-                    color: HexColor(successful),
+                    color: CustomColors.successful,
                     size: 15,
                   ),
                   SizedBox(width: 3),
@@ -185,14 +185,14 @@ class _PaywallDialogState extends State<PaywallDialog> {
                   child: ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: HexColor(primary),
+                      backgroundColor: CustomColors.primary,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
                       ),
                     ),
                     child: Text(
                       S.of(context).payNowTitle,
-                      style: TextStyle(color: HexColor(white), fontSize: 20),
+                      style: TextStyle(color: Colors.white, fontSize: 20),
                     ),
                   ),
                 ),

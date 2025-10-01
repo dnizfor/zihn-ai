@@ -1,29 +1,27 @@
 import 'dart:io';
-
 import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:zihnai/generated/l10n.dart';
 import 'package:zihnai/screens/network_error.dart';
-import 'package:zihnai/ultils/enums/subscription_status_enum.dart';
-import 'package:zihnai/ultils/providers/chat_provider.dart';
-import 'package:zihnai/ultils/providers/feed_provider.dart';
-import 'package:zihnai/ultils/providers/user_provider.dart';
+import 'package:zihnai/enums/subscription_status_enum.dart';
+import 'package:zihnai/providers/chat_provider.dart';
+import 'package:zihnai/providers/feed_provider.dart';
+import 'package:zihnai/providers/user_provider.dart';
 import 'package:zihnai/screens/home.dart';
 import 'package:zihnai/screens/onboarding/onboarding.dart';
-import 'package:zihnai/ultils/services/api_services.dart';
-import 'package:zihnai/ultils/services/notification_service.dart';
-import 'package:zihnai/ultils/constant/color.dart';
+import 'package:zihnai/services/api_services.dart';
+import 'package:zihnai/services/notification_service.dart';
+import 'package:zihnai/ultils/color.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
 import 'package:workmanager/workmanager.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-// Bu arka plan görevini çalıştıracak fonksiyon
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 @pragma('vm:entry-point')
 void callbackDispatcher() {
@@ -75,11 +73,11 @@ void callbackDispatcher() {
 Future main() async {
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle(
-      statusBarColor: HexColor(dark),
-      systemNavigationBarColor: HexColor(dark),
+      statusBarColor: CustomColors.dark,
+      systemNavigationBarColor: CustomColors.dark,
     ),
   );
-  WidgetsFlutterBinding.ensureInitialized();
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
 
   await Purchases.setLogLevel(LogLevel.debug);
 
@@ -106,6 +104,7 @@ Future main() async {
     androidProvider: AndroidProvider.playIntegrity,
     appleProvider: AppleProvider.appAttest,
   );
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   runApp(
     MultiProvider(
@@ -135,6 +134,12 @@ class _MainState extends State<Main> {
     super.initState();
     Future.microtask(() async {
       bool networkIsConnected = await checkConnectivity();
+      if (mounted && networkIsConnected && widget.showHome) {
+        await Provider.of<UserProvider>(
+          context,
+          listen: false,
+        ).initializeUserData();
+      }
       if (mounted && networkIsConnected) {
         if (Provider.of<UserProvider>(
               context,
@@ -152,12 +157,7 @@ class _MainState extends State<Main> {
           ).updateFeedList();
         }
       }
-      if (mounted && networkIsConnected && widget.showHome) {
-        await Provider.of<UserProvider>(
-          context,
-          listen: false,
-        ).initializeUserData();
-      }
+      FlutterNativeSplash.remove();
     });
   }
 
@@ -202,8 +202,8 @@ class _MainState extends State<Main> {
         return Locale('en'); // İngilizce varsayılan olarak döndürülüyor
       },
       theme: ThemeData(
-        scaffoldBackgroundColor: HexColor(dark),
-        colorScheme: ColorScheme.fromSeed(seedColor: HexColor(primary)),
+        scaffoldBackgroundColor: CustomColors.dark,
+        colorScheme: ColorScheme.fromSeed(seedColor: CustomColors.primary),
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,

@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'dart:ui';
 import 'dart:math';
-import 'package:zihnai/ultils/classes/chat_class.dart';
+import 'package:zihnai/ultils/chat.dart';
 
 class ApiService {
   static String deviceLanguage =

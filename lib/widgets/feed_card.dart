@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:provider/provider.dart';
 import 'package:zihnai/generated/l10n.dart';
 import 'package:zihnai/screens/feed/feed_customization.dart';
-import 'package:zihnai/ultils/constant/color.dart';
-import 'package:zihnai/ultils/enums/subscription_status_enum.dart';
-import 'package:zihnai/ultils/functions/show_snackbar.dart';
-import 'package:zihnai/ultils/providers/user_provider.dart';
+import 'package:zihnai/ultils/Utils.dart';
+import 'package:zihnai/ultils/color.dart';
+import 'package:zihnai/enums/subscription_status_enum.dart';
+import 'package:zihnai/providers/user_provider.dart';
 
 class FeedCard extends StatefulWidget {
   const FeedCard({super.key, required this.title});
@@ -36,7 +35,7 @@ class _FeedCardState extends State<FeedCard> {
               widget.title,
               style: TextStyle(
                 fontSize: 24,
-                color: HexColor(white),
+                color: Colors.white,
                 fontWeight: FontWeight.bold,
               ),
               textAlign: TextAlign.center,
@@ -50,15 +49,15 @@ class _FeedCardState extends State<FeedCard> {
               height: 50,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(10)),
-                color: HexColor(secondary),
+                color: CustomColors.secondary,
               ),
               child: IconButton(
                 onPressed: () async {
                   if (context.read<UserProvider>().userSubscriptionStatus ==
                       SubscriptionStatus.basic) {
-                    showSnackbar(
+                    Utils.showSnackbar(
                       context,
-                      HexColor(primary),
+                      CustomColors.primary,
                       S.of(context).bePremiumSnackbarTitle,
                       S.of(context).bePremiumSnackbarMessage,
                     );
@@ -72,7 +71,7 @@ class _FeedCardState extends State<FeedCard> {
                   );
                 },
                 icon: Icon(Ionicons.grid_outline),
-                color: HexColor(white),
+                color: Colors.white,
                 iconSize: 25,
               ),
             ),

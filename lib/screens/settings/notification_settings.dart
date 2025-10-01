@@ -2,16 +2,15 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:app_settings/app_settings.dart';
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:workmanager/workmanager.dart';
 import 'package:zihnai/generated/l10n.dart';
-import 'package:zihnai/ultils/constant/color.dart';
-import 'package:zihnai/ultils/enums/subscription_status_enum.dart';
-import 'package:zihnai/ultils/functions/show_snackbar.dart';
-import 'package:zihnai/ultils/providers/user_provider.dart';
-import 'package:zihnai/ultils/services/notification_service.dart';
+import 'package:zihnai/ultils/color.dart';
+import 'package:zihnai/enums/subscription_status_enum.dart';
+import 'package:zihnai/providers/user_provider.dart';
+import 'package:zihnai/services/notification_service.dart';
+import 'package:zihnai/ultils/utils.dart';
 import 'package:zihnai/widgets/arrow_forward_button.dart';
 import 'package:zihnai/widgets/wheel_time_picker.dart';
 
@@ -93,13 +92,16 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: HexColor(dark),
+          backgroundColor: CustomColors.dark,
           leading: IconButton(
-            icon: Icon(Icons.arrow_back, color: HexColor(white)), // Geri butonu
+            icon: Icon(
+              Icons.arrow_back,
+              color: CustomColors.white,
+            ), // Geri butonu
             onPressed: onDone,
           ),
         ),
-        backgroundColor: HexColor(dark),
+        backgroundColor: CustomColors.dark,
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
           child: SingleChildScrollView(
@@ -126,7 +128,7 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
                   height: 100,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: HexColor(secondary), // Arka plan rengi
+                    color: CustomColors.secondary, // Arka plan rengi
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: SwitchListTile(
@@ -134,9 +136,9 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
                     onChanged: (value) async {
                       if (context.read<UserProvider>().userSubscriptionStatus ==
                           SubscriptionStatus.basic) {
-                        showSnackbar(
+                        Utils.showSnackbar(
                           context,
-                          HexColor(primary),
+                          CustomColors.primary,
                           S.of(context).bePremiumSnackbarTitle,
                           S.of(context).bePremiumSnackbarMessage,
                         );
@@ -154,7 +156,7 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    activeColor: HexColor(primary),
+                    activeColor: CustomColors.primary,
                     inactiveThumbColor: Colors.grey,
                   ),
                 ),
@@ -181,7 +183,7 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
                   height: 100,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: HexColor(secondary),
+                    color: CustomColors.secondary,
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: SwitchListTile(
@@ -197,7 +199,7 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
                     onChanged: (bool value) {
                       context.read<UserProvider>().setReminder(value);
                     },
-                    activeColor: HexColor(primary),
+                    activeColor: CustomColors.primary,
                     inactiveThumbColor: Colors.grey,
                   ),
                 ),

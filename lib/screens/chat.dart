@@ -1,16 +1,15 @@
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
 import 'package:toastification/toastification.dart';
 import 'package:zihnai/generated/l10n.dart';
-import 'package:zihnai/ultils/classes/chat_class.dart';
-import 'package:zihnai/ultils/constant/color.dart';
-import 'package:zihnai/ultils/enums/subscription_status_enum.dart';
-import 'package:zihnai/ultils/providers/chat_provider.dart';
-import 'package:zihnai/ultils/providers/user_provider.dart';
-import 'package:zihnai/ultils/services/api_services.dart';
-import 'package:zihnai/ultils/services/vertex_ai_service.dart';
+import 'package:zihnai/ultils/chat.dart';
+import 'package:zihnai/ultils/color.dart';
+import 'package:zihnai/enums/subscription_status_enum.dart';
+import 'package:zihnai/providers/chat_provider.dart';
+import 'package:zihnai/providers/user_provider.dart';
+import 'package:zihnai/services/api_services.dart';
+import 'package:zihnai/services/vertex_ai_service.dart';
 import 'package:zihnai/widgets/typing_indicator.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 
@@ -61,7 +60,7 @@ class _ChatScreenState extends State<ChatScreen> {
           description: Text(S.of(context).bePremiumToastification),
           autoCloseDuration: const Duration(seconds: 3),
           style: ToastificationStyle.fillColored,
-          primaryColor: HexColor(primary),
+          primaryColor: CustomColors.primary,
           showIcon: false,
         );
       }
@@ -92,7 +91,7 @@ class _ChatScreenState extends State<ChatScreen> {
         showTypingAnimation = true;
       });
       late String response;
-      if (context.watch<UserProvider>().userSubscriptionStatus ==
+      if (context.read<UserProvider>().userSubscriptionStatus ==
           SubscriptionStatus.premium) {
         response = await VertexAiService.sendChatMessage(usrMsg);
       } else {
@@ -152,7 +151,7 @@ class _ChatScreenState extends State<ChatScreen> {
       debugShowCheckedModeBanner: false,
       home: SafeArea(
         child: Scaffold(
-          backgroundColor: HexColor(dark),
+          backgroundColor: CustomColors.dark,
           body: Padding(
             padding: EdgeInsets.fromLTRB(20, 10, 20, 0),
             child: Column(
@@ -177,12 +176,12 @@ class _ChatScreenState extends State<ChatScreen> {
                               constraints: BoxConstraints(maxWidth: maxWidth),
                               padding: EdgeInsets.all(10),
                               decoration: BoxDecoration(
-                                color: HexColor(secondary),
+                                color: CustomColors.secondary,
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               child: Text(
                                 chatList[index].message,
-                                style: TextStyle(color: HexColor(white)),
+                                style: TextStyle(color: CustomColors.white),
                               ),
                             ),
                           ],
@@ -224,7 +223,7 @@ class _ChatScreenState extends State<ChatScreen> {
                       height: 50,
                       child: AvatarGlow(
                         startDelay: const Duration(milliseconds: 1000),
-                        glowColor: HexColor(primary),
+                        glowColor: CustomColors.primary,
                         glowShape: BoxShape.circle,
                         animate: isListening,
                         curve: Curves.fastOutSlowIn,
@@ -248,8 +247,8 @@ class _ChatScreenState extends State<ChatScreen> {
                                   : Icons.arrow_forward,
                               color:
                                   isListening
-                                      ? HexColor(primary)
-                                      : HexColor(dark),
+                                      ? CustomColors.primary
+                                      : CustomColors.dark,
                               size: 25,
                             ),
                           ),

@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:zihnai/ultils/services/api_services.dart';
+import 'package:zihnai/services/api_services.dart';
 
 class FeedProvider extends ChangeNotifier {
   List<String> feedList = [];
