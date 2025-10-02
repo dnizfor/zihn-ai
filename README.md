@@ -57,6 +57,27 @@ MindMate AI is the **ultimate self-care app for the digital generation**.
 This app is designed for **personal growth and self-care purposes**.  
 It is **not a substitute for medical or clinical diagnosis**.  
 
+---
+
+## 📝 Screenshots  
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  <img src="https://github.com/user-attachments/assets/700e78d6-cdad-45cf-984c-5c0ba665b122" style="width:24%">
+  <img src="https://github.com/user-attachments/assets/0d89ed42-7b69-426a-a902-5e0a32071524" style="width:24%">
+  <img src="https://github.com/user-attachments/assets/e0b7b863-0660-4bc3-9f2c-dcc0e0adab70" style="width:24%">
+  <img src="https://github.com/user-attachments/assets/54e02d36-c7ec-4b2b-9855-e830a7856c3c" style="width:24%">  
+  
+  
+
+  <img src="https://github.com/user-attachments/assets/88076212-d9ae-4a74-93cf-969a647f400d" style="width:24%">
+  <img src="https://github.com/user-attachments/assets/522dcab3-4242-4ddd-90b8-d61061a20d45" style="width:24%">
+  <img src="https://github.com/user-attachments/assets/b15bb025-7150-4ad7-8518-78666d00fa5a" style="width:24%">
+  <img src="https://github.com/user-attachments/assets/e83d84b7-28ef-4260-8d36-7605cb710128" style="width:24%">
+
+  <img src="https://github.com/user-attachments/assets/f6902a83-5541-4f08-aa2d-aa97380b0b8e" style="width:24%">
+  <img src="https://github.com/user-attachments/assets/1ac4a4b3-794b-45fa-8670-6d0dc5b77d12" style="width:24%">
+  <img src="https://github.com/user-attachments/assets/5a1ac9b4-2d56-465f-bd64-8756acc49619" style="width:24%">
+  
+</div>
 
 
 
