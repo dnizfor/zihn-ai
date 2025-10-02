@@ -45,7 +45,7 @@ MindMate AI is the **ultimate self-care app for the digital generation**.
 
 ## 🚀 Getting Started  
 
-1. [Download the app & sign up. ](https://play.google.com/store/apps/details?id=com.viralmo.zihnai) 
+1. [Download the app & sign up](https://web.archive.org/web/20251002015801/https://play.google.com/store/apps/details?id=com.viralmo.zihnai).
 2. Enter your goals & mood → get your personalized affirmations.  
 3. Start chatting with the AI therapist.  
 4. Set your therapy alarm & enable notifications → motivation always with you.  
